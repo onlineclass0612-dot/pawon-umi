@@ -43,41 +43,46 @@ export default function CatalogSplashScreen({ onFinish, duration = 1500 }) {
         {/* Stationary Logo with Continuous Radiating Wave Emissions */}
         <div className="relative flex items-center justify-center w-36 h-36 sm:w-44 sm:h-44">
           
-          {/* Continuous Radiating Wave Outlines emitted every ~450ms */}
-          {[0, 0.45, 0.9, 1.35].map((delay, idx) => (
+          {/* 3 GPU-Accelerated Radiating Wave Rings (Composite-only: scale + opacity) */}
+          {[0, 0.48, 0.96].map((delay, idx) => (
             <motion.div
               key={`ring-${idx}`}
-              className="absolute inset-0 rounded-full border border-[#C5A059]/75 pointer-events-none"
+              className="absolute inset-0 rounded-full border-2 border-[#C5A059]/80 pointer-events-none transform-gpu"
               style={{
-                boxShadow: "0 0 20px rgba(197, 160, 89, 0.45)"
+                willChange: "transform, opacity",
+                transform: "translateZ(0)"
               }}
               animate={{
-                scale: [0.95, 2.3],
+                scale: [0.96, 2.2],
                 opacity: [0.85, 0]
               }}
               transition={{
-                duration: 1.8,
+                duration: 1.5,
                 repeat: Infinity,
                 delay: delay,
-                ease: [0.25, 0.1, 0.25, 1.0]
+                ease: [0.22, 1, 0.36, 1]
               }}
             />
           ))}
 
-          {/* Secondary Soft Ambient Wave Glow */}
-          {[0.22, 0.67, 1.12, 1.57].map((delay, idx) => (
+          {/* Secondary delicate gold halo wave */}
+          {[0.24, 0.72, 1.2].map((delay, idx) => (
             <motion.div
-              key={`glow-${idx}`}
-              className="absolute inset-0 rounded-full bg-[#C5A059]/10 pointer-events-none"
+              key={`halo-${idx}`}
+              className="absolute inset-0.5 rounded-full border border-[#E9C176]/45 pointer-events-none transform-gpu"
+              style={{
+                willChange: "transform, opacity",
+                transform: "translateZ(0)"
+              }}
               animate={{
-                scale: [0.95, 2.05],
-                opacity: [0.45, 0]
+                scale: [0.96, 1.9],
+                opacity: [0.55, 0]
               }}
               transition={{
-                duration: 1.8,
+                duration: 1.5,
                 repeat: Infinity,
                 delay: delay,
-                ease: "easeOut"
+                ease: [0.22, 1, 0.36, 1]
               }}
             />
           ))}
@@ -125,12 +130,13 @@ export default function CatalogSplashScreen({ onFinish, duration = 1500 }) {
             </span>
           </div>
 
-          {/* Elegant Golden Progress Indicator */}
+          {/* Elegant Golden Progress Indicator (GPU-accelerated scaleX) */}
           <div className="w-36 sm:w-44 h-[2px] bg-white/10 rounded-full mx-auto mt-4 overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-[#775A19] via-[#C5A059] to-[#E9C176]"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
+              className="h-full w-full bg-gradient-to-r from-[#775A19] via-[#C5A059] to-[#E9C176] origin-left transform-gpu"
+              style={{ willChange: "transform" }}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
               transition={{ duration: duration / 1000, ease: "easeInOut" }}
             />
           </div>
