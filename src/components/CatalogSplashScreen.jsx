@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 
-export default function CatalogSplashScreen({ onFinish, duration = 1350 }) {
+export default function CatalogSplashScreen({ onFinish, duration = 1500 }) {
   useEffect(() => {
     // Lock scrolling while splash screen is active
     const originalOverflow = document.body.style.overflow;
@@ -40,57 +40,50 @@ export default function CatalogSplashScreen({ onFinish, duration = 1350 }) {
 
       <div className="relative flex flex-col items-center z-10">
         
-        {/* Heartbeat Pulsing Logo Container */}
+        {/* Stationary Logo with Continuous Radiating Wave Emissions */}
         <div className="relative flex items-center justify-center w-36 h-36 sm:w-44 sm:h-44">
           
-          {/* Outer Ripple Wave 1 (Heartbeat rhythm) */}
-          <motion.div
-            className="absolute inset-0 rounded-full border border-[#C5A059]/50"
-            animate={{
-              scale: [1, 1.4, 1.05, 1.6, 1],
-              opacity: [0.6, 0.1, 0.5, 0, 0.6]
-            }}
-            transition={{
-              duration: 1.25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          {/* Continuous Radiating Wave Outlines emitted every ~450ms */}
+          {[0, 0.45, 0.9, 1.35].map((delay, idx) => (
+            <motion.div
+              key={`ring-${idx}`}
+              className="absolute inset-0 rounded-full border border-[#C5A059]/75 pointer-events-none"
+              style={{
+                boxShadow: "0 0 20px rgba(197, 160, 89, 0.45)"
+              }}
+              animate={{
+                scale: [0.95, 2.3],
+                opacity: [0.85, 0]
+              }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                delay: delay,
+                ease: [0.25, 0.1, 0.25, 1.0]
+              }}
+            />
+          ))}
 
-          {/* Outer Ripple Wave 2 (Slightly delayed expansion) */}
-          <motion.div
-            className="absolute inset-2 rounded-full border border-[#E9C176]/30"
-            animate={{
-              scale: [1, 1.25, 1.08, 1.45, 1],
-              opacity: [0.5, 0.15, 0.4, 0, 0.5]
-            }}
-            transition={{
-              duration: 1.25,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.1
-            }}
-          />
+          {/* Secondary Soft Ambient Wave Glow */}
+          {[0.22, 0.67, 1.12, 1.57].map((delay, idx) => (
+            <motion.div
+              key={`glow-${idx}`}
+              className="absolute inset-0 rounded-full bg-[#C5A059]/10 pointer-events-none"
+              animate={{
+                scale: [0.95, 2.05],
+                opacity: [0.45, 0]
+              }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                delay: delay,
+                ease: "easeOut"
+              }}
+            />
+          ))}
 
-          {/* Core Medallion with Heartbeat Pulse Animation (Lub-Dub Rhythm) */}
-          <motion.div
-            animate={{
-              scale: [1, 1.14, 1.04, 1.2, 1],
-              filter: [
-                "drop-shadow(0 0 12px rgba(197, 160, 89, 0.35))",
-                "drop-shadow(0 0 28px rgba(197, 160, 89, 0.75))",
-                "drop-shadow(0 0 16px rgba(197, 160, 89, 0.45))",
-                "drop-shadow(0 0 36px rgba(197, 160, 89, 0.85))",
-                "drop-shadow(0 0 12px rgba(197, 160, 89, 0.35))"
-              ]
-            }}
-            transition={{
-              duration: 1.25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="relative p-[3px] rounded-full bg-gradient-to-tr from-[#775A19] via-[#C5A059] to-[#E9C176] shadow-2xl cursor-default"
-          >
+          {/* Stationary Medallion Logo (Centered, Sharp & Still) */}
+          <div className="relative z-10 p-[3px] rounded-full bg-gradient-to-tr from-[#775A19] via-[#C5A059] to-[#E9C176] shadow-[0_0_35px_rgba(197,160,89,0.45)] cursor-default select-none">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#1B1C1A] p-2 flex items-center justify-center border border-[#C5A059]/40 overflow-hidden">
               <img
                 src="/images/logo.webp"
@@ -100,7 +93,7 @@ export default function CatalogSplashScreen({ onFinish, duration = 1350 }) {
                 className="w-full h-full object-contain rounded-full"
               />
             </div>
-          </motion.div>
+          </div>
 
         </div>
 
