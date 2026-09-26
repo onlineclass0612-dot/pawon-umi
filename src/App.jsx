@@ -22,7 +22,7 @@ export default function App() {
       const hash = window.location.hash;
       if (hash === '#/paket-lengkap' || hash === '#paket-lengkap') {
         setCurrentView('catalog');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         setCurrentView('home');
       }
@@ -36,7 +36,7 @@ export default function App() {
   const navigateToCatalog = () => {
     window.location.hash = '/paket-lengkap';
     setCurrentView('catalog');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const navigateToHome = (targetHash) => {

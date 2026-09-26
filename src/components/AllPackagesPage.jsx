@@ -71,7 +71,12 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
   }, [selectedCategories]);
 
   return (
-    <div className="min-h-screen bg-[#FBF9F5] text-[#2C2521] flex flex-col">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="min-h-screen bg-[#FBF9F5] text-[#2C2521] flex flex-col"
+    >
       
       {/* Catalog Header Banner with High-End Photographic Background */}
       <section className="relative bg-[#1B1C1A] border-b border-[#E8DFD1] pt-10 pb-14 sm:pt-14 sm:pb-20 overflow-hidden">
@@ -466,6 +471,6 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           </a>
         </div>
       </main>
-    </div>
+    </motion.div>
   );
 }
