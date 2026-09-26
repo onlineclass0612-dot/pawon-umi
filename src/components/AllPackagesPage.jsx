@@ -92,38 +92,69 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           <div className="absolute inset-0 bg-gradient-to-r from-[#1B1C1A]/95 via-[#1B1C1A]/85 to-[#1B1C1A]/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A] via-transparent to-[#1B1C1A]/60" />
           {/* Warm gold ambient highlight */}
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#C5A059]/20 blur-3xl pointer-events-none" />
+          <motion.div
+            animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.28, 0.15] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#C5A059]/20 blur-3xl pointer-events-none"
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Back Navigation Button */}
-          <div className="mb-6 sm:mb-8">
-            <button
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-6 sm:mb-8"
+          >
+            <motion.button
+              whileHover={{ scale: 1.02, x: -2 }}
+              whileTap={{ scale: 0.98 }}
               onClick={onBack}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] border border-white/20 hover:border-[#C5A059] text-[#FBF9F5] hover:text-[#1B1C1A] transition-all text-xs font-medium cursor-pointer shadow-lg backdrop-blur-md group"
             >
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
               <span>Kembali ke Beranda</span>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176] shadow-sm backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176] shadow-sm backdrop-blur-md"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
               <span className="label-sm text-[#F5F3EF] tracking-wider text-[11px] uppercase">Katalog Lengkap Jamuan</span>
-            </div>
+            </motion.div>
 
-            <h1 className="headline-lg font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.0, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              className="headline-lg font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight"
+            >
               Seluruh Pilihan Paket Katering Pawon Umi
-            </h1>
+            </motion.h1>
 
-            <p className="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.0, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+              className="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl"
+            >
               Jelajahi seluruh kurasi hidangan mulai dari prasmanan agung, artisanal rice box, tumpeng megah tradisional, coffee break priyayi, hingga paket resepsi pernikahan lengkap bersertifikasi Halal MUI resmi.
-            </p>
+            </motion.p>
 
             {/* Quick Highlights: Tanpa Border Luar, Border Dalam Lebih Tebal (Mobile: 1 Kolom; Desktop/Tablet: 1 Baris; Background Transparan) */}
-            <div className="pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
+              className="pt-2"
+            >
               <div className="inline-flex flex-col sm:flex-row divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-white/35 bg-transparent text-xs sm:text-sm text-[#E8DFD1]">
                 
                 {/* Badge 1: Halal */}
@@ -145,7 +176,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                 </div>
 
               </div>
-            </div>
+            </motion.div>
           </div>
 
         </div>
@@ -153,7 +184,12 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
       </section>
 
       {/* Filter Bar Section (Tanpa Search Bar, Multi-select Kategori) */}
-      <section className="sticky top-20 z-30 bg-[#FBF9F5]/95 backdrop-blur-md border-b border-[#E8DFD1] py-4 shadow-2xs">
+      <motion.section
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.85, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="sticky top-20 z-30 bg-[#FBF9F5]/95 backdrop-blur-md border-b border-[#E8DFD1] py-4 shadow-2xs"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
           
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -308,7 +344,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           )}
 
         </div>
-      </section>
+      </motion.section>
 
       {/* Main Catalog Package Grid */}
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full">
@@ -424,15 +460,19 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
 
                 {/* Action Buttons */}
                 <div className="p-4 sm:p-6 pt-0 flex gap-2.5">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => onSelectPackage(pkg)}
                     className="btn-secondary flex-1 text-xs cursor-pointer"
                   >
                     <Info className="w-3.5 h-3.5" />
                     <span>Rincian Menu</span>
-                  </button>
+                  </motion.button>
 
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Pawon%20Umi,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -440,7 +480,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                   >
                     <span>Pesan</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                  </motion.a>
                 </div>
 
               </motion.div>
@@ -450,7 +490,13 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
         )}
 
         {/* Bespoke Custom Menu Callout */}
-        <div className="mt-16 p-6 sm:p-10 rounded-[0.75rem] bg-[#EFEEEA] border border-[#C5A059]/40 flex flex-col md:flex-row items-center justify-between gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 p-6 sm:p-10 rounded-[0.75rem] bg-[#EFEEEA] border border-[#C5A059]/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xs hover:border-[#C5A059] transition-colors"
+        >
           <div className="space-y-2 text-center md:text-left">
             <span className="label-sm text-[#775A19] block">Layanan Jamuan Kustom</span>
             <h3 className="headline-sm text-xl text-[#2C2521] font-medium">
@@ -460,7 +506,9 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
               Executive Chef dan Concierge Pawon Umi dapat mengkreasikan kombinasi hidangan kustom sesuai konsep acara, jumlah tamu, dan preferensi tradisi keluarga Anda.
             </p>
           </div>
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Pawon%20Umi,%20saya%20ingin%20konsultasi%20menu%20kustom%20untuk%20acara%20saya.`}
             target="_blank"
             rel="noopener noreferrer"
@@ -468,8 +516,8 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           >
             <span>Konsultasi Menu Kustom</span>
             <ArrowUpRight className="w-4 h-4" />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </main>
     </motion.div>
   );

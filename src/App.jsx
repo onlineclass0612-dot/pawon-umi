@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
+import CatalogSplashScreen from './components/CatalogSplashScreen';
 
 // Lazy-loaded routes/modals for optimal mobile Lighthouse performance
 const PackageModal = lazy(() => import('./components/PackageModal'));
@@ -16,12 +17,18 @@ const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
 export default function App() {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [currentView, setCurrentView] = useState('home');
+  const [showCatalogSplash, setShowCatalogSplash] = useState(false);
 
   useEffect(() => {
     const syncHash = () => {
       const hash = window.location.hash;
       if (hash === '#/paket-lengkap' || hash === '#paket-lengkap') {
-        setCurrentView('catalog');
+        setCurrentView((prev) => {
+          if (prev !== 'catalog') {
+            setShowCatalogSplash(true);
+          }
+          return 'catalog';
+        });
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         setCurrentView('home');
@@ -35,6 +42,7 @@ export default function App() {
 
   const navigateToCatalog = () => {
     window.location.hash = '/paket-lengkap';
+    setShowCatalogSplash(true);
     setCurrentView('catalog');
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
@@ -103,6 +111,16 @@ export default function App() {
 
       {/* Floating Sticky Consultation Action (Mobile Only) */}
       <FloatingCTA />
+
+      {/* Splash Screen with Heartbeat Brand Logo when entering Catalog */}
+      <AnimatePresence>
+        {showCatalogSplash && (
+          <CatalogSplashScreen
+            onFinish={() => setShowCatalogSplash(false)}
+            duration={1350}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Package Detail Modal with Smooth Exit Animation */}
       <AnimatePresence>
