@@ -117,7 +117,7 @@ export default function App() {
         {showCatalogSplash && (
           <CatalogSplashScreen
             onFinish={() => setShowCatalogSplash(false)}
-            duration={1500}
+            duration={1150}
           />
         )}
       </AnimatePresence>
