@@ -69,6 +69,17 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
     return packagesData.filter((pkg) => selectedCategories.includes(pkg.category));
   }, [selectedCategories]);
 
+  // Progressive card rendering: render initial 6 visible cards on frame 1 to keep TBT < 100ms,
+  // then mount remaining cards below the fold
+  const [renderedCount, setRenderedCount] = useState(6);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRenderedCount(packagesData.length);
+    }, 60);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-[#FBF9F5] text-[#2C2521] flex flex-col"
@@ -323,7 +334,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="contents">
-              {filteredPackages.map((pkg, idx) => (
+              {filteredPackages.slice(0, renderedCount).map((pkg) => (
                 <div
                   key={pkg.id}
                   className={`bg-[#F5F3EF] rounded-[0.5rem] border overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#C5A059] ${
@@ -336,13 +347,10 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                   {/* Visual Image */}
                   <div className="relative h-56 overflow-hidden bg-[#E8DFD1]">
                     <img
-                      src={idx === 0 ? '/images/hero_catering_buffet_mobile.webp' : pkg.image}
-                      srcSet={idx === 0 ? '/images/hero_catering_buffet_mobile.webp 600w, /images/hero_catering_buffet.webp 1200w' : undefined}
-                      sizes="(max-width: 768px) 100vw, 600px"
+                      src={pkg.image}
                       alt={pkg.name}
-                      loading={idx === 0 ? "eager" : "lazy"}
-                      fetchPriority={idx === 0 ? "high" : "auto"}
-                      decoding={idx === 0 ? "sync" : "async"}
+                      loading="lazy"
+                      decoding="async"
                       width="600"
                       height="338"
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"

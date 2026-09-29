@@ -4,18 +4,18 @@ import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 import CatalogSplashScreen from './components/CatalogSplashScreen';
 
-// Route-level Code Splitting:
-// Eliminates 100% of unused route JavaScript, slashing initial transfer size on mobile Slow 4G
+import AllPackagesPage from './components/AllPackagesPage';
+
+// Route-level Code Splitting for Home Page:
+// Isolates Hero, MenuPackages, Testimonials, Gallery, BookingForm & Motion library
+// away from the catalog critical path on mobile Slow 4G
 const HomePage = lazy(() => import('./components/HomePage'));
-const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
 const PackageModal = lazy(() => import('./components/PackageModal'));
 
-// Eagerly initiate chunk download based on initial URL hash
+// Eagerly prefetch HomePage chunk if user is currently on home
 if (typeof window !== 'undefined') {
   const initialHash = window.location.hash;
-  if (initialHash === '#/paket-lengkap' || initialHash === '#paket-lengkap') {
-    import('./components/AllPackagesPage');
-  } else {
+  if (initialHash !== '#/paket-lengkap' && initialHash !== '#paket-lengkap') {
     import('./components/HomePage');
   }
 }
@@ -47,20 +47,18 @@ export default function App() {
     syncHash();
     window.addEventListener('hashchange', syncHash);
 
-    // Prefetch inactive route chunk on idle time
+    // Prefetch HomePage chunk on idle time if user is on catalog
     let timer = null;
     let onScrollOnce = null;
     if (typeof window !== 'undefined') {
-      const prefetchOpposite = () => {
+      const prefetchHome = () => {
         if (currentView === 'catalog') {
           import('./components/HomePage');
-        } else {
-          import('./components/AllPackagesPage');
         }
       };
-      timer = setTimeout(prefetchOpposite, 4000);
+      timer = setTimeout(prefetchHome, 3000);
       onScrollOnce = () => {
-        prefetchOpposite();
+        prefetchHome();
         window.removeEventListener('scroll', onScrollOnce);
         clearTimeout(timer);
       };
@@ -110,13 +108,11 @@ export default function App() {
       <Navbar onNavigateHome={navigateToHome} currentView={currentView} />
 
       {currentView === 'catalog' ? (
-        /* Full Catalog Page (All Categories & All Packages) */
-        <Suspense fallback={<div className="min-h-screen bg-[#FBF9F5]" />}>
-          <AllPackagesPage
-            onBack={() => navigateToHome('#catalog')}
-            onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-          />
-        </Suspense>
+        /* Full Catalog Page (All Categories & All Packages) - Instant Render */
+        <AllPackagesPage
+          onBack={() => navigateToHome('#catalog')}
+          onSelectPackage={(pkg) => setSelectedPackage(pkg)}
+        />
       ) : (
         /* Main Home Content Page */
         <Suspense fallback={<div className="min-h-screen bg-[#FBF9F5]" />}>

@@ -13,11 +13,13 @@
     <title>Pawon Umi Catering — Artisanal Indonesian & Bespoke Dining</title>
     <meta name="description" content="Layanan katering artisanal terkurasi untuk resepsi pernikahan, jamuan VIP korporat, dan acara istimewa berakar pada kehangatan tradisi dan kemewahan bersahaja." />
 
-    <!-- Google Fonts: Preconnect & Optimized Subsets -->
+    <!-- Google Fonts: Preconnect & Asynchronous Loading (Zero Render Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&text=PAWON%20UMICita%20Rasa%20Luhur&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Open+Sans:wght@400;500;600&display=swap" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&text=PAWON%20UMICita%20Rasa%20Luhur&family=Lora:wght@500;600&family=Open+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&text=PAWON%20UMICita%20Rasa%20Luhur&family=Lora:wght@500;600&family=Open+Sans:wght@400;500;600&display=swap" />
+    </noscript>
   </head>
   <body class="bg-[#FBF9F5] text-[#2C2521] antialiased selection:bg-[#C5A059] selection:text-[#2C2521]">
     <div id="root">
@@ -29,6 +31,23 @@
           </div>
         </div>
       </header>
+      <!-- Instant Pre-rendered Editorial Hero Shell for Sub-Second FCP & LCP -->
+      <section class="relative bg-[#1B1C1A] border-b border-[#332C24] pt-10 pb-14 sm:pt-12 sm:pb-16 min-h-[460px] sm:min-h-[420px] flex flex-col justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-3xl space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
+              <span class="text-[#F5F3EF] tracking-wider text-[11px] uppercase">Katalog Lengkap Jamuan</span>
+            </div>
+            <h1 class="headline-lg font-serif font-medium text-white text-2xl sm:text-4xl md:text-5xl leading-tight">
+              Seluruh Pilihan Paket <span class="italic font-normal text-[#E9C176]">Katering Pawon Umi</span>
+            </h1>
+            <p class="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl">
+              Jelajahi seluruh kurasi hidangan mulai dari prasmanan agung, artisanal rice box, tumpeng megah tradisional, coffee break priyayi, hingga paket resepsi pernikahan lengkap bersertifikasi Halal MUI resmi.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
