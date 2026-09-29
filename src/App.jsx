@@ -16,7 +16,15 @@ const PackageModal = lazy(() => import('./components/PackageModal'));
 
 export default function App() {
   const [selectedPackage, setSelectedPackage] = useState(null);
-  const [currentView, setCurrentView] = useState('home');
+  const [currentView, setCurrentView] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (hash === '#/paket-lengkap' || hash === '#paket-lengkap') {
+        return 'catalog';
+      }
+    }
+    return 'home';
+  });
   const [showCatalogSplash, setShowCatalogSplash] = useState(false);
 
   useEffect(() => {
