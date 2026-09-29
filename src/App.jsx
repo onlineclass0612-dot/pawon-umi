@@ -9,10 +9,10 @@ import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 import CatalogSplashScreen from './components/CatalogSplashScreen';
+import AllPackagesPage from './components/AllPackagesPage';
 
-// Lazy-loaded routes/modals for optimal mobile Lighthouse performance
+// Lazy-loaded modal (opened only on user click, zero impact on initial page load)
 const PackageModal = lazy(() => import('./components/PackageModal'));
-const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
 
 export default function App() {
   const [selectedPackage, setSelectedPackage] = useState(null);
@@ -32,17 +32,6 @@ export default function App() {
 
     syncHash();
     window.addEventListener('hashchange', syncHash);
-
-    // Idle prefetch catalog chunk in background to make transitions instantaneous
-    if (typeof window !== 'undefined') {
-      const prefetch = () => import('./components/AllPackagesPage');
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(prefetch);
-      } else {
-        setTimeout(prefetch, 1500);
-      }
-    }
-
     return () => window.removeEventListener('hashchange', syncHash);
   }, []);
 
@@ -78,17 +67,11 @@ export default function App() {
       <Navbar onNavigateHome={navigateToHome} currentView={currentView} />
 
       {currentView === 'catalog' ? (
-        /* Full Catalog Page (All Categories & All Packages) - Lazy Loaded */
-        <Suspense fallback={
-          <div className="min-h-[60vh] flex items-center justify-center">
-            <div className="w-8 h-8 rounded-full border-2 border-[#C5A059] border-t-transparent animate-spin" />
-          </div>
-        }>
-          <AllPackagesPage
-            onBack={() => navigateToHome('#catalog')}
-            onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-          />
-        </Suspense>
+        /* Full Catalog Page (All Categories & All Packages) */
+        <AllPackagesPage
+          onBack={() => navigateToHome('#catalog')}
+          onSelectPackage={(pkg) => setSelectedPackage(pkg)}
+        />
       ) : (
         /* Main Home Content Sections - Order: Beranda -> Catalog -> Ulasan -> Galeri -> Kontak */
         <main className="flex-1 w-full max-w-full overflow-x-hidden">

@@ -79,7 +79,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
     >
       
       {/* Catalog Header Banner with High-End Photographic Background */}
-      <section className="relative bg-[#1B1C1A] border-b border-[#E8DFD1] pt-10 pb-14 sm:pt-14 sm:pb-20 overflow-hidden">
+      <section className="relative bg-[#1B1C1A] border-b border-[#E8DFD1] pt-10 pb-14 sm:pt-14 sm:pb-20 min-h-[460px] sm:min-h-[480px] flex flex-col justify-center overflow-hidden">
         
         {/* Background Image with Dark Vignette & Golden Gradient Overlays */}
         <div className="absolute inset-0 z-0">
@@ -104,9 +104,9 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           
           {/* Back Navigation Button */}
           <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
             className="mb-6 sm:mb-8"
           >
             <motion.button
@@ -122,9 +122,9 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
 
           <div className="max-w-3xl space-y-4">
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.35 }}
               className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176] shadow-sm backdrop-blur-md"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
@@ -132,18 +132,18 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
               className="headline-lg font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight"
             >
               Seluruh Pilihan Paket Katering Pawon Umi
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
               className="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl"
             >
               Jelajahi seluruh kurasi hidangan mulai dari prasmanan agung, artisanal rice box, tumpeng megah tradisional, coffee break priyayi, hingga paket resepsi pernikahan lengkap bersertifikasi Halal MUI resmi.
@@ -151,9 +151,9 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
 
             {/* Quick Highlights: Tanpa Border Luar, Border Dalam Lebih Tebal (Mobile: 1 Kolom; Desktop/Tablet: 1 Baris; Background Transparan) */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
               className="pt-2"
             >
               <div className="inline-flex flex-col sm:flex-row divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-white/35 bg-transparent text-xs sm:text-sm text-[#E8DFD1]">
@@ -185,10 +185,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
       </section>
 
       {/* Filter Bar Section (Tanpa Search Bar, Multi-select Kategori) */}
-      <motion.section
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.85, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      <section
         className="sticky top-20 z-30 bg-[#FBF9F5]/98 border-b border-[#E8DFD1] py-4 shadow-2xs"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
@@ -345,7 +342,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           )}
 
         </div>
-      </motion.section>
+      </section>
 
       {/* Main Catalog Package Grid */}
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full">
