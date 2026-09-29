@@ -28,12 +28,21 @@ export default function MachineCounter({
   }, [decimals]);
 
   useEffect(() => {
-    if (!isInView || !numberRef.current) return;
+    if (!numberRef.current) return;
+
+    // On mobile devices or reduced motion, display the target number directly to keep main thread 100% free for instant LCP & 0 TBT
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (isMobile) {
+      numberRef.current.textContent = formatValue(targetNumber);
+      return;
+    }
+
+    if (!isInView) return;
 
     // Set initial text
     numberRef.current.textContent = formatValue(0);
 
-    // Animate from 0 to targetNumber using direct textContent mutation (0 React re-renders)
+    // Animate from 0 to targetNumber using direct textContent mutation (0 React re-renders) on desktop
     const controls = animate(0, targetNumber, {
       duration,
       delay,
@@ -60,7 +69,7 @@ export default function MachineCounter({
     >
       {prefix && <span>{prefix}</span>}
       <span ref={numberRef} className="font-serif tracking-tight">
-        {formatValue(0)}
+        {formatValue(targetNumber)}
       </span>
       {suffix && (
         <span className={suffixClassName}>

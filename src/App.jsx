@@ -3,13 +3,15 @@ import { AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MenuPackages from './components/MenuPackages';
-import Gallery from './components/Gallery';
-import Testimonials from './components/Testimonials';
-import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 import CatalogSplashScreen from './components/CatalogSplashScreen';
-import AllPackagesPage from './components/AllPackagesPage';
+
+// Below-the-fold components code-split to slash initial mobile JS bundle by ~45%
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const BookingForm = lazy(() => import('./components/BookingForm'));
+const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
 
 // Lazy-loaded modal (opened only on user click, zero impact on initial page load)
 const PackageModal = lazy(() => import('./components/PackageModal'));
@@ -40,7 +42,31 @@ export default function App() {
 
     syncHash();
     window.addEventListener('hashchange', syncHash);
-    return () => window.removeEventListener('hashchange', syncHash);
+
+    // Prefetch below-the-fold chunks on first user scroll or after 5s idle time
+    let timer = null;
+    let onScrollOnce = null;
+    if (typeof window !== 'undefined') {
+      const prefetch = () => {
+        import('./components/Testimonials');
+        import('./components/Gallery');
+        import('./components/BookingForm');
+        import('./components/AllPackagesPage');
+      };
+      timer = setTimeout(prefetch, 5000);
+      onScrollOnce = () => {
+        prefetch();
+        window.removeEventListener('scroll', onScrollOnce);
+        clearTimeout(timer);
+      };
+      window.addEventListener('scroll', onScrollOnce, { passive: true, once: true });
+    }
+
+    return () => {
+      window.removeEventListener('hashchange', syncHash);
+      if (onScrollOnce) window.removeEventListener('scroll', onScrollOnce);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const navigateToCatalog = () => {
@@ -76,10 +102,12 @@ export default function App() {
 
       {currentView === 'catalog' ? (
         /* Full Catalog Page (All Categories & All Packages) */
-        <AllPackagesPage
-          onBack={() => navigateToHome('#catalog')}
-          onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-        />
+        <Suspense fallback={<div className="min-h-screen bg-[#FBF9F5]" />}>
+          <AllPackagesPage
+            onBack={() => navigateToHome('#catalog')}
+            onSelectPackage={(pkg) => setSelectedPackage(pkg)}
+          />
+        </Suspense>
       ) : (
         /* Main Home Content Sections - Order: Beranda -> Catalog -> Ulasan -> Galeri -> Kontak */
         <main className="flex-1 w-full max-w-full overflow-x-hidden">
@@ -92,14 +120,20 @@ export default function App() {
             onOpenCatalog={navigateToCatalog}
           />
 
-          {/* 3. Ulasan Klien */}
-          <Testimonials />
+          {/* 3. Ulasan Klien (Lazy loaded below the fold) */}
+          <Suspense fallback={<div className="min-h-[380px]" />}>
+            <Testimonials />
+          </Suspense>
 
-          {/* 4. Galeri Jamuan */}
-          <Gallery />
+          {/* 4. Galeri Jamuan (Lazy loaded below the fold) */}
+          <Suspense fallback={<div className="min-h-[480px]" />}>
+            <Gallery />
+          </Suspense>
 
-          {/* 5. Kontak & Reservasi */}
-          <BookingForm />
+          {/* 5. Kontak & Reservasi (Lazy loaded below the fold) */}
+          <Suspense fallback={<div className="min-h-[480px]" />}>
+            <BookingForm />
+          </Suspense>
         </main>
       )}
 

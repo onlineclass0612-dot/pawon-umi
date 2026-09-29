@@ -82,14 +82,13 @@ export default function MenuPackages({ onSelectPackage, onOpenCatalog }) {
         {/* Packages Grid - Animated Card Layout with AnimatePresence */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <AnimatePresence mode="popLayout">
-            {displayedPackages.map((pkg, idx) => (
+            {displayedPackages.map((pkg) => (
               <motion.div
                 key={pkg.id}
-                layout
-                initial={{ opacity: 0, y: 25, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -15, scale: 0.96 }}
-                transition={{ duration: 0.7, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.35 }}
                 whileHover={{ y: -6, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
                 className={`bg-[#F5F3EF] rounded-[0.5rem] border overflow-hidden flex flex-col justify-between transition-shadow duration-300 hover:shadow-lg hover:border-[#C5A059] ${
                   pkg.popular
@@ -105,6 +104,8 @@ export default function MenuPackages({ onSelectPackage, onOpenCatalog }) {
                       alt={pkg.name}
                       loading="lazy"
                       decoding="async"
+                      width="600"
+                      height="338"
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A]/60 via-transparent to-transparent pointer-events-none" />

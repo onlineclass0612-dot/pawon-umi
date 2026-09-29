@@ -185,21 +185,17 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {businessInfo.stats.map((stat, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.95, delay: idx * 0.18, ease: [0.22, 1, 0.36, 1] }}
                 className="space-y-1"
               >
                 <div className="font-serif text-3xl md:text-4xl font-medium text-[#775A19] tabular-nums">
-                  <MachineCounter value={stat.value} duration={2.2} delay={0.15 + idx * 0.15} />
+                  <MachineCounter value={stat.value} duration={1.6} delay={0.1 + idx * 0.1} />
                 </div>
                 <div className="label-sm text-[#665D58]">
                   {stat.label}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
