@@ -71,28 +71,28 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
   }, [selectedCategories]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    <div
       className="min-h-screen bg-[#FBF9F5] text-[#2C2521] flex flex-col"
     >
       
-      {/* Catalog Header Banner with High-End Photographic Background */}
+      {/* Catalog Header Banner with High-End Photographic Background & Responsive Picture */}
       <section className="relative bg-[#1B1C1A] border-b border-[#E8DFD1] pt-10 pb-14 sm:pt-14 sm:pb-20 min-h-[460px] sm:min-h-[480px] flex flex-col justify-center overflow-hidden">
         
         {/* Background Image with Dark Vignette & Golden Gradient Overlays */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/catalog_header_bg.webp"
-            alt="Katalog Kuliner Pawon Umi"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            width="1200"
-            height="670"
-            className="w-full h-full object-cover object-center"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/images/catalog_header_bg_mobile.webp" type="image/webp" />
+            <img
+              src="/images/catalog_header_bg.webp"
+              alt="Katalog Kuliner Pawon Umi"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              width="1200"
+              height="670"
+              className="w-full h-full object-cover object-center"
+            />
+          </picture>
           {/* Multi-layered directional gradients for optimal text legibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#1B1C1A]/95 via-[#1B1C1A]/85 to-[#1B1C1A]/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A] via-transparent to-[#1B1C1A]/60" />
@@ -103,12 +103,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Back Navigation Button */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="mb-6 sm:mb-8"
-          >
+          <div className="mb-6 sm:mb-8">
             <motion.button
               whileHover={{ scale: 1.02, x: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -118,44 +113,24 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
               <span>Kembali ke Beranda</span>
             </motion.button>
-          </motion.div>
+          </div>
 
           <div className="max-w-3xl space-y-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.35 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176] shadow-sm backdrop-blur-md"
-            >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176] shadow-sm backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
               <span className="label-sm text-[#F5F3EF] tracking-wider text-[11px] uppercase">Katalog Lengkap Jamuan</span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className="headline-lg font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight"
-            >
+            <h1 className="headline-lg font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight">
               Seluruh Pilihan Paket Katering Pawon Umi
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl"
-            >
+            <p className="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl">
               Jelajahi seluruh kurasi hidangan mulai dari prasmanan agung, artisanal rice box, tumpeng megah tradisional, coffee break priyayi, hingga paket resepsi pernikahan lengkap bersertifikasi Halal MUI resmi.
-            </motion.p>
+            </p>
 
             {/* Quick Highlights: Tanpa Border Luar, Border Dalam Lebih Tebal (Mobile: 1 Kolom; Desktop/Tablet: 1 Baris; Background Transparan) */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className="pt-2"
-            >
+            <div className="pt-2">
               <div className="inline-flex flex-col sm:flex-row divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-white/35 bg-transparent text-xs sm:text-sm text-[#E8DFD1]">
                 
                 {/* Badge 1: Halal */}
@@ -177,7 +152,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                 </div>
 
               </div>
-            </motion.div>
+            </div>
           </div>
 
         </div>
@@ -518,6 +493,6 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           </motion.a>
         </motion.div>
       </main>
-    </motion.div>
+    </div>
   );
 }

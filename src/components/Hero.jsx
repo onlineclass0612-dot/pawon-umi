@@ -20,18 +20,21 @@ export default function Hero() {
         id="beranda"
         className="relative flex flex-col justify-start lg:justify-center overflow-hidden border-b border-[#E8DFD1] pt-5 pb-8 sm:pt-7 sm:pb-10 lg:py-0 lg:h-[calc(100dvh-5.5rem)] lg:min-h-[550px] w-full"
       >
-        {/* Background Image with Layered Artisanal Gradient Overlays */}
+        {/* Background Image with Layered Artisanal Gradient Overlays & Responsive Picture */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero_catering_buffet.webp"
-            alt="Jamuan Prasmanan Pawon Umi Catering"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            width="1376"
-            height="768"
-            className="w-full h-full object-cover object-center sm:object-[center_35%]"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/images/hero_catering_buffet_mobile.webp" type="image/webp" />
+            <img
+              src="/images/hero_catering_buffet.webp"
+              alt="Jamuan Prasmanan Pawon Umi Catering"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              width="1200"
+              height="670"
+              className="w-full h-full object-cover object-center sm:object-[center_35%]"
+            />
+          </picture>
           {/* Responsive Gradient Overlay: High-contrast backdrop on text, ambient photo visibility on the right */}
           <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#FBF9F5] via-[#FBF9F5]/95 to-[#FBF9F5]/80 md:to-[#FBF9F5]/35" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#FBF9F5] via-transparent to-[#FBF9F5]/50" />
@@ -40,45 +43,33 @@ export default function Hero() {
         <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 my-0 lg:my-auto">
           <div className="max-w-3xl space-y-3.5 sm:space-y-4 lg:space-y-5">
             
-            {/* Category tag - Shown on all viewports */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            {/* Category tag - Instant render */}
+            <div
               className="inline-flex items-center gap-2 px-3 py-0.5 sm:py-1 rounded-full bg-[#F5F3EF]/95 backdrop-blur-xs border border-[#D1C5B4] text-[#775A19] w-fit"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] shrink-0" />
               <span className="label-sm text-[#4E4639] text-[11px] sm:text-xs">Kurasi Jamuan Kuliner Nusantara</span>
-            </motion.div>
+            </div>
 
-            {/* Editorial Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            {/* Editorial Headline - Instant LCP Anchor */}
+            <h1
               className="headline-lg font-medium text-[#2C2521]"
             >
               Kemewahan Bersahaja dalam{' '}
               <span className="italic font-serif font-normal text-[#775A19]">
                 Kehangatan Cita Rasa
               </span>
-            </motion.h1>
+            </h1>
 
-            {/* Subheadline / Body Narrative */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            {/* Subheadline / Body Narrative - Instant render */}
+            <p
               className="body-md text-sm sm:text-base text-[#4E4639] max-w-2xl leading-relaxed"
             >
               Dari resepsi pernikahan agung hingga jamuan VIP korporat terkurasi. Pawon Umi menyajikan harmoni rempah warisan Nusantara dengan standar higienis bersertifikasi Halal MUI dan estetika meja saji yang memikat.
-            </motion.p>
+            </p>
 
-            {/* Span Ulasan & Rating Social Proof - Berada tepat di bawah sub headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
+            {/* Span Ulasan & Rating Social Proof - Instant render */}
+            <div
               className="flex flex-wrap items-center gap-3 pt-3 sm:pt-3.5 pb-1"
             >
               <div className="group relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F3EF]/95 backdrop-blur-xs border border-[#D1C5B4] text-[#2C2521] shadow-2xs">
@@ -126,13 +117,10 @@ export default function Hero() {
               <span className="font-accent text-[#775A19] text-xl hidden sm:inline select-none sm:ml-22 md:ml-24">
                 Cita Rasa Luhur
               </span>
-            </motion.div>
+            </div>
 
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            {/* Action Buttons - Instant render container with interactive button animations */}
+            <div
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1"
             >
               <motion.a
@@ -152,23 +140,17 @@ export default function Hero() {
               >
                 <span>Konsultasi & Reservasi</span>
               </motion.a>
-            </motion.div>
+            </div>
 
             {/* Botanical Divider Line */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.85, delay: 0.82 }}
+            <div
               className="botanical-divider !my-2.5 sm:!my-3.5 max-w-2xl"
             >
               <span className="label-sm text-[#7F7667]">Jaminan Standar & Sertifikasi</span>
-            </motion.div>
+            </div>
 
             {/* Trust Values Marquee in Single Line */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.94, ease: [0.22, 1, 0.36, 1] }}
+            <div
               className="relative max-w-2xl w-full overflow-hidden py-1"
             >
               {/* Fade Edges for Smooth Transition */}
@@ -192,7 +174,7 @@ export default function Hero() {
                   );
                 })}
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </div>
