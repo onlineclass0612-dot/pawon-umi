@@ -23,12 +23,7 @@ export default function App() {
     const syncHash = () => {
       const hash = window.location.hash;
       if (hash === '#/paket-lengkap' || hash === '#paket-lengkap') {
-        setCurrentView((prev) => {
-          if (prev !== 'catalog') {
-            setShowCatalogSplash(true);
-          }
-          return 'catalog';
-        });
+        setCurrentView('catalog');
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         setCurrentView('home');
@@ -37,6 +32,17 @@ export default function App() {
 
     syncHash();
     window.addEventListener('hashchange', syncHash);
+
+    // Idle prefetch catalog chunk in background to make transitions instantaneous
+    if (typeof window !== 'undefined') {
+      const prefetch = () => import('./components/AllPackagesPage');
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(prefetch);
+      } else {
+        setTimeout(prefetch, 1500);
+      }
+    }
+
     return () => window.removeEventListener('hashchange', syncHash);
   }, []);
 

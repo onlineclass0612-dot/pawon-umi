@@ -86,17 +86,18 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           <img
             src="/images/catalog_header_bg.webp"
             alt="Katalog Kuliner Pawon Umi"
-            className="w-full h-full object-cover object-center scale-105 filter brightness-[0.42] contrast-[1.08] saturate-[1.15]"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            width="1200"
+            height="670"
+            className="w-full h-full object-cover object-center"
           />
           {/* Multi-layered directional gradients for optimal text legibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#1B1C1A]/95 via-[#1B1C1A]/85 to-[#1B1C1A]/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A] via-transparent to-[#1B1C1A]/60" />
-          {/* Warm gold ambient highlight */}
-          <motion.div
-            animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.28, 0.15] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#C5A059]/20 blur-3xl pointer-events-none"
-          />
+          {/* Warm gold ambient highlight (Static radial gradient without heavy GPU blur loop) */}
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(197,160,89,0.18)_0%,transparent_70%)] pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -188,7 +189,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.85, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-        className="sticky top-20 z-30 bg-[#FBF9F5]/95 backdrop-blur-md border-b border-[#E8DFD1] py-4 shadow-2xs"
+        className="sticky top-20 z-30 bg-[#FBF9F5]/98 border-b border-[#E8DFD1] py-4 shadow-2xs"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
           
@@ -372,12 +373,11 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
               {filteredPackages.map((pkg, idx) => (
                 <motion.div
                   key={pkg.id}
-                  layout
-                  initial={{ opacity: 0, y: 24, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -15, scale: 0.96 }}
-                  transition={{ duration: 0.65, delay: Math.min(idx * 0.08, 0.4), ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6, transition: { duration: 0.35, ease: "easeOut" } }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, delay: Math.min(idx * 0.04, 0.2), ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
                   className={`bg-[#F5F3EF] rounded-[0.5rem] border overflow-hidden flex flex-col justify-between transition-shadow duration-300 hover:shadow-lg hover:border-[#C5A059] ${
                     pkg.popular
                       ? 'border-[#C5A059] ring-1 ring-[#C5A059]/40'
@@ -392,6 +392,8 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                       alt={pkg.name}
                       loading="lazy"
                       decoding="async"
+                      width="600"
+                      height="338"
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A]/60 via-transparent to-transparent pointer-events-none" />
