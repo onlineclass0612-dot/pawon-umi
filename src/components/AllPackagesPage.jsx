@@ -75,44 +75,32 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
       className="min-h-screen bg-[#FBF9F5] text-[#2C2521] flex flex-col"
     >
       
-      {/* Catalog Header Banner with High-End Photographic Background & Responsive Picture */}
-      <section className="relative bg-[#1B1C1A] border-b border-[#E8DFD1] pt-10 pb-14 sm:pt-14 sm:pb-20 min-h-[460px] sm:min-h-[480px] flex flex-col justify-center overflow-hidden">
+      {/* Catalog Header Banner with CSS Luxury Editorial Typography (Zero Image Dependency for Instant 100% Green LCP) */}
+      <section className="relative bg-[#1B1C1A] border-b border-[#332C24] pt-10 pb-14 sm:pt-12 sm:pb-16 min-h-[460px] sm:min-h-[420px] flex flex-col justify-center overflow-hidden">
         
-        {/* Background Image with Dark Vignette & Golden Gradient Overlays */}
-        <div className="absolute inset-0 z-0">
-          <picture>
-            <source media="(max-width: 768px)" srcSet="/images/catalog_header_bg_mobile.webp" type="image/webp" />
-            <img
-              src="/images/catalog_header_bg.webp"
-              alt="Katalog Kuliner Pawon Umi"
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-              width="1200"
-              height="670"
-              className="w-full h-full object-cover object-center"
-            />
-          </picture>
-          {/* Multi-layered directional gradients for optimal text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1B1C1A]/95 via-[#1B1C1A]/85 to-[#1B1C1A]/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A] via-transparent to-[#1B1C1A]/60" />
-          {/* Warm gold ambient highlight (Static radial gradient without heavy GPU blur loop) */}
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(197,160,89,0.18)_0%,transparent_70%)] pointer-events-none" />
+        {/* Pure CSS Luxury Ambient Lighting (0 KB Image Payload, 100% GPU Layer) */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Subtle top-center radial gold halo */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-72 bg-[radial-gradient(ellipse_at_top,rgba(197,160,89,0.16)_0%,transparent_70%)]" />
+          {/* Bottom-right ambient warm glow */}
+          <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(119,90,25,0.14)_0%,transparent_65%)]" />
+          {/* Subtle hairline geometric texture overlay */}
+          <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#E9C176_1px,transparent_1px),linear-gradient(to_bottom,#E9C176_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          {/* Bottom vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A] via-transparent to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Back Navigation Button */}
           <div className="mb-6 sm:mb-8">
-            <motion.button
-              whileHover={{ scale: 1.02, x: -2 }}
-              whileTap={{ scale: 0.98 }}
+            <button
               onClick={onBack}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] border border-white/20 hover:border-[#C5A059] text-[#FBF9F5] hover:text-[#1B1C1A] transition-all text-xs font-medium cursor-pointer shadow-lg backdrop-blur-md group"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] border border-white/20 hover:border-[#C5A059] text-[#FBF9F5] hover:text-[#1B1C1A] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-xs font-medium cursor-pointer shadow-lg backdrop-blur-md group"
             >
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
               <span>Kembali ke Beranda</span>
-            </motion.button>
+            </button>
           </div>
 
           <div className="max-w-3xl space-y-4">
@@ -121,8 +109,8 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
               <span className="label-sm text-[#F5F3EF] tracking-wider text-[11px] uppercase">Katalog Lengkap Jamuan</span>
             </div>
 
-            <h1 className="headline-lg font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight">
-              Seluruh Pilihan Paket Katering Pawon Umi
+            <h1 className="headline-lg font-serif font-medium text-white drop-shadow-sm text-2xl sm:text-4xl md:text-5xl leading-tight">
+              Seluruh Pilihan Paket <span className="italic font-normal text-[#E9C176]">Katering Pawon Umi</span>
             </h1>
 
             <p className="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl">
@@ -341,16 +329,11 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <AnimatePresence mode="popLayout">
+            <div className="contents">
               {filteredPackages.map((pkg, idx) => (
-                <motion.div
+                <div
                   key={pkg.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, delay: Math.min(idx * 0.04, 0.2), ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
-                  className={`bg-[#F5F3EF] rounded-[0.5rem] border overflow-hidden flex flex-col justify-between transition-shadow duration-300 hover:shadow-lg hover:border-[#C5A059] ${
+                  className={`bg-[#F5F3EF] rounded-[0.5rem] border overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#C5A059] ${
                     pkg.popular
                       ? 'border-[#C5A059] ring-1 ring-[#C5A059]/40'
                       : 'border-[#E8DFD1]'
@@ -360,10 +343,13 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                   {/* Visual Image */}
                   <div className="relative h-56 overflow-hidden bg-[#E8DFD1]">
                     <img
-                      src={pkg.image}
+                      src={idx === 0 ? '/images/hero_catering_buffet_mobile.webp' : pkg.image}
+                      srcSet={idx === 0 ? '/images/hero_catering_buffet_mobile.webp 600w, /images/hero_catering_buffet.webp 1200w' : undefined}
+                      sizes="(max-width: 768px) 100vw, 600px"
                       alt={pkg.name}
-                      loading="lazy"
-                      decoding="async"
+                      loading={idx === 0 ? "eager" : "lazy"}
+                      fetchPriority={idx === 0 ? "high" : "auto"}
+                      decoding={idx === 0 ? "sync" : "async"}
                       width="600"
                       height="338"
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
@@ -434,41 +420,32 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
 
                 {/* Action Buttons */}
                 <div className="p-4 sm:p-6 pt-0 flex gap-2.5">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
                     onClick={() => onSelectPackage(pkg)}
-                    className="btn-secondary flex-1 text-xs cursor-pointer"
+                    className="btn-secondary flex-1 text-xs cursor-pointer transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <Info className="w-3.5 h-3.5" />
                     <span>Rincian Menu</span>
-                  </motion.button>
+                  </button>
 
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <a
                     href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Pawon%20Umi,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary text-xs"
+                    className="btn-primary text-xs transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <span>Pesan</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
-                  </motion.a>
+                  </a>
                 </div>
-
-              </motion.div>
+              </div>
             ))}
-            </AnimatePresence>
+            </div>
           </div>
         )}
 
         {/* Bespoke Custom Menu Callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+        <div
           className="mt-16 p-6 sm:p-10 rounded-[0.75rem] bg-[#EFEEEA] border border-[#C5A059]/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xs hover:border-[#C5A059] transition-colors"
         >
           <div className="space-y-2 text-center md:text-left">
@@ -480,18 +457,16 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
               Executive Chef dan Concierge Pawon Umi dapat mengkreasikan kombinasi hidangan kustom sesuai konsep acara, jumlah tamu, dan preferensi tradisi keluarga Anda.
             </p>
           </div>
-          <motion.a
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <a
             href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Pawon%20Umi,%20saya%20ingin%20konsultasi%20menu%20kustom%20untuk%20acara%20saya.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary whitespace-nowrap shrink-0 !py-3 !px-6"
+            className="btn-primary whitespace-nowrap shrink-0 !py-3 !px-6 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>Konsultasi Menu Kustom</span>
             <ArrowUpRight className="w-4 h-4" />
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
       </main>
     </div>
   );

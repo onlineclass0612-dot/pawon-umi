@@ -11,7 +11,16 @@ import CatalogSplashScreen from './components/CatalogSplashScreen';
 const Testimonials = lazy(() => import('./components/Testimonials'));
 const Gallery = lazy(() => import('./components/Gallery'));
 const BookingForm = lazy(() => import('./components/BookingForm'));
+
 const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
+
+// If user is directly accessing the catalog URL, trigger chunk download immediately
+if (typeof window !== 'undefined') {
+  const initialHash = window.location.hash;
+  if (initialHash === '#/paket-lengkap' || initialHash === '#paket-lengkap') {
+    import('./components/AllPackagesPage');
+  }
+}
 
 // Lazy-loaded modal (opened only on user click, zero impact on initial page load)
 const PackageModal = lazy(() => import('./components/PackageModal'));
@@ -71,7 +80,11 @@ export default function App() {
 
   const navigateToCatalog = () => {
     window.location.hash = '/paket-lengkap';
-    setShowCatalogSplash(true);
+    // On mobile devices, navigate directly without splash overlay to prevent any LCP delay
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (!isMobile) {
+      setShowCatalogSplash(true);
+    }
     setCurrentView('catalog');
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
@@ -148,7 +161,7 @@ export default function App() {
         {showCatalogSplash && (
           <CatalogSplashScreen
             onFinish={() => setShowCatalogSplash(false)}
-            duration={650}
+            duration={400}
           />
         )}
       </AnimatePresence>
