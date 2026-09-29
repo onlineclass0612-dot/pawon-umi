@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { businessInfo } from '../data/cateringData';
 
 export default function Navbar({ onNavigateHome, currentView }) {
@@ -135,75 +134,69 @@ export default function Navbar({ onNavigateHome, currentView }) {
         </div>
       </div>
 
-      {/* Mobile & Tablet Drawer with Smooth Motion Slide */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden bg-[#FBF9F5] border-b border-[#E8DFD1] px-5 sm:px-6 py-5 sm:py-6 space-y-4 overflow-hidden"
-          >
-            <a
-              href="#beranda"
-              onClick={(e) => {
-                setIsOpen(false);
-                handleNav(e, '#beranda');
-              }}
-              aria-current={currentView === 'home' ? 'page' : undefined}
-              className={`block label-md whitespace-nowrap py-2 border-b border-[#EFEEEA] ${
-                currentView === 'home' ? 'text-[#775A19] font-semibold' : 'text-[#665D58]'
-              }`}
-            >
-              Beranda
-            </a>
-            <a
-              href="#catalog"
-              onClick={(e) => {
-                setIsOpen(false);
-                handleNav(e, '#catalog');
-              }}
-              aria-current={currentView === 'catalog' ? 'page' : undefined}
-              className={`block label-md whitespace-nowrap py-2 border-b border-[#EFEEEA] ${
-                currentView === 'catalog' ? 'text-[#775A19] font-semibold' : 'text-[#665D58]'
-              }`}
-            >
-              Catalog
-            </a>
-            <a
-              href="#ulasan"
-              onClick={(e) => {
-                setIsOpen(false);
-                handleNav(e, '#ulasan');
-              }}
-              className="block label-md whitespace-nowrap text-[#665D58] py-2 border-b border-[#EFEEEA]"
-            >
-              Ulasan
-            </a>
-            <a
-              href="#galeri"
-              onClick={(e) => {
-                setIsOpen(false);
-                handleNav(e, '#galeri');
-              }}
-              className="block label-md whitespace-nowrap text-[#665D58] py-2 border-b border-[#EFEEEA]"
-            >
-              Galeri
-            </a>
-            <a
-              href="#kontak"
-              onClick={(e) => {
-                setIsOpen(false);
-                handleNav(e, '#kontak');
-              }}
-              className="block label-md whitespace-nowrap text-[#665D58] py-2"
-            >
-              Kontak
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile & Tablet Drawer with Smooth Hardware-Accelerated CSS Slide */}
+      <div
+        className={`lg:hidden bg-[#FBF9F5] border-b border-[#E8DFD1] px-5 sm:px-6 space-y-4 overflow-hidden transition-all duration-300 ease-out ${
+          isOpen ? 'max-h-96 py-5 sm:py-6 opacity-100' : 'max-h-0 py-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        <a
+          href="#beranda"
+          onClick={(e) => {
+            setIsOpen(false);
+            handleNav(e, '#beranda');
+          }}
+          aria-current={currentView === 'home' ? 'page' : undefined}
+          className={`block label-md whitespace-nowrap py-2 border-b border-[#EFEEEA] ${
+            currentView === 'home' ? 'text-[#775A19] font-semibold' : 'text-[#665D58]'
+          }`}
+        >
+          Beranda
+        </a>
+        <a
+          href="#catalog"
+          onClick={(e) => {
+            setIsOpen(false);
+            handleNav(e, '#catalog');
+          }}
+          aria-current={currentView === 'catalog' ? 'page' : undefined}
+          className={`block label-md whitespace-nowrap py-2 border-b border-[#EFEEEA] ${
+            currentView === 'catalog' ? 'text-[#775A19] font-semibold' : 'text-[#665D58]'
+          }`}
+        >
+          Catalog
+        </a>
+        <a
+          href="#ulasan"
+          onClick={(e) => {
+            setIsOpen(false);
+            handleNav(e, '#ulasan');
+          }}
+          className="block label-md whitespace-nowrap text-[#665D58] py-2 border-b border-[#EFEEEA]"
+        >
+          Ulasan
+        </a>
+        <a
+          href="#galeri"
+          onClick={(e) => {
+            setIsOpen(false);
+            handleNav(e, '#galeri');
+          }}
+          className="block label-md whitespace-nowrap text-[#665D58] py-2 border-b border-[#EFEEEA]"
+        >
+          Galeri
+        </a>
+        <a
+          href="#kontak"
+          onClick={(e) => {
+            setIsOpen(false);
+            handleNav(e, '#kontak');
+          }}
+          className="block label-md whitespace-nowrap text-[#665D58] py-2"
+        >
+          Kontak
+        </a>
+      </div>
     </header>
   );
 }

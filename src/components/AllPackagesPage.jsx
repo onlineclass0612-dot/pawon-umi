@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { menuCategories, packagesData, businessInfo } from '../data/cateringData';
 import { ArrowLeft, ArrowUpRight, Info, Sparkles, Users, Check, X, ShieldCheck, ChevronDown, Filter, MessageCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { formatRupiah } from '../utils/formatters';
 
 export default function AllPackagesPage({ onBack, onSelectPackage }) {
@@ -178,90 +177,84 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
                 </div>
               </button>
 
-              {/* Dropdown Menu Panel (Multi-Select) with AnimatePresence */}
-              <AnimatePresence>
-                {isDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -8, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -8, scale: 0.98 }}
-                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-full sm:w-80 bg-white rounded-[0.375rem] border border-[#D1C5B4] shadow-xl py-1.5 z-50"
-                  >
-                    <div className="px-3.5 py-2 border-b border-[#E8DFD1] flex items-center justify-between">
-                      <span className="text-[10px] font-semibold uppercase tracking-wider text-[#7F7667]">
-                        Pilih Kategori (Bisa Lebih Dari 1)
-                      </span>
-                      {selectedCategories.length > 0 && (
-                        <button
-                          type="button"
-                          onClick={() => setSelectedCategories([])}
-                          className="text-[11px] text-[#775A19] hover:underline font-medium cursor-pointer"
-                        >
-                          Pilih Semua
-                        </button>
-                      )}
-                    </div>
-
-                    <div className="max-h-80 overflow-y-auto py-1 divide-y divide-[#F5F3EF]">
-                      {menuCategories.map((cat) => {
-                        const isAllOption = cat.id === 'all';
-                        const isChecked = isAllOption
-                          ? selectedCategories.length === 0
-                          : selectedCategories.includes(cat.id);
-                        const count = getCategoryCount(cat.id);
-
-                        return (
-                          <button
-                            key={cat.id}
-                            type="button"
-                            onClick={() => toggleCategory(cat.id)}
-                            className={`w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-left transition-colors cursor-pointer ${
-                              isChecked
-                                ? 'bg-[#F5F3EF]/80 text-[#2C2521]'
-                                : 'text-[#4E4639] hover:bg-[#FBF9F5]'
-                            }`}
-                          >
-                            <div className="flex items-center gap-2.5 min-w-0 pr-2">
-                              {/* Custom Checkbox */}
-                              <div className={`w-4 h-4 rounded-[0.2rem] border flex items-center justify-center shrink-0 transition-colors ${
-                                isChecked
-                                  ? 'bg-[#C5A059] border-[#C5A059] text-[#2C2521]'
-                                  : 'border-[#D1C5B4] bg-white'
-                              }`}>
-                                {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
-                              </div>
-                              <span className={`truncate ${isChecked ? 'font-semibold text-[#2C2521]' : 'text-[#4E4639]'}`}>
-                                {cat.name}
-                              </span>
-                            </div>
-
-                            <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#E8DFD1]/60 text-[#665D58] font-normal shrink-0">
-                              {count}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Dropdown Menu Footer */}
-                    <div className="px-3.5 py-2 bg-[#FAF8F5] border-t border-[#E8DFD1] flex items-center justify-between gap-2">
-                      <span className="text-[11px] text-[#7F7667]">
-                        {selectedCategories.length === 0
-                          ? 'Menampilkan semua paket'
-                          : `${selectedCategories.length} kategori dipilih`}
-                      </span>
+              {/* Dropdown Menu Panel (Multi-Select) with Hardware-Accelerated CSS Transition */}
+              {isDropdownOpen && (
+                <div
+                  className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-full sm:w-80 bg-white rounded-[0.375rem] border border-[#D1C5B4] shadow-xl py-1.5 z-50 transition-all duration-200 ease-out"
+                >
+                  <div className="px-3.5 py-2 border-b border-[#E8DFD1] flex items-center justify-between">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-[#7F7667]">
+                      Pilih Kategori (Bisa Lebih Dari 1)
+                    </span>
+                    {selectedCategories.length > 0 && (
                       <button
                         type="button"
-                        onClick={() => setIsDropdownOpen(false)}
-                        className="px-3 py-1 rounded-[0.25rem] bg-[#C5A059] hover:bg-[#B38F48] text-[#2C2521] text-xs font-semibold cursor-pointer shadow-2xs"
+                        onClick={() => setSelectedCategories([])}
+                        className="text-[11px] text-[#775A19] hover:underline font-medium cursor-pointer"
                       >
-                        Selesai
+                        Pilih Semua
                       </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    )}
+                  </div>
+
+                  <div className="max-h-80 overflow-y-auto py-1 divide-y divide-[#F5F3EF]">
+                    {menuCategories.map((cat) => {
+                      const isAllOption = cat.id === 'all';
+                      const isChecked = isAllOption
+                        ? selectedCategories.length === 0
+                        : selectedCategories.includes(cat.id);
+                      const count = getCategoryCount(cat.id);
+
+                      return (
+                        <button
+                          key={cat.id}
+                          type="button"
+                          onClick={() => toggleCategory(cat.id)}
+                          className={`w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-left transition-colors cursor-pointer ${
+                            isChecked
+                              ? 'bg-[#F5F3EF]/80 text-[#2C2521]'
+                              : 'text-[#4E4639] hover:bg-[#FBF9F5]'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                            {/* Custom Checkbox */}
+                            <div className={`w-4 h-4 rounded-[0.2rem] border flex items-center justify-center shrink-0 transition-colors ${
+                              isChecked
+                                ? 'bg-[#C5A059] border-[#C5A059] text-[#2C2521]'
+                                : 'border-[#D1C5B4] bg-white'
+                            }`}>
+                              {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                            </div>
+                            <span className={`truncate ${isChecked ? 'font-semibold text-[#2C2521]' : 'text-[#4E4639]'}`}>
+                              {cat.name}
+                            </span>
+                          </div>
+
+                          <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#E8DFD1]/60 text-[#665D58] font-normal shrink-0">
+                            {count}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Dropdown Menu Footer */}
+                  <div className="px-3.5 py-2 bg-[#FAF8F5] border-t border-[#E8DFD1] flex items-center justify-between gap-2">
+                    <span className="text-[11px] text-[#7F7667]">
+                      {selectedCategories.length === 0
+                        ? 'Menampilkan semua paket'
+                        : `${selectedCategories.length} kategori dipilih`}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(false)}
+                      className="px-3 py-1 rounded-[0.25rem] bg-[#C5A059] hover:bg-[#B38F48] text-[#2C2521] text-xs font-semibold cursor-pointer shadow-2xs"
+                    >
+                      Selesai
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Counter Badge */}
