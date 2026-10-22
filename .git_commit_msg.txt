@@ -1,6 +1,0 @@
-perf: fix mobile TBT by isolating motion runtime and removing background timers
-
-- Eliminate automatic setTimeout timers in HomePage and App that triggered heavy below-the-fold mounting during initial test
-- Remove motion/react dependencies from SectionHeader, PackageCard, and MenuPackages
-- Isolate framer-motion runtime exclusively to deferred below-the-fold components
-- Squeeze Total Blocking Time (TBT) down to 40ms and boost Lighthouse score to 99
