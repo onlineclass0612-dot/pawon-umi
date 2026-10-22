@@ -23,14 +23,15 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           const norm = id.replace(/\\/g, '/');
+          if (
+            norm.includes('/node_modules/react/') ||
+            norm.includes('/node_modules/react-dom/') ||
+            norm.includes('/node_modules/scheduler/')
+          ) {
+            return 'vendor-react';
+          }
           if (norm.includes('/node_modules/lucide-react/')) {
             return 'vendor-icons';
-          }
-          if (norm.includes('/node_modules/motion/') || norm.includes('/node_modules/motion-dom/') || norm.includes('/node_modules/motion-utils/')) {
-            return 'vendor-motion';
-          }
-          if (norm.includes('/node_modules/react/') || norm.includes('/node_modules/react-dom/') || norm.includes('/node_modules/scheduler/')) {
-            return 'vendor-react';
           }
         }
       }

@@ -1,17 +1,16 @@
 import React from 'react';
 import { Sparkles, Users, Info, ArrowUpRight } from 'lucide-react';
-import { motion } from 'motion/react';
 import { formatRupiah } from '../utils/formatters';
 import { businessInfo } from '../data/cateringData';
 
 /**
  * Reusable PackageCard Component
  * Used across both MenuPackages (Home section) and AllPackagesPage (Full Catalog)
+ * GPU-accelerated CSS hover transitions — 0 KB framer-motion overhead.
  */
 export default function PackageCard({
   pkg,
   onSelectPackage,
-  isAnimated = false,
   isDark = false
 }) {
   const waLink = `https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}%20(${formatRupiah(pkg.price)}/${pkg.unit}).%20Bisa%20bantu%20jelaskan%20rinciannya?`;
@@ -131,24 +130,8 @@ export default function PackageCard({
     </div>
   );
 
-  if (isAnimated) {
-    return (
-      <motion.div
-        layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        whileHover={{ y: -6, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
-        className="h-full"
-      >
-        {cardContent}
-      </motion.div>
-    );
-  }
-
   return (
-    <div className="h-full transition-all duration-300 hover:-translate-y-1.5">
+    <div className="h-full transition-transform duration-300 hover:-translate-y-1.5 will-change-transform">
       {cardContent}
     </div>
   );

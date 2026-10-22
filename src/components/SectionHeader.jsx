@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'motion/react';
 
 /**
  * Reusable SectionHeader Component
  * Standardizes section badge, headline, and subtitle narrative across all landing sections.
+ * Pure CSS presentation — 0 KB JS runtime overhead.
  */
 export default function SectionHeader({
   badge,
@@ -11,12 +11,11 @@ export default function SectionHeader({
   subtitle,
   align = 'center',
   isDark = false,
-  animated = true,
   className = ''
 }) {
   const isCenter = align === 'center';
 
-  const content = (
+  return (
     <div
       className={`max-w-2xl ${isCenter ? 'mx-auto text-center' : 'text-left'} space-y-3.5 sm:space-y-4 mb-10 sm:mb-14 ${className}`}
     >
@@ -45,20 +44,5 @@ export default function SectionHeader({
         </p>
       )}
     </div>
-  );
-
-  if (!animated) {
-    return content;
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {content}
-    </motion.div>
   );
 }

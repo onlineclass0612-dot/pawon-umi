@@ -1,7 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Hero from './Hero';
-// Below-the-fold components code-split & deferred to eliminate network/CPU contention during initial LCP paint
-const MenuPackages = lazy(() => import('./MenuPackages'));
+import MenuPackages from './MenuPackages';
+
+// Below-the-fold components code-split & loaded only when user scrolls/interacts
 const Testimonials = lazy(() => import('./Testimonials'));
 const Gallery = lazy(() => import('./Gallery'));
 const BookingForm = lazy(() => import('./BookingForm'));
@@ -10,30 +11,19 @@ export default function HomePage({ onSelectPackage, onOpenCatalog }) {
   const [loadBelowFold, setLoadBelowFold] = useState(false);
 
   useEffect(() => {
-    // Idle prefetch MenuPackages so it renders seamlessly when the user scrolls down
-    if (typeof requestIdleCallback !== 'undefined') {
-      requestIdleCallback(() => import('./MenuPackages'));
-    } else {
-      setTimeout(() => import('./MenuPackages'), 250);
-    }
-
-    // Defer remaining below-the-fold component loading until after the initial render and LCP paint
-    let timer = setTimeout(() => setLoadBelowFold(true), 1200);
-
+    // Only load below-the-fold sections when user actually scrolls or interacts
     const onScrollOrInteract = () => {
       setLoadBelowFold(true);
-      window.removeEventListener('scroll', onScrollOrInteract);
-      window.removeEventListener('touchstart', onScrollOrInteract);
-      clearTimeout(timer);
     };
 
     window.addEventListener('scroll', onScrollOrInteract, { passive: true, once: true });
     window.addEventListener('touchstart', onScrollOrInteract, { passive: true, once: true });
+    window.addEventListener('wheel', onScrollOrInteract, { passive: true, once: true });
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('scroll', onScrollOrInteract);
       window.removeEventListener('touchstart', onScrollOrInteract);
+      window.removeEventListener('wheel', onScrollOrInteract);
     };
   }, []);
 
@@ -43,12 +33,10 @@ export default function HomePage({ onSelectPackage, onOpenCatalog }) {
       <Hero />
 
       {/* 2. Catalog / Koleksi Pilihan Sajian */}
-      <Suspense fallback={<div className="min-h-[580px] bg-gradient-to-b from-[#FBF9F5] via-[#F7F2E7] to-[#EFE6D6]" />}>
-        <MenuPackages
-          onSelectPackage={onSelectPackage}
-          onOpenCatalog={onOpenCatalog}
-        />
-      </Suspense>
+      <MenuPackages
+        onSelectPackage={onSelectPackage}
+        onOpenCatalog={onOpenCatalog}
+      />
 
       {/* Below-the-fold sections deferred to guarantee 100% green sub-second LCP & 0 TBT */}
       {loadBelowFold ? (

@@ -9,18 +9,6 @@ import HomePage from './components/HomePage';
 const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
 const PackageModal = lazy(() => import('./components/PackageModal'));
 
-// Prefetch AllPackagesPage chunk on idle time
-if (typeof window !== 'undefined') {
-  const prefetchCatalog = () => {
-    import('./components/AllPackagesPage');
-  };
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(prefetchCatalog, { timeout: 3000 });
-  } else {
-    setTimeout(prefetchCatalog, 2000);
-  }
-}
-
 export default function App() {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [currentView, setCurrentView] = useState(() => {
