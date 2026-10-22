@@ -1,6 +1,6 @@
-# Pawon Umi Catering — Artisanal Indonesian & Bespoke Dining
+# Dapur Rasa Catering — Artisanal Indonesian & Bespoke Dining
 
-Website resmi dan katalog interaktif **Pawon Umi Catering**, menghadirkan pengalaman kuliner artisanal nusantara terkurasi untuk resepsi pernikahan, jamuan VIP korporat, tumpeng syukuran, dan berbagai acara istimewa.
+Website resmi dan katalog interaktif **Dapur Rasa Catering**, menghadirkan pengalaman kuliner artisanal nusantara terkurasi untuk resepsi pernikahan, jamuan VIP korporat, tumpeng syukuran, dan berbagai acara istimewa.
 
 ---
 
@@ -70,4 +70,4 @@ npm run preview
 
 ## 📄 Lisensi & Hak Cipta
 
-© 2026 **Pawon Umi Catering**. All rights reserved.
+© 2026 **Dapur Rasa Catering**. All rights reserved.

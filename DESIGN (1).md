@@ -1,5 +1,5 @@
 ---
-name: Pawon Umi Catering
+name: Dapur Rasa Catering
 colors:
   surface: '#fbf9f5'
   surface-dim: '#dbdad6'

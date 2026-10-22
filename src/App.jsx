@@ -4,19 +4,20 @@ import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 import CatalogSplashScreen from './components/CatalogSplashScreen';
 
-import AllPackagesPage from './components/AllPackagesPage';
+import HomePage from './components/HomePage';
 
-// Route-level Code Splitting for Home Page:
-// Isolates Hero, MenuPackages, Testimonials, Gallery, BookingForm & Motion library
-// away from the catalog critical path on mobile Slow 4G
-const HomePage = lazy(() => import('./components/HomePage'));
+const AllPackagesPage = lazy(() => import('./components/AllPackagesPage'));
 const PackageModal = lazy(() => import('./components/PackageModal'));
 
-// Eagerly prefetch HomePage chunk if user is currently on home
+// Prefetch AllPackagesPage chunk on idle time
 if (typeof window !== 'undefined') {
-  const initialHash = window.location.hash;
-  if (initialHash !== '#/paket-lengkap' && initialHash !== '#paket-lengkap') {
-    import('./components/HomePage');
+  const prefetchCatalog = () => {
+    import('./components/AllPackagesPage');
+  };
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(prefetchCatalog, { timeout: 3000 });
+  } else {
+    setTimeout(prefetchCatalog, 2000);
   }
 }
 
@@ -47,28 +48,8 @@ export default function App() {
     syncHash();
     window.addEventListener('hashchange', syncHash);
 
-    // Prefetch HomePage chunk on idle time if user is on catalog
-    let timer = null;
-    let onScrollOnce = null;
-    if (typeof window !== 'undefined') {
-      const prefetchHome = () => {
-        if (currentView === 'catalog') {
-          import('./components/HomePage');
-        }
-      };
-      timer = setTimeout(prefetchHome, 3000);
-      onScrollOnce = () => {
-        prefetchHome();
-        window.removeEventListener('scroll', onScrollOnce);
-        clearTimeout(timer);
-      };
-      window.addEventListener('scroll', onScrollOnce, { passive: true, once: true });
-    }
-
     return () => {
       window.removeEventListener('hashchange', syncHash);
-      if (onScrollOnce) window.removeEventListener('scroll', onScrollOnce);
-      if (timer) clearTimeout(timer);
     };
   }, [currentView]);
 
@@ -104,23 +85,25 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#FBF9F5] text-[#2C2521] flex flex-col selection:bg-[#C5A059] selection:text-[#2C2521]">
-      {/* Navigation Bar */}
-      <Navbar onNavigateHome={navigateToHome} currentView={currentView} />
+      {/* Navigation Bar - Rendered only on Home view, hidden on Catalog view */}
+      {currentView !== 'catalog' && (
+        <Navbar onNavigateHome={navigateToHome} currentView={currentView} />
+      )}
 
       {currentView === 'catalog' ? (
-        /* Full Catalog Page (All Categories & All Packages) - Instant Render */
-        <AllPackagesPage
-          onBack={() => navigateToHome('#catalog')}
-          onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-        />
-      ) : (
-        /* Main Home Content Page */
+        /* Full Catalog Page (All Categories & All Packages) - Lazy Loaded */
         <Suspense fallback={<div className="min-h-screen bg-[#FBF9F5]" />}>
-          <HomePage
+          <AllPackagesPage
+            onBack={() => navigateToHome('#catalog')}
             onSelectPackage={(pkg) => setSelectedPackage(pkg)}
-            onOpenCatalog={navigateToCatalog}
           />
         </Suspense>
+      ) : (
+        /* Main Home Content Page - Instant Zero-Delay Frame 1 Render */
+        <HomePage
+          onSelectPackage={(pkg) => setSelectedPackage(pkg)}
+          onOpenCatalog={navigateToCatalog}
+        />
       )}
 
       {/* Footer */}

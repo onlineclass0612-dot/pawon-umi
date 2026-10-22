@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import SectionHeader from './SectionHeader';
 
 const galleryItems = [
   {
@@ -113,30 +114,25 @@ export default function Gallery() {
   };
 
   return (
-    <section id="galeri" className="py-16 sm:py-20 md:py-28 bg-[#F5F3EF] border-b border-[#E8DFD1] w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="galeri"
+      className="relative py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#F2ECE0] via-[#FAF7F1] to-[#EDE3D2] md:bg-[linear-gradient(135deg,#F3ECE0_0%,#FBF9F5_45%,#F6EFE3_75%,#EBE0CF_100%)] border-b border-[#E8DFD1] w-full overflow-hidden"
+    >
+      {/* Pure CSS Luxury Ambient Lighting */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute -top-24 -left-20 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(197,160,89,0.12)_0%,transparent_65%)]" />
+        <div className="absolute -bottom-24 -right-20 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(119,90,25,0.08)_0%,transparent_65%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl mx-auto text-center space-y-4 mb-10 sm:mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBF9F5] border border-[#D1C5B4] text-[#775A19]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-            <span className="label-sm text-[#4E4639]">Dokumentasi Jamuan & Acara</span>
-          </div>
-
-          <h2 className="headline-md text-[#2C2521]">
-            Galeri Mahakarya Pawon Umi
-          </h2>
-
-          <p className="body-md text-[#4E4639]">
-            Potret kehangatan dan keanggunan hidangan kami dalam berbagai momen berharga, mulai dari syukuran keluarga intim hingga pesta resepsi agung.
-          </p>
-        </motion.div>
+        {/* Reusable Section Header */}
+        <SectionHeader
+          badge="Dokumentasi Jamuan & Acara"
+          title="Galeri Mahakarya Dapur Rasa"
+          subtitle="Potret kehangatan dan keanggunan hidangan kami dalam berbagai momen berharga, mulai dari syukuran keluarga intim hingga pesta resepsi agung."
+        />
 
         {/* Versi Mobile: Carousel Horizontal yang Bisa Digeser Kanan/Kiri */}
         <div className="block sm:hidden space-y-4">

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useCallback } from 'react';
-import { useInView, animate } from 'motion/react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { parseStatValue } from '../utils/formatters';
 
 /**
  * MachineCounter Component
- * High-Performance Counter utilizing direct DOM updates to eliminate React reconciliation
- * overhead on mobile devices, ensuring silky-smooth 60/120 FPS mechanical deceleration.
+ * Ultra-Lightweight Native Counter with 0 external dependencies (0 KB framer-motion overhead).
+ * Utilizes native IntersectionObserver and requestAnimationFrame for smooth 60 FPS counter on desktop
+ * and instant static text on mobile devices to keep main thread completely idle for sub-second LCP.
  */
 export default function MachineCounter({
   value,
@@ -16,7 +16,7 @@ export default function MachineCounter({
 }) {
   const containerRef = useRef(null);
   const numberRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-40px" });
+  const [isInView, setIsInView] = useState(false);
 
   const parsed = parseStatValue(value);
   const { targetNumber, decimals, prefix, suffix } = parsed;
@@ -26,6 +26,23 @@ export default function MachineCounter({
       ? num.toFixed(decimals)
       : Math.floor(num).toLocaleString('id-ID');
   }, [decimals]);
+
+  useEffect(() => {
+    if (!containerRef.current || typeof IntersectionObserver === 'undefined') {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '-40px' });
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!numberRef.current) return;
@@ -39,27 +56,40 @@ export default function MachineCounter({
 
     if (!isInView) return;
 
-    // Set initial text
     numberRef.current.textContent = formatValue(0);
 
-    // Animate from 0 to targetNumber using direct textContent mutation (0 React re-renders) on desktop
-    const controls = animate(0, targetNumber, {
-      duration,
-      delay,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate(latest) {
-        if (numberRef.current) {
-          numberRef.current.textContent = formatValue(latest);
-        }
-      },
-      onComplete() {
-        if (numberRef.current) {
-          numberRef.current.textContent = formatValue(targetNumber);
-        }
-      }
-    });
+    let rafId;
+    let startTimestamp = null;
+    const durationMs = duration * 1000;
+    const delayMs = delay * 1000;
 
-    return () => controls.stop();
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const elapsed = timestamp - startTimestamp - delayMs;
+
+      if (elapsed <= 0) {
+        rafId = requestAnimationFrame(step);
+        return;
+      }
+
+      const progress = Math.min(elapsed / durationMs, 1);
+      // Ease out cubic
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      const currentVal = targetNumber * easedProgress;
+
+      if (numberRef.current) {
+        numberRef.current.textContent = formatValue(currentVal);
+      }
+
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      } else if (numberRef.current) {
+        numberRef.current.textContent = formatValue(targetNumber);
+      }
+    };
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
   }, [isInView, targetNumber, duration, delay, formatValue]);
 
   return (

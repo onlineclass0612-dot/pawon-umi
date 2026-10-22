@@ -2,31 +2,29 @@ import React from 'react';
 import { testimonials } from '../data/cateringData';
 import { Star } from 'lucide-react';
 import { motion } from 'motion/react';
+import SectionHeader from './SectionHeader';
 
 export default function Testimonials() {
   return (
-    <section id="ulasan" className="py-16 sm:py-20 md:py-28 bg-[#FBF9F5] border-b border-[#E8DFD1] w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="ulasan"
+      className="relative py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#F4EFE6] via-[#FBF9F5] to-[#EFE6D6] md:bg-[linear-gradient(135deg,#F5EFE5_0%,#FBF9F5_45%,#F8F2E7_75%,#EFE6D6_100%)] border-b border-[#E8DFD1] w-full overflow-hidden"
+    >
+      {/* Pure CSS Luxury Ambient Lighting */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute -top-24 right-1/4 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(197,160,89,0.12)_0%,transparent_65%)]" />
+        <div className="absolute -bottom-24 left-10 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(119,90,25,0.08)_0%,transparent_65%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl mx-auto text-center space-y-4 mb-12 sm:mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F3EF] border border-[#D1C5B4] text-[#775A19]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-            <span className="label-sm text-[#4E4639]">Suara Klien & Rekan Acara</span>
-          </div>
-          <h2 className="headline-md text-[#2C2521]">
-            Kesan Mendalam di Setiap Jamuan
-          </h2>
-          <p className="body-md text-[#4E4639]">
-            Kepercayaan lebih dari 2.800 tuan rumah dan perencana pernikahan adalah bukti komitmen kami pada keutamaan rasa.
-          </p>
-        </motion.div>
+        {/* Reusable Section Header */}
+        <SectionHeader
+          badge="Suara Klien & Rekan Acara"
+          title="Kesan Mendalam di Setiap Jamuan"
+          subtitle="Kepercayaan lebih dari 2.800 tuan rumah dan perencana pernikahan adalah bukti komitmen kami pada keutamaan rasa."
+          className="mb-12 sm:mb-16"
+        />
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -38,7 +36,7 @@ export default function Testimonials() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.85, delay: idx * 0.18, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
-              className="p-5 sm:p-8 rounded-[0.5rem] bg-[#F5F3EF] border border-[#E8DFD1] flex flex-col justify-between hover:border-[#C5A059] hover:shadow-lg transition-all relative"
+              className="p-5 sm:p-8 rounded-[0.5rem] bg-white/85 backdrop-blur-xs border border-[#E8DFD1] flex flex-col justify-between hover:border-[#C5A059] hover:shadow-lg transition-all relative"
             >
               <div className="space-y-4">
                 {/* Rating */}

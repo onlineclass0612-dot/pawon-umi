@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Heart } from 'lucide-react';
 import { businessInfo } from '../data/cateringData';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
   return (
@@ -12,36 +13,7 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
-              <div className="p-[2px] rounded-full bg-gradient-to-tr from-[#C5A059] via-[#E8DFD1]/30 to-[#C5A059]/40 shadow-xs shrink-0">
-                <img
-                  src="/images/logo.webp"
-                  alt="Pawon Umi Logo"
-                  width="56"
-                  height="56"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-full border border-[#C5A059]/40 bg-[#2C2521]"
-                />
-              </div>
-              <div className="min-w-0 flex flex-col justify-center">
-                <div className="flex items-baseline gap-1.5 sm:gap-2">
-                  <span className="font-cinzel font-medium text-lg sm:text-2xl tracking-wider text-white whitespace-nowrap inline-flex items-baseline">
-                    <span className="font-accent text-2xl sm:text-[2.1rem] text-[#C5A059] font-normal leading-none mr-0.5 select-none">
-                      P
-                    </span>
-                    <span>awon</span>
-                    <span className="font-accent text-2xl sm:text-[2.1rem] text-[#C5A059] font-normal leading-none ml-1.5 sm:ml-2 mr-0.5 select-none">
-                      U
-                    </span>
-                    <span>mi</span>
-                  </span>
-                  <span className="label-sm px-2 py-0.5 rounded-full bg-[#2C2521] text-[#C5A059] border border-[#7F7667]/40 text-[10px] self-center">
-                    Catering
-                  </span>
-                </div>
-              </div>
-            </div>
+            <BrandLogo variant="dark" size="md" showTagline={false} />
 
             <p className="body-sm text-[#CEC5B8] leading-relaxed">
               {businessInfo.subtitle}
@@ -117,35 +89,7 @@ export default function Footer() {
         <div className="block sm:hidden space-y-5 pb-6 border-b border-[#30312E]">
           
           {/* Mobile Brand & Tagline */}
-          <div className="flex items-center gap-3">
-            <div className="p-[2px] rounded-full bg-gradient-to-tr from-[#C5A059] via-[#E8DFD1]/30 to-[#C5A059]/40 shadow-xs shrink-0">
-              <img
-                src="/images/logo.webp"
-                alt="Pawon Umi Logo"
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                className="w-10 h-10 object-contain rounded-full border border-[#C5A059]/40 bg-[#2C2521]"
-              />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="font-cinzel font-medium text-base tracking-wider text-white">
-                  <span className="font-accent text-xl text-[#C5A059] font-normal leading-none mr-0.5">P</span>
-                  awon
-                  <span className="font-accent text-xl text-[#C5A059] font-normal leading-none ml-1 mr-0.5">U</span>
-                  mi
-                </span>
-                <span className="label-sm px-1.5 py-0.2 rounded-full bg-[#2C2521] text-[#C5A059] border border-[#7F7667]/40 text-[9px]">
-                  Catering
-                </span>
-              </div>
-              <p className="label-sm text-[#A69E93] text-[10.5px] normal-case mt-0.5 truncate">
-                {businessInfo.tagline}
-              </p>
-            </div>
-          </div>
+          <BrandLogo variant="dark" size="sm" showTagline={true} />
 
           {/* Quick Horizontal Nav Bar */}
           <div className="flex flex-wrap items-center justify-between gap-y-2 text-xs text-[#CEC5B8] py-1">
@@ -169,7 +113,7 @@ export default function Footer() {
             
             <div className="flex items-center justify-between pt-1">
               <a 
-                href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Pawon%20Umi,%20saya%20ingin%20konsultasi%20layanan%20katering.`}
+                href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20layanan%20katering.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-[#C5A059] font-medium hover:underline"
@@ -189,7 +133,7 @@ export default function Footer() {
 
         {/* Bottom Copyright Bar */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between label-sm text-[#7F7667] normal-case gap-3 sm:gap-4 text-center sm:text-left">
-          <p className="text-[11px] sm:text-[11px]">© {new Date().getFullYear()} Pawon Umi Catering. All rights reserved.</p>
+          <p className="text-[11px] sm:text-[11px]">© {new Date().getFullYear()} Dapur Rasa Catering. All rights reserved.</p>
           <div className="flex items-center justify-center gap-1.5 text-[#A69E93] text-[11px]">
             <span>Cita rasa rempah warisan Nusantara</span>
             <Heart className="w-3 h-3 text-[#C5A059] fill-[#C5A059] shrink-0" />

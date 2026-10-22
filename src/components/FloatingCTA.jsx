@@ -3,7 +3,7 @@ import { businessInfo } from '../data/cateringData';
 import { createWhatsAppUrl } from '../utils/formatters';
 
 export default function FloatingCTA() {
-  const message = "Halo Pawon Umi, saya tertarik menggunakan layanan catering Pawon Umi. Saya ingin menanyakan pilihan menu dan ketersediaan tanggal untuk acara saya.";
+  const message = "Halo Dapur Rasa, saya tertarik menggunakan layanan catering Dapur Rasa. Saya ingin menanyakan pilihan menu dan ketersediaan tanggal untuk acara saya.";
   const waUrl = createWhatsAppUrl(businessInfo.whatsapp, message);
 
   return (
@@ -15,8 +15,8 @@ export default function FloatingCTA() {
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat WhatsApp Pawon Umi"
-        title="Chat WhatsApp Pawon Umi"
+        aria-label="Chat WhatsApp Dapur Rasa"
+        title="Chat WhatsApp Dapur Rasa"
         className="group relative flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#20ba5a] to-[#25D366] text-white shadow-xl shadow-[#25D366]/35 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 ring-2 ring-white/80"
       >
         {/* Official WhatsApp SVG Icon */}

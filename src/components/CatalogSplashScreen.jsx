@@ -34,7 +34,7 @@ export default function CatalogSplashScreen({ onFinish, duration = 650 }) {
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
       role="status"
-      aria-label="Memuat Katalog Sajian Pawon Umi"
+      aria-label="Memuat Katalog Sajian Dapur Rasa"
     >
       <div className="relative flex flex-col items-center z-10 px-4 transition-all duration-300 ease-out">
         
@@ -49,7 +49,7 @@ export default function CatalogSplashScreen({ onFinish, duration = 650 }) {
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#1B1C1A] p-2 flex items-center justify-center border border-[#C5A059]/30 overflow-hidden">
               <img
                 src="/images/logo.webp"
-                alt="Pawon Umi Logo"
+                alt="Dapur Rasa Logo"
                 width="80"
                 height="80"
                 className="w-full h-full object-contain rounded-full"
@@ -64,13 +64,13 @@ export default function CatalogSplashScreen({ onFinish, duration = 650 }) {
           <div className="flex items-baseline justify-center gap-1.5">
             <span className="font-cinzel font-medium text-xl sm:text-2xl tracking-widest text-[#FBF9F5]">
               <span className="font-accent text-2xl sm:text-3xl text-[#C5A059] font-normal leading-none mr-0.5 select-none">
-                P
+                D
               </span>
-              awon
+              apur
               <span className="font-accent text-2xl sm:text-3xl text-[#C5A059] font-normal leading-none ml-1.5 mr-0.5 select-none">
-                U
+                R
               </span>
-              mi
+              asa
             </span>
           </div>
 

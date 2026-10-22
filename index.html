@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Circular Favicons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=4" />
-    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=4" />
-    <link rel="icon" type="image/webp" href="/images/logo.webp?v=4" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=4" />
-    <link rel="shortcut icon" href="/favicon.ico?v=4" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=5" />
+    <link rel="icon" type="image/webp" href="/images/logo.webp?v=5" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=5" />
+    <link rel="shortcut icon" href="/favicon.ico?v=5" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pawon Umi Catering — Artisanal Indonesian & Bespoke Dining</title>
+    <title>Dapur Rasa Catering — Artisanal Indonesian & Bespoke Dining</title>
     <meta name="description" content="Layanan katering artisanal terkurasi untuk resepsi pernikahan, jamuan VIP korporat, dan acara istimewa berakar pada kehangatan tradisi dan kemewahan bersahaja." />
 
-    <!-- Google Fonts: Preconnect & Asynchronous Loading (Zero Render Blocking) -->
+    <!-- Preload Hero LCP Image for Mobile and Desktop (Instant Browser Preload Scanner Discovery) -->
+    <link rel="preload" as="image" href="/images/hero_catering_buffet_mobile.webp" media="(max-width: 768px)" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero_catering_buffet.webp" media="(min-width: 769px)" type="image/webp" fetchpriority="high" />
+
+    <!-- Google Fonts: Preconnect & Asynchronous Loading (Playfair Display + Plus Jakarta Sans + Cinzel + Great Vibes) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&text=PAWON%20UMICita%20Rasa%20Luhur&family=Lora:wght@500;600&family=Open+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&text=PAWON%20UMICita%20Rasa%20Luhur&family=Lora:wght@500;600&family=Open+Sans:wght@400;500;600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
     </noscript>
   </head>
   <body class="bg-[#FBF9F5] text-[#2C2521] antialiased selection:bg-[#C5A059] selection:text-[#2C2521]">
@@ -26,24 +30,47 @@
       <header class="sticky top-0 z-40 bg-[#FBF9F5]/90 border-b border-[#E8DFD1] h-20 flex items-center px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <img src="/images/logo.webp" alt="Pawon Umi Logo" width="40" height="40" class="w-10 h-10 object-contain rounded-full" />
-            <span class="font-serif font-medium text-lg sm:text-2xl tracking-wider text-[#2C2521]">PAWON UMI</span>
+            <img src="/images/logo.webp" alt="Dapur Rasa Logo" width="40" height="40" class="w-10 h-10 object-contain rounded-full" />
+            <span class="font-serif font-medium text-lg sm:text-2xl tracking-wider text-[#2C2521]">DAPUR RASA</span>
           </div>
         </div>
       </header>
       <!-- Instant Pre-rendered Editorial Hero Shell for Sub-Second FCP & LCP -->
-      <section class="relative bg-[#1B1C1A] border-b border-[#332C24] pt-10 pb-14 sm:pt-12 sm:pb-16 min-h-[460px] sm:min-h-[420px] flex flex-col justify-center overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="max-w-3xl space-y-4">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2C2521]/90 border border-[#C5A059]/60 text-[#E9C176]">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
-              <span class="text-[#F5F3EF] tracking-wider text-[11px] uppercase">Katalog Lengkap Jamuan</span>
+      <section
+        id="beranda"
+        class="relative flex flex-col justify-start lg:justify-center overflow-hidden border-b border-[#E8DFD1] pt-24 sm:pt-28 pb-8 sm:pb-10 lg:pt-22 lg:pb-0 lg:h-[100dvh] lg:min-h-[640px] w-full"
+      >
+        <div class="absolute inset-0 z-0">
+          <picture>
+            <source media="(max-width: 768px)" srcset="/images/hero_catering_buffet_mobile.webp" type="image/webp" />
+            <img
+              src="/images/hero_catering_buffet.webp"
+              alt="Jamuan Prasmanan Dapur Rasa Catering"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+              width="1200"
+              height="670"
+              class="w-full h-full object-cover object-center sm:object-[center_35%]"
+            />
+          </picture>
+          <div class="absolute inset-0 bg-gradient-to-b from-[#FBF9F5]/98 via-[#F7F2E7]/94 via-75% to-[#EFE6D6]/85 md:bg-[linear-gradient(112deg,#FBF9F5_0%,rgba(251,249,245,0.97)_38%,rgba(247,242,231,0.88)_58%,rgba(242,233,219,0.65)_78%,rgba(234,221,215,0.32)_100%)] pointer-events-none"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(233,193,118,0.22)_0%,transparent_60%)] md:bg-[radial-gradient(circle_at_25%_40%,rgba(197,160,89,0.18)_0%,transparent_65%)] pointer-events-none"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(119,90,25,0.10)_0%,transparent_55%)] pointer-events-none"></div>
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F5F3EF] via-[#F5F3EF]/60 to-transparent pointer-events-none"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 my-0 lg:my-auto">
+          <div class="max-w-3xl space-y-3.5 sm:space-y-4 lg:space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-0.5 sm:py-1 rounded-full bg-[#F5F3EF]/95 border border-[#D1C5B4] text-[#775A19] w-fit">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#C5A059] shrink-0"></span>
+              <span class="label-sm text-[#4E4639] text-[11px] sm:text-xs">Kurasi Jamuan Kuliner Nusantara</span>
             </div>
-            <h1 class="headline-lg font-serif font-medium text-white text-2xl sm:text-4xl md:text-5xl leading-tight">
-              Seluruh Pilihan Paket <span class="italic font-normal text-[#E9C176]">Katering Pawon Umi</span>
+            <h1 class="headline-lg font-medium text-[#2C2521]">
+              Kemewahan Bersahaja dalam <span class="italic font-serif font-normal text-[#775A19]">Kehangatan Cita Rasa</span>
             </h1>
-            <p class="body-md text-sm sm:text-base text-[#E8DFD1]/90 leading-relaxed max-w-2xl">
-              Jelajahi seluruh kurasi hidangan mulai dari prasmanan agung, artisanal rice box, tumpeng megah tradisional, coffee break priyayi, hingga paket resepsi pernikahan lengkap bersertifikasi Halal MUI resmi.
+            <p class="body-md text-sm sm:text-base text-[#4E4639] max-w-2xl leading-relaxed">
+              Dari resepsi pernikahan agung hingga jamuan VIP korporat terkurasi. Dapur Rasa menyajikan harmoni rempah warisan Nusantara dengan standar higienis bersertifikasi Halal MUI dan estetika meja saji yang memikat.
             </p>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Award, Star, CheckCircle2, Sparkles, Utensils, MessageCircle } from 'lucide-react';
-import { motion } from 'motion/react';
 import { businessInfo } from '../data/cateringData';
 import MachineCounter from './MachineCounter';
 
@@ -18,7 +17,7 @@ export default function Hero() {
     <>
       <section
         id="beranda"
-        className="relative flex flex-col justify-start lg:justify-center overflow-hidden border-b border-[#E8DFD1] pt-5 pb-8 sm:pt-7 sm:pb-10 lg:py-0 lg:h-[calc(100dvh-5.5rem)] lg:min-h-[550px] w-full"
+        className="relative flex flex-col justify-start lg:justify-center overflow-hidden border-b border-[#E8DFD1] pt-24 sm:pt-28 pb-8 sm:pb-10 lg:pt-22 lg:pb-0 lg:h-[100dvh] lg:min-h-[640px] w-full"
       >
         {/* Background Image with Layered Artisanal Gradient Overlays & Responsive Picture */}
         <div className="absolute inset-0 z-0">
@@ -26,7 +25,7 @@ export default function Hero() {
             <source media="(max-width: 768px)" srcSet="/images/hero_catering_buffet_mobile.webp" type="image/webp" />
             <img
               src="/images/hero_catering_buffet.webp"
-              alt="Jamuan Prasmanan Pawon Umi Catering"
+              alt="Jamuan Prasmanan Dapur Rasa Catering"
               fetchPriority="high"
               loading="eager"
               decoding="async"
@@ -35,9 +34,16 @@ export default function Hero() {
               className="w-full h-full object-cover object-center sm:object-[center_35%]"
             />
           </picture>
-          {/* Responsive Gradient Overlay: High-contrast backdrop on text, ambient photo visibility on the right */}
-          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#FBF9F5] via-[#FBF9F5]/95 to-[#FBF9F5]/80 md:to-[#FBF9F5]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FBF9F5] via-transparent to-[#FBF9F5]/50" />
+          {/* Multi-tier Rich Artisanal Gradient Overlays across All Screen Sizes */}
+          {/* Layer 1: Base Directional Gradient (Vertical on Mobile, Smooth Angle on Desktop/Tablet) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FBF9F5]/98 via-[#F7F2E7]/94 via-75% to-[#EFE6D6]/85 md:bg-[linear-gradient(112deg,#FBF9F5_0%,rgba(251,249,245,0.97)_38%,rgba(247,242,231,0.88)_58%,rgba(242,233,219,0.65)_78%,rgba(234,221,215,0.32)_100%)] pointer-events-none" />
+
+          {/* Layer 2: Ambient Luminous Warm Gold Radial Halos (Adds depth & warmth across all viewports) */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(233,193,118,0.22)_0%,transparent_60%)] md:bg-[radial-gradient(circle_at_25%_40%,rgba(197,160,89,0.18)_0%,transparent_65%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(119,90,25,0.10)_0%,transparent_55%)] pointer-events-none" />
+
+          {/* Layer 3: Subtle Bottom Vignette to Blend Flawlessly into the Next Section */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F5F3EF] via-[#F5F3EF]/60 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 my-0 lg:my-auto">
@@ -65,7 +71,7 @@ export default function Hero() {
             <p
               className="body-md text-sm sm:text-base text-[#4E4639] max-w-2xl leading-relaxed"
             >
-              Dari resepsi pernikahan agung hingga jamuan VIP korporat terkurasi. Pawon Umi menyajikan harmoni rempah warisan Nusantara dengan standar higienis bersertifikasi Halal MUI dan estetika meja saji yang memikat.
+              Dari resepsi pernikahan agung hingga jamuan VIP korporat terkurasi. Dapur Rasa menyajikan harmoni rempah warisan Nusantara dengan standar higienis bersertifikasi Halal MUI dan estetika meja saji yang memikat.
             </p>
 
             {/* Span Ulasan & Rating Social Proof - Instant render */}
@@ -83,10 +89,8 @@ export default function Hero() {
                 </span>
 
                 {/* Bubble Chat "1.200+ Ulasan" melayang di atas ujung kanan badge rating dengan ekor di ujung kiri bawah bubble */}
-                <motion.div
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-5 sm:-top-5.5 left-full -ml-3.5 z-10 pointer-events-none group-hover:scale-105 transition-transform duration-300"
+                <div
+                  className="absolute -top-5 sm:-top-5.5 left-full -ml-3.5 z-10 pointer-events-none group-hover:scale-105 transition-transform duration-300 animate-float"
                 >
                   <div className="relative inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#2C2521] text-[#FBF9F5] border border-[#C5A059]/60 shadow-sm text-[10px] sm:text-[10.5px] font-semibold tracking-tight whitespace-nowrap select-none">
                     {/* Ekor di ujung kiri bawah bubble chat - dibuat condong diagonal antara kiri dan bawah */}
@@ -111,7 +115,7 @@ export default function Hero() {
                     <MessageCircle className="w-2.5 h-2.5 text-[#C5A059] shrink-0" />
                     <span>1.200+ Ulasan</span>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               <span className="font-accent text-[#775A19] text-xl hidden sm:inline select-none sm:ml-22 md:ml-24">
@@ -123,23 +127,19 @@ export default function Hero() {
             <div
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1"
             >
-              <motion.a
-                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-                whileTap={{ scale: 0.98 }}
+              <a
                 href="#catalog"
-                className="btn-primary shadow-sm"
+                className="btn-primary shadow-sm transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Jelajahi Pilihan Menu</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-                whileTap={{ scale: 0.98 }}
+              </a>
+              <a
                 href="#kontak"
-                className="btn-secondary bg-[#FBF9F5]/80 backdrop-blur-xs"
+                className="btn-secondary bg-[#FBF9F5]/80 backdrop-blur-xs transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Konsultasi & Reservasi</span>
-              </motion.a>
+              </a>
             </div>
 
             {/* Botanical Divider Line */}
@@ -180,8 +180,8 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Stats Bar immediately below the Hero section */}
-      <section className="bg-[#F5F3EF] border-b border-[#E8DFD1] py-8 sm:py-10 w-full">
+      {/* Stats Bar immediately below the Hero section (Continuing Section 1 gradient) */}
+      <section className="bg-gradient-to-b from-[#F2ECE0] via-[#F7F3EA] to-[#FBF9F5] border-b border-[#E8DFD1] py-8 sm:py-10 w-full relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {businessInfo.stats.map((stat, idx) => (

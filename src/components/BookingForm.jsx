@@ -163,7 +163,7 @@ export default function BookingForm() {
     // Format WhatsApp text matching user requested template
     const formattedDate = formatDateIndo(formData.date);
     const text = 
-      `Halo Pawon Umi,\n\n` +
+      `Halo Dapur Rasa,\n\n` +
       `Saya ingin menanyakan ketersediaan layanan catering untuk acara saya pada tanggal ${formattedDate}.\n\n` +
       `Detail acara saya:\n\n` +
       `• Nama: ${formData.name.trim()}\n` +
@@ -182,11 +182,21 @@ export default function BookingForm() {
   const todayDateString = new Date().toISOString().split('T')[0];
 
   return (
-    <section id="kontak" className="py-16 sm:py-20 md:py-28 bg-[#FBF9F5] border-b border-[#E8DFD1] w-full relative overflow-hidden">
+    <section
+      id="kontak"
+      className="relative py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#F5EFE6] via-[#FAF6EE] to-[#EAE0D0] md:bg-[linear-gradient(135deg,#F5EFE6_0%,#FBF9F5_40%,#F7F1E5_70%,#ECE1CF_100%)] border-b border-[#E8DFD1] w-full overflow-hidden"
+    >
       <span id="reservasi" className="absolute -top-24"></span>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
+
+      {/* Pure CSS Luxury Ambient Lighting */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-1/4 -left-20 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(197,160,89,0.14)_0%,transparent_65%)]" />
+        <div className="absolute -bottom-20 -right-20 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(119,90,25,0.10)_0%,transparent_65%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0 relative z-10">
         
-        <div className="bg-[#F5F3EF] rounded-[0.75rem] border border-[#E8DFD1] overflow-hidden w-full min-w-0">
+        <div className="bg-white/95 backdrop-blur-xs rounded-[0.75rem] border border-[#E8DFD1] shadow-md overflow-hidden w-full min-w-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 w-full min-w-0">
             
             {/* Left Info Column */}
@@ -195,7 +205,7 @@ export default function BookingForm() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 bg-[#EFEEEA] p-5 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#E8DFD1] flex flex-col justify-between w-full min-w-0"
+              className="lg:col-span-5 bg-[#FAF7F2]/90 p-5 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#E8DFD1] flex flex-col justify-between w-full min-w-0"
             >
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBF9F5] border border-[#D1C5B4] text-[#775A19]">
@@ -224,7 +234,7 @@ export default function BookingForm() {
                     <Phone className="w-4 h-4 text-[#775A19] shrink-0 mt-1" />
                     <div>
                       <p className="label-sm text-[#2C2521]">Layanan Konsultasi Langsung:</p>
-                      <p className="body-sm text-xs text-[#665D58] mt-0.5">+62 812-3456-7890 (Concierge Pawon Umi)</p>
+                      <p className="body-sm text-xs text-[#665D58] mt-0.5">+62 812-3456-7890 (Concierge Dapur Rasa)</p>
                     </div>
                   </div>
                 </div>
@@ -232,7 +242,7 @@ export default function BookingForm() {
 
               <div className="pt-8 mt-8 border-t border-[#E8DFD1]">
                 <p className="label-sm text-[#7F7667] normal-case">
-                  *Pemesanan melalui formulir ini akan terhubung langsung ke WhatsApp tim Concierge Pawon Umi.
+                  *Pemesanan melalui formulir ini akan terhubung langsung ke WhatsApp tim Concierge Dapur Rasa.
                 </p>
               </div>
             </motion.div>

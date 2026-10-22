@@ -1,14 +1,14 @@
-// Data menu dan paket katering Pawon Umi Catering
+// Data menu dan paket katering Dapur Rasa Catering
 // Mengacu pada panduan desain artisanal & understated luxury di DESIGN (1).md
 
 export const businessInfo = {
-  name: "Pawon Umi",
-  fullName: "Pawon Umi Catering",
+  name: "Dapur Rasa",
+  fullName: "Dapur Rasa Catering",
   tagline: "Artisanal Indonesian & Bespoke Dining",
   subtitle: "Menghadirkan seni jamuan kuliner Nusantara terkurasi dengan rempah warisan otentik, estetika penyajian meja yang hangat, dan keramahan pelayanan berkelas.",
   phone: "6281234567890",
   whatsapp: "6281234567890",
-  email: "concierge@pawonumi.id",
+  email: "concierge@dapurrasa.id",
   address: "Jl. Cikini Raya No. 45, Menteng, Jakarta Pusat",
   operationalHours: "Senin – Minggu: 08.00 – 20.00 WIB",
   stats: [
@@ -48,7 +48,7 @@ export const packagesData = [
       "Nasi Putih Pandan Wangi Cianjur",
       "Sop Kimlo Sari Rempah & Bakso Jamur",
       "Ayam Panggang Bumbu Rujak Tradisional",
-      "Rendang Daging Sapi Karamel Khas Pawon Umi",
+      "Rendang Daging Sapi Karamel Khas Dapur Rasa",
       "Sambal Goreng Ati Kentang Balado",
       "Kerupuk Udang Gurih",
       "Es Buah Segar Nata de Coco",
@@ -105,9 +105,9 @@ export const packagesData = [
     setupDuration: "2.5 Jam Sebelum Acara"
   },
   {
-    id: "nasibox-pawon-umi",
+    id: "nasibox-dapur-rasa",
     category: "nasikotak",
-    name: "Artisanal Bento Nasi Liwet Pawon Umi",
+    name: "Artisanal Bento Nasi Liwet Dapur Rasa",
     price: 42000,
     unit: "box",
     minOrder: 20,
@@ -278,7 +278,7 @@ export const testimonials = [
     id: 1,
     name: "Clarissa Dananjaya",
     role: "Pengantin Baru (Resepsi di Plataran Cilandak)",
-    comment: "Pawon Umi benar-benar melebihi ekspektasi kami. Meja prasmanan ditata begitu cantik dengan bunga segar dan chafing dish tembaga keemasan. Semua tamu kami memuji rasa rendang dan kambing gulingnya yang luar biasa empuk!",
+    comment: "Dapur Rasa benar-benar melebihi ekspektasi kami. Meja prasmanan ditata begitu cantik dengan bunga segar dan chafing dish tembaga keemasan. Semua tamu kami memuji rasa rendang dan kambing gulingnya yang luar biasa empuk!",
     rating: 5,
     event: "Wedding Reception — 600 Guests"
   },
@@ -286,7 +286,7 @@ export const testimonials = [
     id: 2,
     name: "Raditya Prasetyo, S.E.",
     role: "Head of Corporate Affairs di Danareksa",
-    comment: "Setiap ada pertemuan dewan direksi dan jamuan VIP, kami selalu mempercayakannya ke Pawon Umi. Packaging artisanal rice box-nya sangat berkelas, higienis, dan cita rasa bumbu rempahnya sangat otentik.",
+    comment: "Setiap ada pertemuan dewan direksi dan jamuan VIP, kami selalu mempercayakannya ke Dapur Rasa. Packaging artisanal rice box-nya sangat berkelas, higienis, dan cita rasa bumbu rempahnya sangat otentik.",
     rating: 5,
     event: "Executive Luncheon Meeting"
   },
@@ -294,7 +294,7 @@ export const testimonials = [
     id: 3,
     name: "Dr. Farah Amalia, Sp.A",
     role: "Tuan Rumah Acara Tasyakuran & Aqiqah",
-    comment: "Tumpeng Agung dari Pawon Umi jadi pusat perhatian di acara keluarga kami. Hiasan janur dan ukirannya sangat detail dan berseni tinggi. Pelayanan timnya juga sangat ramah dan tepat waktu.",
+    comment: "Tumpeng Agung dari Dapur Rasa jadi pusat perhatian di acara keluarga kami. Hiasan janur dan ukirannya sangat detail dan berseni tinggi. Pelayanan timnya juga sangat ramah dan tepat waktu.",
     rating: 5,
     event: "Tasyakuran Keluarga Besar"
   }
@@ -306,12 +306,12 @@ export const faqList = [
     a: "Untuk Artisanal Rice Box dan Tumpeng Syukuran, pemesanan dapat dikonfirmasi minimal H-3 sebelum tanggal acara. Untuk Prasmanan dan Resepsi Pernikahan berskala besar, kami menyarankan konfirmasi H-14 hingga H-30 agar tim kami dapat mengunci jadwal dapur dan menyiapkan dekorasi meja secara optimal."
   },
   {
-    q: "Apakah Pawon Umi menyediakan sesi Food Tasting?",
-    a: "Tentu. Kami menyediakan sesi Food Tasting gratis untuk 4 orang (calon pengantin & keluarga atau panitia korporat) di Tasting Lounge Pawon Umi, Menteng, Jakarta Pusat, untuk pemesanan prasmanan di atas 100 porsi atau paket resepsi."
+    q: "Apakah Dapur Rasa menyediakan sesi Food Tasting?",
+    a: "Tentu. Kami menyediakan sesi Food Tasting gratis untuk 4 orang (calon pengantin & keluarga atau panitia korporat) di Tasting Lounge Dapur Rasa, Menteng, Jakarta Pusat, untuk pemesanan prasmanan di atas 100 porsi atau paket resepsi."
   },
   {
     q: "Apakah paket prasmanan sudah mencakup peralatan dan pramusaji?",
-    a: "Ya, seluruh paket prasmanan Pawon Umi sudah termasuk peralatan saji lengkap (roll-top chafing dish keemasan/stainless elegan, piring keramik, sendok-garpu beratina, dan gelas) serta tim pramusaji berseragam rapi yang standby selama durasi acara."
+    a: "Ya, seluruh paket prasmanan Dapur Rasa sudah termasuk peralatan saji lengkap (roll-top chafing dish keemasan/stainless elegan, piring keramik, sendok-garpu beratina, dan gelas) serta tim pramusaji berseragam rapi yang standby selama durasi acara."
   },
   {
     q: "Bagaimana tahapan pembayaran dan reservasi tanggal?",
