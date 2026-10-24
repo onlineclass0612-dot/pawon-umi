@@ -229,7 +229,7 @@ export default function BookingForm() {
                     <Phone className="w-4 h-4 text-[#775A19] shrink-0 mt-1" />
                     <div>
                       <p className="label-sm text-[#2C2521]">Layanan Konsultasi Langsung:</p>
-                      <p className="body-sm text-xs text-[#665D58] mt-0.5">+62 812-3456-7890 (Concierge Dapur Rasa)</p>
+                      <p className="body-sm text-xs text-[#665D58] mt-0.5">{businessInfo.phoneFormatted} (Concierge Dapur Rasa)</p>
                     </div>
                   </div>
                 </div>
@@ -269,7 +269,7 @@ export default function BookingForm() {
                     name="phone"
                     type="tel"
                     label="Nomor WhatsApp Aktif"
-                    placeholder="08123456789"
+                    placeholder="085181738437"
                     icon={Phone}
                     value={formData.phone}
                     onChange={handleChange}

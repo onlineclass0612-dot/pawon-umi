@@ -70,7 +70,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
-                <span className="text-xs">+62 812-3456-7890</span>
+                <span className="text-xs">{businessInfo.phoneFormatted}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
@@ -119,7 +119,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-1.5 text-[#C5A059] font-medium hover:underline"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>+62 812-3456-7890</span>
+                <span>{businessInfo.phoneFormatted}</span>
               </a>
 
               <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[0.2rem] bg-[#2C2521] border border-[#7F7667]/30 text-[10px] text-[#C5A059]">
