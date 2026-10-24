@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Calendar, Users, MapPin, Phone, User, Send, Sparkles, ChevronDown, Check, AlertCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { businessInfo } from '../data/cateringData';
 import { createWhatsAppUrl, formatDateIndo } from '../utils/formatters';
 import FormInput from './FormInput';
@@ -196,16 +195,12 @@ export default function BookingForm() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0 relative z-10">
         
-        <div className="bg-white/95 backdrop-blur-xs rounded-[0.75rem] border border-[#E8DFD1] shadow-md overflow-hidden w-full min-w-0">
+        <div className="bg-white md:bg-white/95 md:backdrop-blur-xs rounded-[0.75rem] border border-[#E8DFD1] shadow-md overflow-hidden w-full min-w-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 w-full min-w-0">
             
-            {/* Left Info Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 bg-[#FAF7F2]/90 p-5 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#E8DFD1] flex flex-col justify-between w-full min-w-0"
+            {/* Left Info Column — Static & Zero Scroll Jitter */}
+            <div
+              className="lg:col-span-5 bg-[#FAF7F2] md:bg-[#FAF7F2]/90 p-5 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#E8DFD1] flex flex-col justify-between w-full min-w-0"
             >
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBF9F5] border border-[#D1C5B4] text-[#775A19]">
@@ -245,14 +240,10 @@ export default function BookingForm() {
                   *Pemesanan melalui formulir ini akan terhubung langsung ke WhatsApp tim Concierge Dapur Rasa.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Right Form Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.95, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            {/* Right Form Column — Zero Horizontal Slide Overflows */}
+            <div
               className="lg:col-span-7 p-5 sm:p-8 lg:p-12 bg-[#FBF9F5] w-full min-w-0"
             >
               <form onSubmit={handleSubmit} noValidate className="space-y-5 w-full min-w-0">
@@ -346,45 +337,39 @@ export default function BookingForm() {
                       />
                     </button>
 
-                    {/* Overflow-Safe Dropdown Menu Options with AnimatePresence */}
-                    <AnimatePresence>
-                      {isDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -6, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: -6, scale: 0.98 }}
-                          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                          className="absolute left-0 right-0 top-[calc(100%+4px)] w-full max-w-full min-w-0 bg-white rounded-[0.375rem] border border-[#D1C5B4] shadow-xl py-1 z-40"
-                          role="listbox"
-                          aria-labelledby="booking-eventType-label"
-                        >
-                          <div className="max-h-56 overflow-y-auto divide-y divide-[#F5F3EF]">
-                            {eventTypeOptions.map((type) => (
-                              <button
-                                key={type}
-                                type="button"
-                                role="option"
-                                aria-selected={formData.eventType === type}
-                                onClick={() => {
-                                  setFormData((prev) => ({ ...prev, eventType: type }));
-                                  setIsDropdownOpen(false);
-                                }}
-                                className={`w-full min-w-0 max-w-full px-3.5 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
-                                  formData.eventType === type
-                                    ? 'bg-[#F5F3EF] text-[#775A19] font-semibold'
-                                    : 'text-[#4E4639] hover:bg-[#FBF9F5] hover:text-[#2C2521]'
-                                }`}
-                              >
-                                <span className="truncate pr-2">{type}</span>
-                                {formData.eventType === type && (
-                                  <Check className="w-4 h-4 text-[#775A19] shrink-0" aria-hidden="true" />
-                                )}
-                              </button>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    {/* Overflow-Safe Dropdown Menu Options */}
+                    {isDropdownOpen && (
+                      <div
+                        className="absolute left-0 right-0 top-[calc(100%+4px)] w-full max-w-full min-w-0 bg-white rounded-[0.375rem] border border-[#D1C5B4] shadow-xl py-1 z-40 transition-opacity duration-150"
+                        role="listbox"
+                        aria-labelledby="booking-eventType-label"
+                      >
+                        <div className="max-h-56 overflow-y-auto divide-y divide-[#F5F3EF]">
+                          {eventTypeOptions.map((type) => (
+                            <button
+                              key={type}
+                              type="button"
+                              role="option"
+                              aria-selected={formData.eventType === type}
+                              onClick={() => {
+                                setFormData((prev) => ({ ...prev, eventType: type }));
+                                setIsDropdownOpen(false);
+                              }}
+                              className={`w-full min-w-0 max-w-full px-3.5 py-2.5 text-left text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
+                                formData.eventType === type
+                                  ? 'bg-[#F5F3EF] text-[#775A19] font-semibold'
+                                  : 'text-[#4E4639] hover:bg-[#FBF9F5] hover:text-[#2C2521]'
+                              }`}
+                            >
+                              <span className="truncate pr-2">{type}</span>
+                              {formData.eventType === type && (
+                                <Check className="w-4 h-4 text-[#775A19] shrink-0" aria-hidden="true" />
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -447,19 +432,17 @@ export default function BookingForm() {
                   </div>
                 )}
 
-                {/* Submit Button */}
-                <motion.button
-                  whileHover={{ scale: 1.01, transition: { duration: 0.3 } }}
-                  whileTap={{ scale: 0.99 }}
+                {/* Submit Button — Pure GPU CSS Touch Feedback */}
+                <button
                   type="submit"
-                  className="btn-primary w-full text-center flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
+                  className="btn-primary w-full text-center flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md transition-transform duration-200 active:scale-98"
                 >
                   <Send className="w-4 h-4" />
                   <span>Konsultasi Sekarang</span>
-                </motion.button>
+                </button>
 
               </form>
-            </motion.div>
+            </div>
 
           </div>
         </div>

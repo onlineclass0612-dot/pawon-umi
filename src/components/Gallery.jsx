@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import SectionHeader from './SectionHeader';
 
 const galleryItems = [
@@ -160,7 +159,7 @@ export default function Gallery() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A]/90 via-[#1B1C1A]/20 to-transparent" />
                   
                   {/* Zoom Indicator */}
-                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-[#1B1C1A]/60 backdrop-blur-sm text-white flex items-center justify-center">
+                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-[#1B1C1A]/80 text-white flex items-center justify-center">
                     <Maximize2 className="w-3 h-3" />
                   </div>
 
@@ -224,18 +223,13 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Versi Tablet & Desktop: Grid 3 Kolom Elegan */}
+        {/* Versi Tablet & Desktop: Grid 3 Kolom Elegan (GPU-Accelerated CSS) */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {galleryItems.map((item, index) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.8, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-[0.5rem] overflow-hidden bg-[#E8DFD1] border border-[#E8DFD1] hover:border-[#C5A059] shadow-2xs hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col justify-end"
+              className="group relative rounded-[0.5rem] overflow-hidden bg-[#E8DFD1] border border-[#E8DFD1] hover:border-[#C5A059] shadow-2xs hover:shadow-lg transition-transform duration-300 hover:-translate-y-1.5 will-change-transform cursor-pointer flex flex-col justify-end"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <img
@@ -250,7 +244,7 @@ export default function Gallery() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A]/90 via-[#1B1C1A]/20 to-transparent transition-opacity duration-300 opacity-80 group-hover:opacity-95" />
 
                 {/* Hover Quick Zoom Icon */}
-                <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-[#1B1C1A]/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-[#1B1C1A]/80 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Maximize2 className="w-3.5 h-3.5" />
                 </div>
 
@@ -264,87 +258,77 @@ export default function Gallery() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
       </div>
 
-      {/* Lightbox Modal with AnimatePresence */}
-      <AnimatePresence>
-        {activeLightboxIndex !== null && galleryItems[activeLightboxIndex] && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="fixed inset-0 z-50 bg-[#1B1C1A]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 cursor-pointer"
+      {/* Lightbox Modal with Pure Lightweight CSS */}
+      {activeLightboxIndex !== null && galleryItems[activeLightboxIndex] && (
+        <div 
+          className="fixed inset-0 z-50 bg-[#1B1C1A]/95 md:backdrop-blur-md flex items-center justify-center p-4 sm:p-6 cursor-pointer transition-opacity duration-200"
+          onClick={closeLightbox}
+        >
+          {/* Close Button */}
+          <button
             onClick={closeLightbox}
+            className="absolute top-5 right-5 z-50 p-2.5 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] text-white hover:text-[#2C2521] transition-colors border border-white/20 cursor-pointer"
+            aria-label="Tutup preview galeri"
           >
-            {/* Close Button */}
-            <button
-              onClick={closeLightbox}
-              className="absolute top-5 right-5 z-50 p-2.5 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] text-white hover:text-[#2C2521] transition-colors border border-white/20 cursor-pointer"
-              aria-label="Tutup preview galeri"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <X className="w-5 h-5" />
+          </button>
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevLightbox}
-              className="absolute left-3 sm:left-6 z-50 p-2.5 sm:p-3 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] text-white hover:text-[#2C2521] transition-colors border border-white/20 cursor-pointer"
-              aria-label="Foto sebelumnya"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevLightbox}
+            className="absolute left-3 sm:left-6 z-50 p-2.5 sm:p-3 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] text-white hover:text-[#2C2521] transition-colors border border-white/20 cursor-pointer"
+            aria-label="Foto sebelumnya"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
 
-            <button
-              onClick={nextLightbox}
-              className="absolute right-3 sm:right-6 z-50 p-2.5 sm:p-3 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] text-white hover:text-[#2C2521] transition-colors border border-white/20 cursor-pointer"
-              aria-label="Foto selanjutnya"
-            >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
+          <button
+            onClick={nextLightbox}
+            className="absolute right-3 sm:right-6 z-50 p-2.5 sm:p-3 rounded-full bg-[#2C2521]/80 hover:bg-[#C5A059] text-white hover:text-[#2C2521] transition-colors border border-white/20 cursor-pointer"
+            aria-label="Foto selanjutnya"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
 
-            {/* Lightbox Center Card */}
-            <motion.div 
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="lightbox-title"
-              initial={{ opacity: 0, scale: 0.94, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 15 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl w-full bg-[#FBF9F5] rounded-[0.75rem] overflow-hidden border border-[#D1C5B4] shadow-2xl relative flex flex-col cursor-default"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative max-h-[65vh] sm:max-h-[70vh] bg-black overflow-hidden flex items-center justify-center">
-                <img
-                  src={galleryItems[activeLightboxIndex].image}
-                  alt={galleryItems[activeLightboxIndex].title}
-                  className="w-full h-full max-h-[65vh] sm:max-h-[70vh] object-contain"
-                />
+          {/* Lightbox Center Card */}
+          <div 
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lightbox-title"
+            className="max-w-4xl w-full bg-[#FBF9F5] rounded-[0.75rem] overflow-hidden border border-[#D1C5B4] shadow-2xl relative flex flex-col cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative max-h-[65vh] sm:max-h-[70vh] bg-black overflow-hidden flex items-center justify-center">
+              <img
+                src={galleryItems[activeLightboxIndex].image}
+                alt={galleryItems[activeLightboxIndex].title}
+                className="w-full h-full max-h-[65vh] sm:max-h-[70vh] object-contain"
+              />
+            </div>
+
+            <div className="p-5 sm:p-6 bg-[#FBF9F5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-[#E8DFD1]">
+              <div className="space-y-1 max-w-xl">
+                <h3 id="lightbox-title" className="headline-sm text-xl text-[#2C2521] font-medium">
+                  {galleryItems[activeLightboxIndex].title}
+                </h3>
+                <p className="body-sm text-xs sm:text-sm text-[#4E4639]">
+                  {galleryItems[activeLightboxIndex].description}
+                </p>
               </div>
 
-              <div className="p-5 sm:p-6 bg-[#FBF9F5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-[#E8DFD1]">
-                <div className="space-y-1 max-w-xl">
-                  <h3 id="lightbox-title" className="headline-sm text-xl text-[#2C2521] font-medium">
-                    {galleryItems[activeLightboxIndex].title}
-                  </h3>
-                  <p className="body-sm text-xs sm:text-sm text-[#4E4639]">
-                    {galleryItems[activeLightboxIndex].description}
-                  </p>
-                </div>
-
-                <div className="label-sm text-[#7F7667] text-xs shrink-0 self-end sm:self-center">
-                  {activeLightboxIndex + 1} / {galleryItems.length}
-                </div>
+              <div className="label-sm text-[#7F7667] text-xs shrink-0 self-end sm:self-center">
+                {activeLightboxIndex + 1} / {galleryItems.length}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      )}
 
     </section>
   );

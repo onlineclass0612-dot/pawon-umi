@@ -1,7 +1,6 @@
 import React from 'react';
 import { testimonials } from '../data/cateringData';
 import { Star } from 'lucide-react';
-import { motion } from 'motion/react';
 import SectionHeader from './SectionHeader';
 
 export default function Testimonials() {
@@ -26,17 +25,12 @@ export default function Testimonials() {
           className="mb-12 sm:mb-16"
         />
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Grid — Pure GPU-Accelerated CSS (Zero Mobile Lag & No Backdrop Blur Penalty) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {testimonials.map((item, idx) => (
-            <motion.div
+          {testimonials.map((item) => (
+            <div
               key={item.id}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.85, delay: idx * 0.18, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }}
-              className="p-5 sm:p-8 rounded-[0.5rem] bg-white/85 backdrop-blur-xs border border-[#E8DFD1] flex flex-col justify-between hover:border-[#C5A059] hover:shadow-lg transition-all relative"
+              className="p-5 sm:p-8 rounded-[0.5rem] bg-white md:bg-white/90 md:backdrop-blur-xs border border-[#E8DFD1] flex flex-col justify-between hover:border-[#C5A059] hover:shadow-lg transition-transform duration-300 hover:-translate-y-1.5 will-change-transform relative"
             >
               <div className="space-y-4">
                 {/* Rating */}
@@ -64,7 +58,7 @@ export default function Testimonials() {
                   {item.event}
                 </span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
