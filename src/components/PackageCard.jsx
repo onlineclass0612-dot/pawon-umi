@@ -17,7 +17,7 @@ export default function PackageCard({
 
   const cardContent = (
     <div
-      className={`rounded-[0.5rem] border overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:border-[#C5A059] ${
+      className={`group rounded-[0.5rem] border overflow-hidden flex flex-col justify-between h-full transition-all duration-300 active:border-[#C5A059]/50 md:active:border-transparent md:hover:shadow-[0_20px_40px_-15px_rgba(119,90,25,0.22)] md:hover:border-[#C5A059] ${
         isDark
           ? 'bg-[#24211D]/90 backdrop-blur-xs border-[#383127]'
           : 'bg-[#F5F3EF] border-[#E8DFD1]'
@@ -37,7 +37,7 @@ export default function PackageCard({
             decoding="async"
             width="600"
             height="338"
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover md:transition-transform md:duration-700 md:ease-out md:group-hover:scale-108"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A]/60 via-transparent to-transparent pointer-events-none" />
 
@@ -131,7 +131,7 @@ export default function PackageCard({
   );
 
   return (
-    <div className="h-full transition-transform duration-300 hover:-translate-y-1.5 will-change-transform">
+    <div className="h-full transition-transform duration-200 active:scale-[0.985] md:active:scale-100 md:duration-300 md:hover:-translate-y-2 md:will-change-transform">
       {cardContent}
     </div>
   );

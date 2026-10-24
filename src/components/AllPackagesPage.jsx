@@ -373,7 +373,7 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
             href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20menu%20kustom%20untuk%20acara%20saya.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary whitespace-nowrap shrink-0 !py-3 !px-6 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="btn-primary whitespace-nowrap shrink-0 !py-3 !px-6 shadow-sm"
           >
             <span>Konsultasi Menu Kustom</span>
             <ArrowUpRight className="w-4 h-4" />

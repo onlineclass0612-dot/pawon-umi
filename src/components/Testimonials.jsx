@@ -30,8 +30,12 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="p-5 sm:p-8 rounded-[0.5rem] bg-white md:bg-white/90 md:backdrop-blur-xs border border-[#E8DFD1] flex flex-col justify-between hover:border-[#C5A059] hover:shadow-lg transition-transform duration-300 hover:-translate-y-1.5 will-change-transform relative"
+              className="group p-5 sm:p-8 rounded-[0.5rem] bg-white md:bg-white/90 md:backdrop-blur-xs border border-[#E8DFD1] flex flex-col justify-between transition-transform duration-150 active:scale-[0.985] md:active:scale-100 md:transition-all md:duration-300 md:hover:border-[#C5A059] md:hover:shadow-[0_20px_35px_-15px_rgba(119,90,25,0.18)] md:hover:-translate-y-2 md:will-change-transform relative overflow-hidden"
             >
+              {/* Decorative Subtle Quote Mark */}
+              <div className="absolute top-3 right-5 font-serif text-4xl text-[#C5A059]/20 select-none pointer-events-none group-hover:text-[#C5A059]/45 transition-colors duration-300">
+                “
+              </div>
               <div className="space-y-4">
                 {/* Rating */}
                 <div className="flex items-center gap-1">

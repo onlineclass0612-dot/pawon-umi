@@ -60,6 +60,9 @@ export default function PackageModal({ pkg, onClose }) {
           <img
             src={pkg.image}
             alt={pkg.name}
+            width="800"
+            height="450"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#2C2521]/80 via-transparent to-transparent" />

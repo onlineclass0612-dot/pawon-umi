@@ -145,12 +145,14 @@ export default function Gallery() {
               <div
                 key={item.id}
                 onClick={() => openLightbox(index)}
-                className="w-[82vw] snap-center shrink-0 group relative rounded-[0.5rem] overflow-hidden bg-[#E8DFD1] border border-[#E8DFD1] shadow-2xs active:scale-[0.99] transition-transform cursor-pointer"
+                className="w-[82vw] snap-center shrink-0 group relative rounded-[0.5rem] overflow-hidden bg-[#E8DFD1] border border-[#E8DFD1] shadow-2xs active:scale-[0.98] transition-transform duration-150 cursor-pointer select-none"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
+                    width="640"
+                    height="480"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover"
@@ -229,12 +231,14 @@ export default function Gallery() {
             <div
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-[0.5rem] overflow-hidden bg-[#E8DFD1] border border-[#E8DFD1] hover:border-[#C5A059] shadow-2xs hover:shadow-lg transition-transform duration-300 hover:-translate-y-1.5 will-change-transform cursor-pointer flex flex-col justify-end"
+              className="group relative rounded-[0.5rem] overflow-hidden bg-[#E8DFD1] border border-[#E8DFD1] shadow-2xs transition-all duration-300 md:hover:border-[#C5A059] md:hover:shadow-[0_20px_35px_-15px_rgba(119,90,25,0.25)] md:hover:-translate-y-2 md:will-change-transform active:scale-[0.985] md:active:scale-100 cursor-pointer flex flex-col justify-end"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
+                  width="640"
+                  height="480"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
@@ -243,9 +247,9 @@ export default function Gallery() {
                 {/* Gradient Overlays */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1B1C1A]/90 via-[#1B1C1A]/20 to-transparent transition-opacity duration-300 opacity-80 group-hover:opacity-95" />
 
-                {/* Hover Quick Zoom Icon */}
-                <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-[#1B1C1A]/80 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Maximize2 className="w-3.5 h-3.5" />
+                {/* Hover Quick Zoom Icon with Desktop Scale Animation */}
+                <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-[#1B1C1A]/85 text-white flex items-center justify-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 shadow-md">
+                  <Maximize2 className="w-3.5 h-3.5 text-[#C5A059]" />
                 </div>
 
                 {/* Bottom Caption Content */}
@@ -308,6 +312,9 @@ export default function Gallery() {
               <img
                 src={galleryItems[activeLightboxIndex].image}
                 alt={galleryItems[activeLightboxIndex].title}
+                width="1000"
+                height="750"
+                decoding="async"
                 className="w-full h-full max-h-[65vh] sm:max-h-[70vh] object-contain"
               />
             </div>

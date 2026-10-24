@@ -129,14 +129,14 @@ export default function Hero() {
             >
               <a
                 href="#catalog"
-                className="btn-primary shadow-sm transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="btn-primary shadow-sm"
               >
                 <span>Jelajahi Pilihan Menu</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
               <a
                 href="#kontak"
-                className="btn-secondary bg-[#FBF9F5]/80 backdrop-blur-xs transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="btn-secondary bg-[#FBF9F5]/90"
               >
                 <span>Konsultasi & Reservasi</span>
               </a>

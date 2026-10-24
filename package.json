@@ -7,11 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "audit:lighthouse": "lighthouse http://localhost:4173 --output=json --output-path=./lighthouse-report.json --only-categories=performance --chrome-flags=\"--headless=new --no-sandbox\""
   },
   "dependencies": {
     "lucide-react": "^1.47.0",
-    "motion": "^13.4.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "sharp": "^0.35.4"

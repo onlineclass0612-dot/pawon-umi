@@ -121,8 +121,8 @@ export default function Navbar({ onNavigateHome, currentView }) {
 
       {/* Mobile & Tablet Drawer with Smooth Hardware-Accelerated CSS Slide */}
       <div
-        className={`lg:hidden bg-[#FBF9F5] border-b border-[#E8DFD1] px-5 sm:px-6 space-y-4 overflow-hidden transition-all duration-300 ease-out ${
-          isOpen ? 'max-h-96 py-5 sm:py-6 opacity-100' : 'max-h-0 py-0 opacity-0 pointer-events-none'
+        className={`lg:hidden bg-[#FBF9F5] border-b border-[#E8DFD1] px-5 sm:px-6 space-y-2 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top ${
+          isOpen ? 'max-h-96 py-4 sm:py-5 opacity-100 translate-y-0' : 'max-h-0 py-0 opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
         <a
@@ -132,8 +132,8 @@ export default function Navbar({ onNavigateHome, currentView }) {
             handleNav(e, '#beranda');
           }}
           aria-current={currentView === 'home' ? 'page' : undefined}
-          className={`block label-md whitespace-nowrap py-2 border-b border-[#EFEEEA] ${
-            currentView === 'home' ? 'text-[#775A19] font-semibold' : 'text-[#665D58]'
+          className={`block label-md whitespace-nowrap py-2.5 px-3 rounded-[0.25rem] border-b border-[#EFEEEA] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1 ${
+            currentView === 'home' ? 'text-[#775A19] font-semibold bg-[#F5F3EF]' : 'text-[#665D58]'
           }`}
         >
           Beranda
@@ -145,8 +145,8 @@ export default function Navbar({ onNavigateHome, currentView }) {
             handleNav(e, '#catalog');
           }}
           aria-current={currentView === 'catalog' ? 'page' : undefined}
-          className={`block label-md whitespace-nowrap py-2 border-b border-[#EFEEEA] ${
-            currentView === 'catalog' ? 'text-[#775A19] font-semibold' : 'text-[#665D58]'
+          className={`block label-md whitespace-nowrap py-2.5 px-3 rounded-[0.25rem] border-b border-[#EFEEEA] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1 ${
+            currentView === 'catalog' ? 'text-[#775A19] font-semibold bg-[#F5F3EF]' : 'text-[#665D58]'
           }`}
         >
           Catalog
@@ -157,7 +157,7 @@ export default function Navbar({ onNavigateHome, currentView }) {
             setIsOpen(false);
             handleNav(e, '#ulasan');
           }}
-          className="block label-md whitespace-nowrap text-[#665D58] py-2 border-b border-[#EFEEEA]"
+          className="block label-md whitespace-nowrap text-[#665D58] py-2.5 px-3 rounded-[0.25rem] border-b border-[#EFEEEA] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1"
         >
           Ulasan
         </a>
@@ -167,7 +167,7 @@ export default function Navbar({ onNavigateHome, currentView }) {
             setIsOpen(false);
             handleNav(e, '#galeri');
           }}
-          className="block label-md whitespace-nowrap text-[#665D58] py-2 border-b border-[#EFEEEA]"
+          className="block label-md whitespace-nowrap text-[#665D58] py-2.5 px-3 rounded-[0.25rem] border-b border-[#EFEEEA] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1"
         >
           Galeri
         </a>
@@ -177,7 +177,7 @@ export default function Navbar({ onNavigateHome, currentView }) {
             setIsOpen(false);
             handleNav(e, '#kontak');
           }}
-          className="block label-md whitespace-nowrap text-[#665D58] py-2"
+          className="block label-md whitespace-nowrap text-[#665D58] py-2.5 px-3 rounded-[0.25rem] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1"
         >
           Kontak
         </a>

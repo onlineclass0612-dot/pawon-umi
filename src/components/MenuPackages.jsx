@@ -51,10 +51,10 @@ export default function MenuPackages({ onSelectPackage, onOpenCatalog }) {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`label-sm relative px-3.5 sm:px-6 py-2 rounded-full transition-all duration-300 cursor-pointer whitespace-nowrap text-xs sm:text-sm font-medium ${
+                  className={`label-sm relative px-3.5 sm:px-6 py-2 rounded-full transition-all duration-200 active:scale-95 md:active:scale-100 md:hover:-translate-y-0.5 cursor-pointer whitespace-nowrap text-xs sm:text-sm font-medium select-none -webkit-tap-highlight-color-transparent ${
                     isActive
                       ? "text-[#2C2521] font-semibold bg-[#C5A059] shadow-xs"
-                      : "text-[#665D58] hover:text-[#2C2521]"
+                      : "text-[#665D58] hover:text-[#2C2521] hover:bg-[#E8DFD1]/50"
                   }`}
                 >
                   <span className="relative z-10">{cat.name}</span>

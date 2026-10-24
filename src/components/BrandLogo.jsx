@@ -44,6 +44,7 @@ export default function BrandLogo({
             width="56"
             height="56"
             loading="eager"
+            decoding="async"
             className={`${imageSize} object-contain rounded-full border border-[#C5A059]/50 bg-[#1B1C1A]`}
           />
         </div>
