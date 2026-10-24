@@ -93,7 +93,7 @@ export default function Navbar({ onNavigateHome, currentView }) {
           {/* Desktop Primary Action */}
           <div className="hidden lg:flex items-center shrink-0">
             <a 
-              href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20menu%20dan%20jadwal%20acara.`}
+              href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Catering%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20menu%20dan%20jadwal%20acara.`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary whitespace-nowrap shrink-0 !text-xs xl:!text-sm"

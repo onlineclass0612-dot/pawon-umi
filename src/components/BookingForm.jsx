@@ -205,7 +205,7 @@ export default function BookingForm() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FBF9F5] border border-[#D1C5B4] text-[#775A19]">
                   <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
-                  <span className="label-sm text-[#4E4639]">Layanan Concierge</span>
+                  <span className="label-sm text-[#4E4639]">Layanan Catering</span>
                 </div>
 
                 <h3 className="headline-md text-[#2C2521]">
@@ -229,7 +229,7 @@ export default function BookingForm() {
                     <Phone className="w-4 h-4 text-[#775A19] shrink-0 mt-1" />
                     <div>
                       <p className="label-sm text-[#2C2521]">Layanan Konsultasi Langsung:</p>
-                      <p className="body-sm text-xs text-[#665D58] mt-0.5">{businessInfo.phoneFormatted} (Concierge Dapur Rasa)</p>
+                      <p className="body-sm text-xs text-[#665D58] mt-0.5">{businessInfo.phoneFormatted} (Catering Dapur Rasa)</p>
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ export default function BookingForm() {
 
               <div className="pt-8 mt-8 border-t border-[#E8DFD1]">
                 <p className="label-sm text-[#7F7667] normal-case">
-                  *Pemesanan melalui formulir ini akan terhubung langsung ke WhatsApp tim Concierge Dapur Rasa.
+                  *Pemesanan melalui formulir ini akan terhubung langsung ke WhatsApp tim Catering Dapur Rasa.
                 </p>
               </div>
             </div>
@@ -254,7 +254,7 @@ export default function BookingForm() {
                     id="booking-name"
                     name="name"
                     label="Nama Lengkap Anda"
-                    placeholder="Ibu Rina Paramita"
+                    placeholder="contoh: Ibu Ratna Dewi"
                     icon={User}
                     value={formData.name}
                     onChange={handleChange}
@@ -269,7 +269,7 @@ export default function BookingForm() {
                     name="phone"
                     type="tel"
                     label="Nomor WhatsApp Aktif"
-                    placeholder="085181738437"
+                    placeholder="+62XXXXXXXX"
                     icon={Phone}
                     value={formData.phone}
                     onChange={handleChange}

@@ -9,7 +9,7 @@ export const businessInfo = {
   phone: "+6285181738437",
   whatsapp: "6285181738437",
   phoneFormatted: "+62 851-8173-8437",
-  email: "concierge@dapurrasa.id",
+  email: "catering@dapurrasa.id",
   address: "Jl. Cikini Raya No. 45, Menteng, Jakarta Pusat",
   operationalHours: "Senin – Minggu: 08.00 – 20.00 WIB",
   stats: [

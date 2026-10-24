@@ -366,11 +366,11 @@ export default function AllPackagesPage({ onBack, onSelectPackage }) {
               Memerlukan Susunan Menu Khusus atau Diet Spesifik?
             </h3>
             <p className="body-sm text-xs sm:text-sm text-[#4E4639] max-w-xl">
-              Executive Chef dan Concierge Dapur Rasa dapat mengkreasikan kombinasi hidangan kustom sesuai konsep acara, jumlah tamu, dan preferensi tradisi keluarga Anda.
+              Executive Chef dan tim Catering Dapur Rasa dapat mengkreasikan kombinasi hidangan kustom sesuai konsep acara, jumlah tamu, dan preferensi tradisi keluarga Anda.
             </p>
           </div>
           <a
-            href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20menu%20kustom%20untuk%20acara%20saya.`}
+            href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Catering%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20menu%20kustom%20untuk%20acara%20saya.`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary whitespace-nowrap shrink-0 !py-3 !px-6 shadow-sm"

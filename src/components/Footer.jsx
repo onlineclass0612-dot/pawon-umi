@@ -58,10 +58,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Concierge Contacts */}
+          {/* Catering Contacts */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="label-md text-[#C5A059]">
-              Concierge Jamuan
+              Catering Jamuan
             </h4>
             <div className="space-y-3 body-sm text-sm text-[#CEC5B8]">
               <div className="flex items-start gap-2.5">
@@ -113,7 +113,7 @@ export default function Footer() {
             
             <div className="flex items-center justify-between pt-1">
               <a 
-                href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20layanan%20katering.`}
+                href={`https://wa.me/${businessInfo.whatsapp}?text=Halo%20Catering%20Dapur%20Rasa,%20saya%20ingin%20konsultasi%20layanan%20katering.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-[#C5A059] font-medium hover:underline"

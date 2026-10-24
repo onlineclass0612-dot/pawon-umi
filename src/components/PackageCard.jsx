@@ -13,7 +13,7 @@ export default function PackageCard({
   onSelectPackage,
   isDark = false
 }) {
-  const waLink = `https://wa.me/${businessInfo.whatsapp}?text=Halo%20Concierge%20Dapur%20Rasa,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}%20(${formatRupiah(pkg.price)}/${pkg.unit}).%20Bisa%20bantu%20jelaskan%20rinciannya?`;
+  const waLink = `https://wa.me/${businessInfo.whatsapp}?text=Halo%20Catering%20Dapur%20Rasa,%20saya%20tertarik%20dengan%20paket%20${encodeURIComponent(pkg.name)}%20(${formatRupiah(pkg.price)}/${pkg.unit}).%20Bisa%20bantu%20jelaskan%20rinciannya?`;
 
   const cardContent = (
     <div
