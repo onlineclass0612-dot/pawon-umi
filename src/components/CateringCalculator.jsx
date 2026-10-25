@@ -126,26 +126,32 @@ const formatConfigs = {
         id: 'standar',
         name: 'Tumpeng Kenduri Barokah',
         price: 44500,
-        badge: 'Intimate Gathering',
-        description: 'Tumpeng tampah 20 porsi (Rp 890.000). Nasi kuning, ayam ungkep kremes, sambal krecek & perkedel.',
-        pkgId: 'tumpeng-syukuran-kenduri'
+        badge: 'Tampah 20 Tamu',
+        description: '1 Tampah tumpeng tradisional Rp 890.000 (untuk 20 tamu / ± Rp 44.500/porsi). Nasi kuning, ayam ungkep kremes, krecek & perkedel.',
+        pkgId: 'tumpeng-syukuran-kenduri',
+        displayPrice: 'Rp 890.000',
+        displayUnit: 'tampah (20 tamu)'
       },
       favorit: {
         id: 'favorit',
         name: 'Tumpeng Mahligai Rempah',
         price: 45000,
-        badge: 'Mahakarya Seni ★',
+        badge: 'Tampah 30 Tamu ★',
         isPopular: true,
-        description: 'Tumpeng bertingkat tampah 30 porsi (Rp 1.350.000). Janur ukir, ayam lengkuas, sambal ati & urap.',
-        pkgId: 'tumpeng-parahyangan-agung'
+        description: '1 Tampah tumpeng bertingkat Rp 1.350.000 (untuk 30 tamu / ± Rp 45.000/porsi). Janur ukir, ayam lengkuas, sambal ati & urap.',
+        pkgId: 'tumpeng-parahyangan-agung',
+        displayPrice: 'Rp 1.350.000',
+        displayUnit: 'tampah (30 tamu)'
       },
       royal: {
         id: 'royal',
         name: 'Tumpeng Mini Dome Exclusive',
         price: 48000,
         badge: 'Individual Dome VIP',
-        description: 'Sajian perorangan dalam mika dome transparan berikat pita satin emas & kartu ucapan kustom.',
-        pkgId: 'tumpeng-mini-parahyangan'
+        description: 'Sajian perorangan dalam mika dome transparan berikat pita satin emas & kartu ucapan kustom (Rp 48.000 / porsi).',
+        pkgId: 'tumpeng-mini-parahyangan',
+        displayPrice: 'Rp 48.000',
+        displayUnit: 'porsi'
       }
     },
     includes: [
@@ -242,6 +248,10 @@ export default function CateringCalculator({ onSelectPackage }) {
     : null;
 
   // Generate WhatsApp message
+  const unitPriceFormatted = activeTier.displayPrice && activeTier.displayUnit && activeTier.displayUnit.includes('tampah')
+    ? `${activeTier.displayPrice} / ${activeTier.displayUnit} (± ${formatRupiah(activeTier.price)}/porsi)`
+    : `${formatRupiah(activeTier.price)} / ${activeFormat.unitLabel.toLowerCase()}`;
+
   const waMessage = [
     `Halo Dapur Rasa Catering, saya melakukan simulasi estimasi di website:`,
     ``,
@@ -249,7 +259,7 @@ export default function CateringCalculator({ onSelectPackage }) {
     `• Format Acara: ${activeFormat.name}`,
     `• Perkiraan Kebutuhan: ${guestCount} ${activeFormat.unitLabel}`,
     `• Pilihan Menu: ${activeTier.name}`,
-    `• Estimasi Biaya Satuan: ${formatRupiah(activeTier.price)} / ${activeFormat.unitLabel.toLowerCase()}`,
+    `• Estimasi Biaya Satuan: ${unitPriceFormatted}`,
     `• Perkiraan Total Investasi: ± ${formatRupiah(totalCost)}`,
     ``,
     `Apakah jadwal untuk tanggal acara saya masih tersedia untuk konsultasi dan penyesuaian menu? Terima kasih!`
@@ -426,6 +436,23 @@ export default function CateringCalculator({ onSelectPackage }) {
                     </button>
                   ))}
                 </div>
+
+                {/* Helper for small intimate groups */}
+                <div className="mt-4 pt-3 border-t border-[#E8DFD1]/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-[11px] text-[#7F7667]">
+                  <span>Butuh porsi lebih sedikit (5–15 tamu) atau budget khusus?</span>
+                  <a
+                    href={createWhatsAppUrl(
+                      businessInfo.whatsapp,
+                      'Halo Dapur Rasa Catering, saya ingin konsultasi paket jamuan porsi kecil (5-15 tamu) atau penyesuaian budget khusus.'
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#775A19] font-semibold hover:underline inline-flex items-center gap-1"
+                  >
+                    <span>Konsultasi Porsi Intimate</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -473,10 +500,10 @@ export default function CateringCalculator({ onSelectPackage }) {
 
                       <div className="pt-2 border-t border-[#E8DFD1] mt-auto">
                         <span className="text-base font-bold text-[#2C2521] font-serif block">
-                          {formatRupiah(tier.price)}
+                          {tier.displayPrice || formatRupiah(tier.price)}
                         </span>
                         <span className="text-[10px] text-[#7F7667]">
-                          per {activeFormat.unitLabel.toLowerCase()}
+                          {tier.displayUnit ? `per ${tier.displayUnit}` : `per ${activeFormat.unitLabel.toLowerCase()}`}
                         </span>
                       </div>
                     </button>
@@ -516,9 +543,17 @@ export default function CateringCalculator({ onSelectPackage }) {
                   {formatRupiah(totalCost)}
                 </div>
                 <div className="text-xs text-[#7F7667] mt-1.5 flex items-center justify-center gap-1">
-                  <span>{guestCount} {activeFormat.unitLabel}</span>
-                  <span>×</span>
-                  <span className="font-semibold text-[#2C2521]">{formatRupiah(activeTier.price)}</span>
+                  {activeTier.displayPrice && activeTier.displayUnit && activeTier.displayUnit.includes('tampah') ? (
+                    <span>
+                      Estimasi untuk {guestCount} tamu • {activeTier.displayPrice} / {activeTier.displayUnit}
+                    </span>
+                  ) : (
+                    <>
+                      <span>{guestCount} {activeFormat.unitLabel}</span>
+                      <span>×</span>
+                      <span className="font-semibold text-[#2C2521]">{formatRupiah(activeTier.price)}</span>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -582,6 +617,26 @@ export default function CateringCalculator({ onSelectPackage }) {
                   <span>Lanjut Isi Formulir Reservasi</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#775A19]" />
                 </a>
+
+                {/* Bespoke Budget & Intimate Callout */}
+                <div className="p-3.5 rounded-xl bg-[#FAF6EE] border border-[#E8DFD1] flex items-start gap-2.5 text-left">
+                  <Sparkles className="w-4 h-4 text-[#775A19] shrink-0 mt-0.5" />
+                  <div className="text-[11px] text-[#665D58] leading-relaxed">
+                    <span className="font-semibold text-[#2C2521] block mb-0.5">Punya Budget Khusus atau Tamu 5–15 Orang?</span>
+                    Estimasi di atas adalah acuan paket standar. Tim kuliner kami siap meracik menu tailor-made sesuai alokasi dana Anda.{' '}
+                    <a
+                      href={createWhatsAppUrl(
+                        businessInfo.whatsapp,
+                        'Halo Dapur Rasa Catering, saya ingin konsultasi menu khusus yang disesuaikan dengan anggaran / tamu terbatas untuk acara saya.'
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#775A19] font-bold underline hover:text-[#5C4513] inline-flex items-center gap-0.5"
+                    >
+                      Chat Tim Kuliner ↗
+                    </a>
+                  </div>
+                </div>
 
                 <p className="text-[11px] text-[#7F7667] text-center leading-normal pt-1">
                   *Estimasi di atas bersifat fleksibel dan dapat dikustomisasi sesuai selera, tema, dan lokasi acara Anda.

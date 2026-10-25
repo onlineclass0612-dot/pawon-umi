@@ -10,7 +10,8 @@ const eventTypeOptions = [
   'Gathering Perusahaan / Kantor',
   'Syukuran & Tasyakuran',
   'Seminar & Workshop',
-  'Arisan & Acara Keluarga',
+  'Arisan & Acara Keluarga (5–15 Orang)',
+  'Konsultasi Menu Custom (Sesuai Budget)',
   'Jamuan Privat / Lainnya'
 ];
 
@@ -92,8 +93,8 @@ export default function BookingForm() {
           return 'Estimasi jumlah tamu wajib diisi';
         }
         const num = Number(value);
-        if (isNaN(num) || num < 20) {
-          return 'Estimasi pesanan minimal 20 porsi';
+        if (isNaN(num) || num < 5) {
+          return 'Estimasi pesanan minimal 5 porsi / tamu';
         }
         return '';
       }
@@ -397,13 +398,13 @@ export default function BookingForm() {
                     label="Estimasi Jumlah Tamu"
                     placeholder="150"
                     icon={Users}
-                    min="20"
+                    min="5"
                     max="10000"
                     value={formData.guests}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.guests}
-                    helperText="Minimum pemesanan 20 porsi"
+                    helperText="Mulai dari 5 porsi (tersedia layanan intimate & kustom budget)"
                     required
                   />
 
@@ -434,7 +435,7 @@ export default function BookingForm() {
                     maxLength={500}
                     value={formData.notes}
                     onChange={handleChange}
-                    placeholder="Contoh: Kami berencana mengadakan sesi food tasting untuk 4 orang di akhir pekan ini..."
+                    placeholder="Contoh: Punya alokasi budget khusus (misal Rp 1.500.000 untuk 10 porsi), request menu khusus, atau jadwal food tasting..."
                     className="w-full px-4 py-2.5 rounded-[0.25rem] bg-white border border-[#E8DFD1] focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059] body-sm text-sm resize-none"
                   ></textarea>
                 </div>

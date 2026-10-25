@@ -35,6 +35,140 @@ export const menuCategories = [
 ];
 
 export const packagesData = [
+  // 1. KATEGORI RICE BOX (nasikotak) - Urut dari Termurah ke Termahal
+  {
+    id: "nasibox-dapur-rasa",
+    category: "nasikotak",
+    name: "Bento Nasi Liwet Dapur Rasa",
+    price: 42000,
+    unit: "box",
+    minOrder: 20,
+    popular: false,
+    image: "/images/nasibox_premium.webp",
+    description: "Kotak bento kraft ramah lingkungan dengan sekat elegan higienis. Nasi liwet harum teri Medan, ayam bakar Solo, bacem tahu tempe, sambal bajak & pisang.",
+    features: [
+      "Nasi Liwet Gurih Harum Daun Salam & Teri Medan",
+      "Ayam Bakar Solo Glaze Kecap Manis Legendaris",
+      "Bacem Tahu & Tempe Rempah Gula Kelapa",
+      "Sambal Bajak Ulek Segar Terasi Matang",
+      "Lalapan Timun, Kemangi & Tomat Ceri",
+      "Kerupuk Kampung & Sendok Kayu Higienis",
+      "Buah Pisang Cavendish Segar"
+    ],
+    includesStaff: false
+  },
+  {
+    id: "nasibox-ayam-madu",
+    category: "nasikotak",
+    name: "Royal Bento Ayam Bakar Madu",
+    price: 45000,
+    unit: "box",
+    minOrder: 20,
+    popular: true,
+    image: "/images/nasibox_premium.webp",
+    description: "Kombinasi ayam bakar madu hutan wijen sangrai dengan sajian sayuran tradisional dan sambal matah harum menggugah selera.",
+    features: [
+      "Nasi Daun Jeruk Pandan Wangi Pulen",
+      "Ayam Bakar Madu Klanceng Tabur Wijen Sangrai",
+      "Sambal Matah Bali Kecombrang Segar",
+      "Tempe Mendoan Gurih & Cocolan Kecap Rawit",
+      "Urap Sayur Bumbu Kelapa Bakar Harum",
+      "Kerupuk Gendar Renyah Bawang",
+      "Buah Jeruk Segar & Sendok Bambu Higienis"
+    ],
+    includesStaff: false
+  },
+  {
+    id: "nasibox-bistik-andaliman",
+    category: "nasikotak",
+    name: "Executive Box Bistik Sapi",
+    price: 52000,
+    unit: "box",
+    minOrder: 20,
+    popular: false,
+    image: "/images/nasibox_premium.webp",
+    description: "Irisan tenderloin sapi empuk berselimut saus bistik rempah lada hitam manis gurih, disajikan berdampingan dengan sayuran mentega segar.",
+    features: [
+      "Nasi Putih Aromatik Bawang Merah Goreng",
+      "Bistik Daging Sapi Saus Lada Hitam / Manis",
+      "Telur Balado Balut Cabai Merah Keriting",
+      "Tumis Buncis Baby Jagung Manis Wortel",
+      "Perkedel Kentang Olahan Daging Cincang",
+      "Kerupuk Udang Renyah Kemasan Kedap",
+      "Air Mineral Cup & Puding Mangga Segar"
+    ],
+    includesStaff: false
+  },
+
+  // 2. KATEGORI TUMPENG (tumpeng)
+  {
+    id: "tumpeng-syukuran-kenduri",
+    category: "tumpeng",
+    name: "Tumpeng Kenduri Barokah",
+    price: 890000,
+    unit: "tampah",
+    minOrder: 1,
+    popular: false,
+    image: "/images/tumpeng_nusantara.webp",
+    description: "Sajian tumpeng tradisional berukuran kompak di atas tampah anyam bambu berhias janur ukir, ideal untuk syukuran 15–20 tamu (± Rp 44.500/porsi).",
+    features: [
+      "Porsi Ideal Jamuan 15–20 Tamu",
+      "Nasi Kuning Gurih Harum Daun Pandan & Santan",
+      "Ayam Ungkep Goreng Kremes Lengkuas (20 Potong)",
+      "Sambal Goreng Krecek Daging Sapi Cincang",
+      "Perkedel Kentang Wangi Daun Bawang",
+      "Telur Dadar Rawis & Telur Puyuh Semur",
+      "Kering Tempe Kacang Renyah Manis Gurih",
+      "Hiasan Janur & Ukiran Sayuran Cantik"
+    ],
+    includesStaff: false
+  },
+  {
+    id: "tumpeng-parahyangan-agung",
+    category: "tumpeng",
+    name: "Tumpeng Mahligai Rempah",
+    price: 1350000,
+    unit: "tampah",
+    minOrder: 1,
+    popular: true,
+    image: "/images/tumpeng_nusantara.webp",
+    description: "Karya seni tumpeng kuning bertingkat di atas tampah anyam bambu berhias lipatan daun pisang dan ukiran sayuran segar untuk 25–30 tamu (± Rp 45.000/porsi).",
+    features: [
+      "Porsi Ideal Jamuan 25–30 Tamu",
+      "Nasi Kuning Kunyit Segar & Santan Kelapa Murni",
+      "Ayam Goreng Lengkuas Gurih Renyah (30 Potong)",
+      "Sambal Goreng Ati Sapi Ampela Balado Merah",
+      "Perkedel Kentang Emas Goreng Telur",
+      "Telur Dadar Rawis Halus & Telur Puyuh Pindang",
+      "Kering Tempe Kacang Tanah Renyah Gurih",
+      "Urap Sayuran Segar Bumbu Kelapa Sangrai",
+      "Plat Tulisan Ucapan Syukuran Custom & Pisau Khusus"
+    ],
+    includesStaff: false
+  },
+  {
+    id: "tumpeng-mini-parahyangan",
+    category: "tumpeng",
+    name: "Tumpeng Mini Dome Exclusive",
+    price: 48000,
+    unit: "porsi",
+    minOrder: 20,
+    popular: false,
+    image: "/images/tumpeng_nusantara.webp",
+    description: "Porsi perorangan dalam mika dome transparan berikat pita satin dan kartu ucapan kustom bertuliskan nama acara Anda.",
+    features: [
+      "Sajian Individual Higienis Berpita Satin Cantik",
+      "Nasi Kuning Mini Bentuk Candi / Kerucut",
+      "Ayam Suwir Balado Rempah Kelapa",
+      "Perkedel Kentang Mini",
+      "Telur Dadar Gulung Iris Halus",
+      "Orek Tempe Gurih Manis Gula Jawa",
+      "Sambal Bajak Botol Mini Segel"
+    ],
+    includesStaff: false
+  },
+
+  // 3. KATEGORI PRASMANAN (prasmanan) - Urut dari Termurah ke Termahal
   {
     id: "prasmanan-bumi-kartika",
     category: "prasmanan",
@@ -59,37 +193,13 @@ export const packagesData = [
     setupDuration: "2 Jam Sebelum Acara"
   },
   {
-    id: "prasmanan-rajapatni",
-    category: "prasmanan",
-    name: "Prasmanan Agung Rajapatni",
-    price: 105000,
-    unit: "porsi",
-    minOrder: 80,
-    popular: true,
-    image: "/images/hero_catering_buffet.webp",
-    description: "Koleksi jamuan agung paling prestisius. Harmoni hidangan istana Nusantara dengan sentuhan plating modern dan chafing dish tembaga keemasan.",
-    features: [
-      "Nasi Putih Wangi & Nasi Daun Jeruk Rempah",
-      "Sop Iga Sapi Kuah Bening Rempah Kayu Manis",
-      "Dendeng Batokok Balado Daun Jeruk Crispy",
-      "Ayam Bakar Madu Hutan Wijen Sangrai",
-      "Udang Windu Telur Asin Gurih",
-      "Tumis Brokoli Jamur Shiitake Saus Tiram",
-      "Karedok Sayur Segar Saus Kacang Mede",
-      "Es Cendol Durian Khas Nusantara",
-      "Pastry Corner & Aneka Buah Musiman Pilihan"
-    ],
-    includesStaff: true,
-    setupDuration: "3 Jam Sebelum Acara"
-  },
-  {
     id: "prasmanan-danapramita",
     category: "prasmanan",
     name: "Prasmanan Jamuan Danapramita",
     price: 88000,
     unit: "porsi",
     minOrder: 60,
-    popular: false,
+    popular: true,
     image: "/images/hero_catering_buffet.webp",
     description: "Perpaduan rasa istimewa kuliner pesisir dan pedalaman Nusantara. Sangat digemari untuk resepsi semi-formal, perayaan kantor, dan halal bihalal.",
     features: [
@@ -106,131 +216,31 @@ export const packagesData = [
     setupDuration: "2.5 Jam Sebelum Acara"
   },
   {
-    id: "nasibox-dapur-rasa",
-    category: "nasikotak",
-    name: "Artisanal Bento Nasi Liwet Dapur Rasa",
-    price: 42000,
-    unit: "box",
-    minOrder: 20,
-    popular: true,
-    image: "/images/nasibox_premium.webp",
-    description: "Kotak bento kraft ramah lingkungan dengan sekat elegan higienis. Pilihan utama untuk rapat direksi, corporate luncheon, dan event privat.",
-    features: [
-      "Nasi Liwet Gurih Harum Daun Salam & Teri Medan",
-      "Ayam Bakar Solo Glaze Kecap Manis Legendaris",
-      "Bacem Tahu & Tempe Rempah Gula Kelapa",
-      "Sambal Bajak Ulek Segar Terasi Matang",
-      "Lalapan Timun, Kemangi & Tomat Ceri",
-      "Kerupuk Kampung & Sendok Kayu Higienis",
-      "Buah Pisang Cavendish Segar"
-    ],
-    includesStaff: false
-  },
-  {
-    id: "nasibox-bistik-andaliman",
-    category: "nasikotak",
-    name: "Executive Box Bistik Sapi Rempah",
-    price: 52000,
-    unit: "box",
-    minOrder: 20,
+    id: "prasmanan-rajapatni",
+    category: "prasmanan",
+    name: "Prasmanan Agung Rajapatni",
+    price: 105000,
+    unit: "porsi",
+    minOrder: 80,
     popular: false,
-    image: "/images/nasibox_premium.webp",
-    description: "Irisan tenderloin sapi empuk berselimut saus bistik rempah manis gurih, disajikan berdampingan dengan sayuran sauteed mentega segar.",
+    image: "/images/hero_catering_buffet.webp",
+    description: "Koleksi jamuan agung paling prestisius. Harmoni hidangan istana Nusantara dengan sentuhan plating modern dan chafing dish tembaga keemasan.",
     features: [
-      "Nasi Putih Aromatik Bawang Merah Goreng",
-      "Bistik Daging Sapi Saus Lada Hitam / Manis",
-      "Telur Balado Balut Cabai Merah Keriting",
-      "Tumis Buncis Baby Jagung Manis Wortel",
-      "Perkedel Kentang Olahan Daging Cincang",
-      "Kerupuk Udang Renyah Kemasan Kedap",
-      "Air Mineral Cup & Puding Mangga Segar"
+      "Nasi Putih Wangi & Nasi Daun Jeruk Rempah",
+      "Sop Iga Sapi Kuah Bening Rempah Kayu Manis",
+      "Dendeng Batokok Balado Daun Jeruk Crispy",
+      "Ayam Bakar Madu Hutan Wijen Sangrai",
+      "Udang Windu Telur Asin Gurih",
+      "Tumis Brokoli Jamur Shiitake Saus Tiram",
+      "Karedok Sayur Segar Saus Kacang Mede",
+      "Es Cendol Durian Khas Nusantara",
+      "Pastry Corner & Aneka Buah Musiman Pilihan"
     ],
-    includesStaff: false
+    includesStaff: true,
+    setupDuration: "3 Jam Sebelum Acara"
   },
-  {
-    id: "nasibox-ayam-madu",
-    category: "nasikotak",
-    name: "Royal Bento Ayam Bakar Madu Wijaya",
-    price: 45000,
-    unit: "box",
-    minOrder: 20,
-    popular: false,
-    image: "/images/nasibox_premium.webp",
-    description: "Kombinasi ayam bakar madu hutan wijen sangrai dengan sajian sayuran tradisional dan sambal matah harum menggugah selera.",
-    features: [
-      "Nasi Daun Jeruk Pandan Wangi Pulen",
-      "Ayam Bakar Madu Klanceng Tabur Wijen Sangrai",
-      "Sambal Matah Bali Kecombrang Segar",
-      "Tempe Mendoan Gurih & Cocolan Kecap Rawit",
-      "Urap Sayur Bumbu Kelapa Bakar Harum",
-      "Kerupuk Gendar Renyah Bawang",
-      "Buah Jeruk Segar & Sendok Bambu Higienis"
-    ],
-    includesStaff: false
-  },
-  {
-    id: "tumpeng-parahyangan-agung",
-    category: "tumpeng",
-    name: "Tumpeng Agung Mahligai Rempah",
-    price: 1350000,
-    unit: "tampah (untuk 25-30 tamu)",
-    minOrder: 1,
-    popular: true,
-    image: "/images/tumpeng_nusantara.webp",
-    description: "Karya seni tumpeng kuning bertingkat di atas tampah anyam bambu berhias lipatan daun pisang dan ukiran sayuran segar karya pengrajin boga.",
-    features: [
-      "Nasi Kuning Kunyit Segar & Santan Kelapa Murni",
-      "Ayam Goreng Lengkuas Gurih Renyah (30 Potong)",
-      "Sambal Goreng Ati Sapi Ampela Balado Merah",
-      "Perkedel Kentang Emas Goreng Telur",
-      "Telur Dadar Rawis Halus & Telur Puyuh Pindang",
-      "Kering Tempe Kacang Tanah Renyah Gurih",
-      "Urap Sayuran Segar Bumbu Kelapa Sangrai",
-      "Plat Tulisan Ucapan Syukuran Custom & Pisau Khusus"
-    ],
-    includesStaff: false
-  },
-  {
-    id: "tumpeng-mini-parahyangan",
-    category: "tumpeng",
-    name: "Tumpeng Mini Dome Exclusive",
-    price: 48000,
-    unit: "kubah",
-    minOrder: 20,
-    popular: false,
-    image: "/images/tumpeng_nusantara.webp",
-    description: "Porsi perorangan dalam mika dome transparan berikat pita satin dan kartu ucapan kustom bertuliskan nama acara Anda.",
-    features: [
-      "Nasi Kuning Mini Bentuk Candi / Kerucut",
-      "Ayam Suwir Balado Rempah Kelapa",
-      "Perkedel Kentang Mini",
-      "Telur Dadar Gulung Iris Halus",
-      "Orek Tempe Gurih Manis Gula Jawa",
-      "Sambal Bajak Botol Mini Segel"
-    ],
-    includesStaff: false
-  },
-  {
-    id: "tumpeng-syukuran-kenduri",
-    category: "tumpeng",
-    name: "Tumpeng Kenduri Barokah Nusantara",
-    price: 890000,
-    unit: "tampah (untuk 15-20 tamu)",
-    minOrder: 1,
-    popular: false,
-    image: "/images/tumpeng_nusantara.webp",
-    description: "Sajian tumpeng tradisional berukuran kompak untuk perayaan ulang tahun, selamatan rumah baru, atau doa bersama keluarga terdekat.",
-    features: [
-      "Nasi Kuning Gurih Harum Daun Pandan & Santan",
-      "Ayam Ungkep Goreng Kremes Lengkuas (20 Potong)",
-      "Sambal Goreng Krecek Daging Sapi Cincang",
-      "Perkedel Kentang Wangi Daun Bawang",
-      "Telur Dadar Rawis & Telur Puyuh Semur",
-      "Kering Tempe Kacang Renyah Manis Gurih",
-      "Hiasan Janur & Ukiran Sayuran Cantik"
-    ],
-    includesStaff: false
-  },
+
+  // 4. KATEGORI KUDAPAN (kudapan) - Urut dari Termurah ke Termahal
   {
     id: "kudapan-priyayi-klasik",
     category: "kudapan",

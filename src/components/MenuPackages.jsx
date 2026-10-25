@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { SlidersHorizontal, ChevronDown } from 'lucide-react';
-import { packagesData } from '../data/cateringData';
+import { SlidersHorizontal, ChevronDown, Sparkles, MessageCircle } from 'lucide-react';
+import { packagesData, businessInfo } from '../data/cateringData';
+import { createWhatsAppUrl } from '../utils/formatters';
 import SectionHeader from './SectionHeader';
 import PackageCard from './PackageCard';
 
@@ -45,6 +46,11 @@ export default function MenuPackages({ onSelectPackage }) {
     });
     setCurrentCardIndex(idx);
   };
+
+  const customBudgetWaUrl = createWhatsAppUrl(
+    businessInfo.whatsapp,
+    `Halo Dapur Rasa Catering, saya ingin konsultasi paket jamuan kustom yang disesuaikan dengan anggaran / jumlah tamu tertentu untuk acara saya.`
+  );
 
   return (
     <section
@@ -149,7 +155,7 @@ export default function MenuPackages({ onSelectPackage }) {
           ))}
         </div>
 
-        {/* Mobile Horizontal Carousel Indicator Dots (Like Gallery / Editorial Stories) */}
+        {/* Mobile Horizontal Carousel Indicator Dots */}
         <div className="flex md:hidden items-center justify-center gap-1.5 mt-4">
           {filteredPackages.map((_, idx) => (
             <button
@@ -164,6 +170,43 @@ export default function MenuPackages({ onSelectPackage }) {
               }`}
             />
           ))}
+        </div>
+
+        {/* =========================================================================
+            BESPOKE & CUSTOM BUDGET INQUIRY BANNER
+            For visitors with custom budget constraints or small intimate groups (5-15 guests)
+           ========================================================================= */}
+        <div className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#FAF2E2]/95 via-[#F5EFE5] to-[#FAF2E2]/95 border border-[#C5A059]/40 p-5 sm:p-7 shadow-xs relative overflow-hidden">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative z-10">
+            <div className="flex items-start gap-3.5 sm:gap-4 max-w-2xl">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#775A19] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                <Sparkles className="w-5 h-5 text-[#E9C176]" />
+              </div>
+              <div className="space-y-1">
+                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#EAE2D3] text-[#775A19] text-[10px] font-bold uppercase tracking-wider">
+                  Layanan Jamuan Kustom & Fleksibel
+                </span>
+                <h4 className="text-sm sm:text-base font-serif font-bold text-[#2C2521]">
+                  Punya Anggaran Khusus atau Jumlah Tamu Terbatas?
+                </h4>
+                <p className="text-xs text-[#665D58] leading-relaxed">
+                  Kami percaya setiap jamuan istimewa layak mendapatkan sajian terbaik. Untuk acara privat kecil (5–15 orang) atau penyesuaian susunan menu dengan plafon budget tertentu, tim katering Dapur Rasa siap merancang menu personal untuk Anda.
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full md:w-auto shrink-0">
+              <a
+                href={customBudgetWaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-auto btn-primary !py-2.5 !px-5 text-xs sm:text-sm flex items-center justify-center gap-2 whitespace-nowrap shadow-xs hover:shadow-md cursor-pointer text-center"
+              >
+                <MessageCircle className="w-4 h-4 shrink-0" />
+                <span>Konsultasi Menu Sesuai Budget</span>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>

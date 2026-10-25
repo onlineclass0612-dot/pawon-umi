@@ -141,6 +141,14 @@ export default function PackageModal({ pkg, onClose }) {
             )}
           </div>
 
+          {/* Custom Budget & Portion Note */}
+          <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#FAF6EE] border border-[#E8DFD1] text-[11px] text-[#665D58]">
+            <Sparkles className="w-4 h-4 text-[#775A19] shrink-0 mt-0.5" />
+            <p>
+              <strong className="text-[#2C2521] font-semibold">Fleksibel & Dapat Dikustomisasi:</strong> Punya alokasi anggaran khusus atau jumlah tamu di bawah kapasitas minimal ({pkg.minOrder})? Komposisi menu dan lauk dapat disesuaikan dengan kebutuhan Anda saat konsultasi.
+            </p>
+          </div>
+
           {/* Modal Actions */}
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <button
