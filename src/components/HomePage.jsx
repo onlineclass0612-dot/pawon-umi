@@ -3,12 +3,17 @@ import Hero from './Hero';
 import MenuPackages from './MenuPackages';
 
 // Below-the-fold components code-split & loaded only when user scrolls/interacts
-const Testimonials = lazy(() => import('./Testimonials'));
-const Gallery = lazy(() => import('./Gallery'));
+const CateringCalculator = lazy(() => import('./CateringCalculator'));
+const EditorialStories = lazy(() => import('./EditorialStories'));
 const BookingForm = lazy(() => import('./BookingForm'));
 
-export default function HomePage({ onSelectPackage, onOpenCatalog }) {
-  const [loadBelowFold, setLoadBelowFold] = useState(false);
+export default function HomePage({ onSelectPackage }) {
+  const [loadBelowFold, setLoadBelowFold] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      return true;
+    }
+    return false;
+  });
 
   useEffect(() => {
     // Only load below-the-fold sections when user actually scrolls or interacts
@@ -35,20 +40,19 @@ export default function HomePage({ onSelectPackage, onOpenCatalog }) {
       {/* 2. Catalog / Koleksi Pilihan Sajian */}
       <MenuPackages
         onSelectPackage={onSelectPackage}
-        onOpenCatalog={onOpenCatalog}
       />
 
       {/* Below-the-fold sections deferred to guarantee 100% green sub-second LCP & 0 TBT */}
       {loadBelowFold ? (
         <>
-          {/* 3. Ulasan Klien */}
-          <Suspense fallback={<div className="min-h-[380px]" />}>
-            <Testimonials />
+          {/* 3. Kalkulator Porsi & Estimasi Biaya Jamuan (Tepat di bawah Catalog) */}
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <CateringCalculator onSelectPackage={onSelectPackage} />
           </Suspense>
 
-          {/* 4. Galeri Jamuan */}
-          <Suspense fallback={<div className="min-h-[480px]" />}>
-            <Gallery />
+          {/* 4. Dokumentasi & Ulasan Jamuan (Merged Editorial Story Showcase) */}
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <EditorialStories />
           </Suspense>
 
           {/* 5. Kontak & Reservasi */}

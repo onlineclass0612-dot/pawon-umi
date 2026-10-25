@@ -11,6 +11,7 @@ export const businessInfo = {
   phoneFormatted: "+62 851-8173-8437",
   email: "catering@dapurrasa.id",
   address: "Jl. Cikini Raya No. 45, Menteng, Jakarta Pusat",
+  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jl.+Cikini+Raya+No.+45,+Menteng,+Jakarta+Pusat",
   operationalHours: "Senin – Minggu: 08.00 – 20.00 WIB",
   stats: [
     { label: "Bespoke Events Curated", value: "2.800+" },
@@ -27,11 +28,10 @@ export const businessInfo = {
 
 export const menuCategories = [
   { id: "all", name: "Semua Sajian" },
-  { id: "prasmanan", name: "Prasmanan / Buffet" },
-  { id: "nasikotak", name: "Artisanal Rice Box" },
-  { id: "tumpeng", name: "Tumpeng Syukuran" },
-  { id: "coffeebreak", name: "Coffee Break & Kudapan" },
-  { id: "wedding", name: "Paket Resepsi Pernikahan" }
+  { id: "nasikotak", name: "Rice Box" },
+  { id: "tumpeng", name: "Tumpeng" },
+  { id: "prasmanan", name: "Prasmanan" },
+  { id: "kudapan", name: "Kudapan" }
 ];
 
 export const packagesData = [
@@ -232,43 +232,62 @@ export const packagesData = [
     includesStaff: false
   },
   {
-    id: "coffeebreak-priyayi",
-    category: "coffeebreak",
-    name: "Snack Box & Coffee Break Priyayi",
+    id: "kudapan-priyayi-klasik",
+    category: "kudapan",
+    name: "Kudapan Priyayi Klasik",
     price: 32000,
-    unit: "box / tamu",
+    unit: "porsi",
     minOrder: 30,
     popular: false,
-    image: "/images/nasibox_premium.webp",
-    description: "Paduan jajanan pasar tradisional warisan keraton dengan kelembutan pastry modern untuk menyegarkan jeda pertemuan formal.",
+    image: "/images/kudapan_tradisional.webp",
+    description: "Paduan 3 macam kudapan tradisional tempo dulu dan modern dengan kehangatan kopi tubruk rempah serta teh melati keraton.",
     features: [
       "Lemper Bakar Ayam Gurih Daun Pisang",
-      "Risoles Ragout Daging Asap Mayo Lembut",
-      "Kue Lumpur Labu Kuning / Pie Buah Segar",
-      "Air Mineral Botol 330ml",
-      "Opsional: Live Coffee & Herbal Tisane Station (+Rp 15.000/tamu)"
+      "Kue Lapis Legit Prunes Tradisional",
+      "Risoles Ragout Daging Asap Mayo",
+      "Kopi Tubruk Rempah & Teh Melati Hangat",
+      "Peralatan Cangkir & Piring Saji Keramik"
     ],
     includesStaff: false
   },
   {
-    id: "wedding-kirana-heritage",
-    category: "wedding",
-    name: "Resepsi Kirana Heritage (500 Tamu)",
-    price: 48500000,
-    unit: "paket jamuan lengkap",
-    minOrder: 1,
+    id: "kudapan-executive-corner",
+    category: "kudapan",
+    name: "Executive Coffee Corner",
+    price: 45000,
+    unit: "porsi",
+    minOrder: 40,
     popular: true,
-    image: "/images/wedding_catering_event.webp",
-    description: "Paket jamuan pernikahan all-inclusive: 500 porsi prasmanan utama berkelas + 3 live food stalls terfavorit + dekorasi meja saji eksklusif.",
+    image: "/images/kudapan_tradisional.webp",
+    description: "Koleksi 4 variasi jajanan pasar premium dan pie buah segar dipadukan dengan live dispenser drip coffee Nusantara pilihan.",
     features: [
-      "500 Porsi Prasmanan Utama (Menu Rajapatni Bintang 5)",
-      "Food Stall 1: Kambing Guling Empuk Bumbu Kecap (2 Ekor)",
-      "Food Stall 2: Sate Ayam Madura Daging Pilihan (400 Tusuk)",
-      "Food Stall 3: Zuppa Soup Hangat Krim Jamur Pastry (250 Porsi)",
-      "Dessert Corner: Es Doger Tradisional & Aneka Buah",
-      "Peralatan Chafing Dish Mewah Roll Top Gold & Tembaga",
-      "12 Pramusaji Berpengalaman & Berseragam Rapi Standby",
-      "Dekorasi Bunga Segar & Skirting Meja Prasmanan Elegan"
+      "Kue Lumpur Labu Kuning Tabur Kismis",
+      "Fruit Tartlet Vla Vanilla Buah Segar",
+      "Pastry Croissant Mini Daging Asap Keju",
+      "Lemper Pulen Ayam Suwir Pedas Manis",
+      "Live Dispenser Drip Coffee & Aneka Teh Herbal",
+      "Pramusaji Standby untuk Penataan & Refill Minuman"
+    ],
+    includesStaff: true
+  },
+  {
+    id: "kudapan-imperial-hightea",
+    category: "kudapan",
+    name: "Imperial High-Tea Buffet",
+    price: 65000,
+    unit: "porsi",
+    minOrder: 50,
+    popular: false,
+    image: "/images/kudapan_tradisional.webp",
+    description: "Jamuan tea-time mewah setara hotel bintang lima dengan sajian canapes gurih, lapis legit prunes, freshly squeezed juice, dan live brewing specialty barista coffee.",
+    features: [
+      "Canapes Smoked Salmon & Cream Cheese",
+      "Lapis Legit Spesial Butter Wijsman",
+      "Mini Quiche Lorraine Keju Panggang",
+      "Eclair Cokelat Belgian & Macaron Buah",
+      "Live Specialty Barista Coffee & Artisanal Tea Selection",
+      "Freshly Squeezed Juice (Orange & Guava)",
+      "Pramusaji Khusus & Set Perlengkapan Cangkir Keramik Gold"
     ],
     includesStaff: true
   }

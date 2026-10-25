@@ -15,7 +15,7 @@ export default defineConfig({
       polyfill: false,
       resolveDependencies(filename, deps) {
         // Prevent preloading below-the-fold or non-critical route chunks on mobile initial paint
-        const nonCritical = ['AllPackagesPage', 'Testimonials', 'Gallery', 'BookingForm', 'PackageModal', 'MenuPackages'];
+        const nonCritical = ['CateringCalculator', 'EditorialStories', 'Testimonials', 'Gallery', 'BookingForm', 'PackageModal', 'MenuPackages'];
         return deps.filter(dep => !nonCritical.some(nc => dep.includes(nc)));
       }
     },

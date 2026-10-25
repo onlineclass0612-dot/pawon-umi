@@ -3,7 +3,7 @@ import { Phone, Menu, X } from 'lucide-react';
 import { businessInfo } from '../data/cateringData';
 import BrandLogo from './BrandLogo';
 
-export default function Navbar({ onNavigateHome, currentView }) {
+export default function Navbar({ onNavigateHome, currentView = 'home' }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -68,18 +68,18 @@ export default function Navbar({ onNavigateHome, currentView }) {
               Catalog
             </a>
             <a
-              href="#ulasan"
-              onClick={(e) => handleNav(e, '#ulasan')}
+              href="#kalkulator"
+              onClick={(e) => handleNav(e, '#kalkulator')}
               className="label-md whitespace-nowrap text-[#665D58] hover:text-[#775A19] transition-colors"
             >
-              Ulasan
+              Estimasi Biaya
             </a>
             <a
-              href="#galeri"
-              onClick={(e) => handleNav(e, '#galeri')}
+              href="#dokumentasi"
+              onClick={(e) => handleNav(e, '#dokumentasi')}
               className="label-md whitespace-nowrap text-[#665D58] hover:text-[#775A19] transition-colors"
             >
-              Galeri
+              Galeri & Ulasan
             </a>
             <a
               href="#kontak"
@@ -152,24 +152,24 @@ export default function Navbar({ onNavigateHome, currentView }) {
           Catalog
         </a>
         <a
-          href="#ulasan"
+          href="#kalkulator"
           onClick={(e) => {
             setIsOpen(false);
-            handleNav(e, '#ulasan');
+            handleNav(e, '#kalkulator');
           }}
           className="block label-md whitespace-nowrap text-[#665D58] py-2.5 px-3 rounded-[0.25rem] border-b border-[#EFEEEA] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1"
         >
-          Ulasan
+          Estimasi Biaya
         </a>
         <a
-          href="#galeri"
+          href="#dokumentasi"
           onClick={(e) => {
             setIsOpen(false);
-            handleNav(e, '#galeri');
+            handleNav(e, '#dokumentasi');
           }}
           className="block label-md whitespace-nowrap text-[#665D58] py-2.5 px-3 rounded-[0.25rem] border-b border-[#EFEEEA] transition-all duration-150 active:bg-[#F2ECE1] active:translate-x-1"
         >
-          Galeri
+          Galeri & Ulasan
         </a>
         <a
           href="#kontak"

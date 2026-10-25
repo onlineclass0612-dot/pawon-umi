@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Calendar, Users, MapPin, Phone, User, Send, Sparkles, ChevronDown, Check, AlertCircle } from 'lucide-react';
+import { Calendar, Users, MapPin, Phone, User, Send, Sparkles, ChevronDown, Check, AlertCircle, ExternalLink } from 'lucide-react';
 import { businessInfo } from '../data/cateringData';
 import { createWhatsAppUrl, formatDateIndo } from '../utils/formatters';
 import FormInput from './FormInput';
+import LocationMapCard from './LocationMapCard';
 
 const eventTypeOptions = [
   'Resepsi Pernikahan',
@@ -217,13 +218,22 @@ export default function BookingForm() {
                 </p>
 
                 <div className="space-y-4 pt-6 border-t border-[#E8DFD1]">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-[#775A19] shrink-0 mt-1" />
+                  <a
+                    href={businessInfo.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 group cursor-pointer"
+                    title="Buka alamat di Google Maps"
+                  >
+                    <MapPin className="w-4 h-4 text-[#775A19] shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                     <div>
-                      <p className="label-sm text-[#2C2521]">Tasting Lounge & Dapur Pusat:</p>
-                      <p className="body-sm text-xs text-[#665D58] mt-0.5">{businessInfo.address}</p>
+                      <p className="label-sm text-[#2C2521] group-hover:text-[#775A19] transition-colors flex items-center gap-1.5">
+                        <span>Tasting Lounge & Dapur Pusat:</span>
+                        <ExternalLink className="w-3 h-3 text-[#775A19] opacity-70 group-hover:opacity-100 transition-opacity" />
+                      </p>
+                      <p className="body-sm text-xs text-[#665D58] mt-0.5 group-hover:underline">{businessInfo.address}</p>
                     </div>
-                  </div>
+                  </a>
 
                   <div className="flex items-start gap-3">
                     <Phone className="w-4 h-4 text-[#775A19] shrink-0 mt-1" />
@@ -231,6 +241,11 @@ export default function BookingForm() {
                       <p className="label-sm text-[#2C2521]">Layanan Konsultasi Langsung:</p>
                       <p className="body-sm text-xs text-[#665D58] mt-0.5">{businessInfo.phoneFormatted} (Catering Dapur Rasa)</p>
                     </div>
+                  </div>
+
+                  {/* Interactive Visual Map Card (Cara B) */}
+                  <div className="pt-2">
+                    <LocationMapCard />
                   </div>
                 </div>
               </div>

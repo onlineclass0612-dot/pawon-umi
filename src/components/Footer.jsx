@@ -38,8 +38,8 @@ export default function Footer() {
             <ul className="space-y-2 body-sm text-sm text-[#CEC5B8]">
               <li><a href="#beranda" className="hover:text-[#C5A059] transition-colors">Beranda</a></li>
               <li><a href="#catalog" className="hover:text-[#C5A059] transition-colors">Catalog</a></li>
-              <li><a href="#ulasan" className="hover:text-[#C5A059] transition-colors">Ulasan</a></li>
-              <li><a href="#galeri" className="hover:text-[#C5A059] transition-colors">Galeri</a></li>
+              <li><a href="#kalkulator" className="hover:text-[#C5A059] transition-colors">Estimasi Biaya</a></li>
+              <li><a href="#dokumentasi" className="hover:text-[#C5A059] transition-colors">Galeri & Ulasan</a></li>
               <li><a href="#kontak" className="hover:text-[#C5A059] transition-colors">Kontak</a></li>
             </ul>
           </div>
@@ -64,10 +64,16 @@ export default function Footer() {
               Catering Jamuan
             </h4>
             <div className="space-y-3 body-sm text-sm text-[#CEC5B8]">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#C5A059] shrink-0 mt-1" />
-                <span className="text-xs">{businessInfo.address}</span>
-              </div>
+              <a
+                href={businessInfo.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2.5 hover:text-[#C5A059] transition-colors group cursor-pointer"
+                title="Buka alamat di Google Maps"
+              >
+                <MapPin className="w-4 h-4 text-[#C5A059] shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                <span className="text-xs group-hover:underline">{businessInfo.address}</span>
+              </a>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span className="text-xs">{businessInfo.phoneFormatted}</span>
@@ -97,19 +103,25 @@ export default function Footer() {
             <span className="text-[#59534B]">•</span>
             <a href="#catalog" className="hover:text-[#C5A059] transition-colors">Catalog</a>
             <span className="text-[#59534B]">•</span>
-            <a href="#ulasan" className="hover:text-[#C5A059] transition-colors">Ulasan</a>
+            <a href="#kalkulator" className="hover:text-[#C5A059] transition-colors">Estimasi</a>
             <span className="text-[#59534B]">•</span>
-            <a href="#galeri" className="hover:text-[#C5A059] transition-colors">Galeri</a>
+            <a href="#dokumentasi" className="hover:text-[#C5A059] transition-colors">Galeri & Ulasan</a>
             <span className="text-[#59534B]">•</span>
             <a href="#kontak" className="hover:text-[#C5A059] transition-colors">Kontak</a>
           </div>
 
           {/* Kontak & Sertifikasi Ringkas */}
           <div className="space-y-2 text-xs text-[#CEC5B8] pt-1">
-            <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
-              <span className="text-[11.5px] text-[#A69E93] truncate">{businessInfo.address}</span>
-            </div>
+            <a
+              href={businessInfo.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-[#C5A059] transition-colors group cursor-pointer"
+              title="Buka alamat di Google Maps"
+            >
+              <MapPin className="w-3.5 h-3.5 text-[#C5A059] shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="text-[11.5px] text-[#A69E93] group-hover:text-[#C5A059] group-hover:underline truncate">{businessInfo.address}</span>
+            </a>
             
             <div className="flex items-center justify-between pt-1">
               <a 
