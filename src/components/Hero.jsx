@@ -54,7 +54,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3 py-0.5 sm:py-1 rounded-full bg-[#F5F3EF]/95 backdrop-blur-xs border border-[#D1C5B4] text-[#775A19] w-fit"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] shrink-0" />
-              <span className="label-sm text-[#4E4639] text-[11px] sm:text-xs">Kurasi Jamuan Kuliner Nusantara</span>
+              <span className="label-sm text-[#4E4639] text-[11px] sm:text-xs">Catering Masakan Nusantara & Acara Spesial</span>
             </div>
 
             {/* Editorial Headline - Instant LCP Anchor */}
@@ -71,7 +71,7 @@ export default function Hero() {
             <p
               className="body-md text-sm sm:text-base text-[#4E4639] max-w-2xl leading-relaxed"
             >
-              Dari resepsi pernikahan agung hingga jamuan VIP korporat terkurasi. Dapur Rasa menyajikan harmoni rempah warisan Nusantara dengan standar higienis bersertifikasi Halal MUI dan estetika meja saji yang memikat.
+              Melayani resepsi pernikahan, acara kantor, hingga syukuran keluarga. Dapur Rasa menghadirkan hidangan lezat dengan bumbu rempah asli Nusantara, terjamin bersih, bersertifikat Halal MUI, dan ditata rapi untuk momen berharga Anda.
             </p>
 
             {/* Span Ulasan & Rating Social Proof - Instant render */}

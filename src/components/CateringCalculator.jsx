@@ -59,7 +59,7 @@ const formatConfigs = {
     },
     includes: [
       'Peralatan makan piring keramik & sendok garpu berstandar hotel',
-      'Wadah pemanas tembaga chafing dish roll-top keemasan',
+      'Wadah pemanas makanan roll-top keemasan yang mewah',
       'Tim pramusaji berseragam rapi, ramah & siaga stand by',
       'Penataan meja saji dengan taplak kain & hiasan bunga segar',
       'Pengantaran aman tiba 2-3 jam sebelum jamuan dimulai'
@@ -67,9 +67,9 @@ const formatConfigs = {
   },
   nasikotak: {
     id: 'nasikotak',
-    name: 'Artisanal Nasi Box',
+    name: 'Nasi Box',
     icon: Box,
-    tagline: 'Rapat Direksi, Seminar, Gathering & Konsumsi Panitia',
+    tagline: 'Rapat Kantor, Seminar, Acara Komunitas & Konsumsi Panitia',
     unitLabel: 'Box',
     min: 20,
     max: 600,
@@ -79,34 +79,34 @@ const formatConfigs = {
     tiers: {
       standar: {
         id: 'standar',
-        name: 'Bento Nasi Liwet Dapur Rasa',
+        name: 'Nasi Box Liwet Dapur Rasa',
         price: 42000,
-        badge: 'Menu Legendaris',
+        badge: 'Menu Favorit',
         description: 'Nasi liwet harum teri Medan, ayam bakar Solo, bacem tahu tempe, sambal bajak & pisang.',
         pkgId: 'nasibox-dapur-rasa'
       },
       favorit: {
         id: 'favorit',
-        name: 'Royal Bento Ayam Bakar Madu',
+        name: 'Nasi Box Ayam Bakar Madu',
         price: 45000,
-        badge: 'Pilihan Eksekutif ★',
+        badge: 'Paling Diminati ★',
         isPopular: true,
-        description: 'Nasi daun jeruk pulen, ayam bakar madu klanceng, sambal matah, urap bakar & buah segar.',
+        description: 'Nasi daun jeruk pulen, ayam bakar madu, sambal matah, urap sayur bumbu kelapa & buah jeruk.',
         pkgId: 'nasibox-ayam-madu'
       },
       royal: {
         id: 'royal',
-        name: 'Executive Box Bistik Sapi',
+        name: 'Nasi Box Bistik Sapi',
         price: 52000,
-        badge: 'VIP Corporate',
-        description: 'Bistik tenderloin sapi saus lada hitam, telur balado, perkedel kentang daging & puding mangga.',
+        badge: 'Menu Spesial Daging',
+        description: 'Daging sapi bumbu bistik lada hitam gurih lezat, telur balado, perkedel kentang daging & puding.',
         pkgId: 'nasibox-bistik-andaliman'
       }
     },
     includes: [
-      'Kemasan kotak bento kraft premium ramah lingkungan bersekat higienis',
-      'Cutlery set sendok garpu kayu higienis, tusuk gigi & tisu kemas',
-      'Jaminan makanan hangat saat tiba berkat thermal delivery bag',
+      'Kemasan kotak nasi box ramah lingkungan bersekat rapi dan bersih',
+      'Sendok, garpu higienis, tusuk gigi & tisu kemas',
+      'Jaminan makanan tetap hangat saat tiba dengan tas pengantar khusus',
       'Pengantaran tiba 1 jam sebelum sesi makan dimulai'
     ]
   },
@@ -145,10 +145,10 @@ const formatConfigs = {
       },
       royal: {
         id: 'royal',
-        name: 'Tumpeng Mini Dome Exclusive',
+        name: 'Tumpeng Mini Eksklusif',
         price: 48000,
-        badge: 'Individual Dome VIP',
-        description: 'Sajian perorangan dalam mika dome transparan berikat pita satin emas & kartu ucapan kustom (Rp 48.000 / porsi).',
+        badge: 'Porsi Perorangan',
+        description: 'Sajian porsi perorangan dalam wadah mika bulat bening berikat pita satin cantik & kartu ucapan acara Anda (Rp 48.000 / porsi).',
         pkgId: 'tumpeng-mini-parahyangan',
         displayPrice: 'Rp 48.000',
         displayUnit: 'porsi'
@@ -156,16 +156,16 @@ const formatConfigs = {
     },
     includes: [
       'Tampah anyaman bambu berhias lipatan janur daun pisang karya pengrajin boga',
-      'Plat ucapan kustom berbahan akrilik/kayu bertuliskan nama acara Anda',
+      'Plat ucapan kustom bertuliskan nama acara Anda',
       'Pisau khusus pemotong tumpeng & sendok saji higienis',
-      'Kotak packaging luar pelindung anti-guncangan saat pengantaran'
+      'Kotak kemasan luar pelindung agar bentuk tumpeng tetap utuh saat diantar'
     ]
   },
   coffeebreak: {
     id: 'coffeebreak',
     name: 'Coffee Break & Kudapan',
     icon: Coffee,
-    tagline: 'Seminar, Workshop, Half-day Meeting & Press Conference',
+    tagline: 'Seminar, Workshop, Acara Kantor & Pertemuan',
     unitLabel: 'Porsi',
     min: 30,
     max: 400,
@@ -183,26 +183,26 @@ const formatConfigs = {
       },
       favorit: {
         id: 'favorit',
-        name: 'Executive Coffee Corner',
+        name: 'Kudapan Coffee Break Eksekutif',
         price: 45000,
-        badge: 'Paling Pas ★',
+        badge: 'Paling Diminati ★',
         isPopular: true,
-        description: '4 variasi jajanan pasar premium, pie buah segar, kopi drip Nusantara & aneka teh infusi.',
+        description: '4 macam jajanan pasar pilihan, pie buah segar, kopi seduh & aneka teh harum.',
         pkgId: 'kudapan-executive-corner'
       },
       royal: {
         id: 'royal',
-        name: 'Imperial High-Tea Buffet',
+        name: 'Prasmanan Kudapan & Kopi Istimewa',
         price: 65000,
-        badge: 'Gala Afternoon',
-        description: 'Canapes gurih, lapis legit prunes, live brewing specialty coffee, freshly squeezed juice & fruit tartlet.',
+        badge: 'Paket Lengkap VIP',
+        description: 'Aneka kue lezat, lapis legit prunes, jus buah segar asli, serta sajian kopi barista langsung.',
         pkgId: 'kudapan-imperial-hightea'
       }
     },
     includes: [
-      'Peralatan cangkir, piring kue, dan dispenser air panas profesional',
-      'Racikan kopi bubuk Nusantara otentik, teh melati, gula aren & creamer',
-      'Pramusaji standby untuk pembersihan dan penataan ulang snack',
+      'Peralatan cangkir, piring kue, dan dispenser air panas',
+      'Racikan kopi bubuk Nusantara otentik, teh melati, gula aren & krimer',
+      'Pramusaji siaga untuk merapikan dan mengisi ulang minuman',
       'Penyajian tepat waktu 30 menit sebelum sesi istirahat dimulai'
     ]
   }
@@ -260,7 +260,7 @@ export default function CateringCalculator({ onSelectPackage }) {
     `• Perkiraan Kebutuhan: ${guestCount} ${activeFormat.unitLabel}`,
     `• Pilihan Menu: ${activeTier.name}`,
     `• Estimasi Biaya Satuan: ${unitPriceFormatted}`,
-    `• Perkiraan Total Investasi: ± ${formatRupiah(totalCost)}`,
+    `• Perkiraan Total Biaya: ± ${formatRupiah(totalCost)}`,
     ``,
     `Apakah jadwal untuk tanggal acara saya masih tersedia untuk konsultasi dan penyesuaian menu? Terima kasih!`
   ].join('\n');
@@ -286,9 +286,9 @@ export default function CateringCalculator({ onSelectPackage }) {
         
         {/* Section Header */}
         <SectionHeader
-          badge="ESTIMASI CERDAS & TRANSPARAN"
-          title="Kalkulator Porsi & Estimasi Biaya Jamuan"
-          subtitle="Rencanakan investasi jamuan istimewa Anda secara instan dan akurat. Sesuaikan tipe acara dan jumlah tamu untuk mendapatkan rekomendasi paket terbaik seketika."
+          badge="ESTIMASI PRAKTIS & TRANSPARAN"
+          title="Kalkulator Porsi & Hitung Biaya Catering"
+          subtitle="Hitung perkiraan biaya catering Anda secara mudah dan jelas. Sesuaikan jenis acara dan jumlah tamu untuk melihat rekomendasi paket terbaik seketika."
         />
 
         {/* Calculator Main Grid */}
@@ -537,7 +537,7 @@ export default function CateringCalculator({ onSelectPackage }) {
               {/* Main Total Display */}
               <div className="py-6 text-center border-b border-[#E8DFD1]">
                 <span className="text-xs text-[#7F7667] uppercase tracking-wider font-semibold block mb-1">
-                  Perkiraan Total Investasi Jamuan
+                  Perkiraan Total Biaya
                 </span>
                 <div className="text-3xl sm:text-4xl font-serif font-bold text-[#2C2521] tracking-tight">
                   {formatRupiah(totalCost)}

@@ -7,7 +7,7 @@ const galleryItems = [
     id: 1,
     title: "Jamuan Prasmanan Agung Rajapatni",
     image: "/images/hero_catering_buffet.webp",
-    description: "Penataan chafing dish tembaga keemasan dengan sentuhan bunga segar dan aksen batik untuk perayaan formal dan korporat."
+    description: "Penataan wadah pemanas keemasan mewah dengan sentuhan bunga segar untuk perayaan pernikahan dan acara kantor."
   },
   {
     id: 2,
@@ -17,27 +17,27 @@ const galleryItems = [
   },
   {
     id: 3,
-    title: "Artisanal Bento Liwet & Executive Box",
+    title: "Nasi Box Liwet & Menu Spesial Daging",
     image: "/images/nasibox_premium.webp",
-    description: "Kemasan bento kraft ramah lingkungan dengan sekat elegan higienis, disiapkan khusus untuk rapat direksi dan acara privat."
+    description: "Kemasan nasi box tebal ramah lingkungan bersekat rapi dan higienis, disiapkan khusus untuk rapat kantor dan acara keluarga."
   },
   {
     id: 4,
-    title: "Resepsi Pernikahan Kirana Heritage",
+    title: "Resepsi Pernikahan Tradisional Elegan",
     image: "/images/wedding_catering_event.webp",
-    description: "Harmoni jamuan pernikahan ratusan tamu dengan tim pramusaji profesional berseragam rapi serta tata meja berstandar bintang lima."
+    description: "Harmoni jamuan pernikahan ratusan tamu dengan tim pramusaji profesional berseragam rapi serta tata meja yang indah."
   },
   {
     id: 5,
-    title: "Coffee Break & Kudapan Priyayi",
+    title: "Coffee Break & Aneka Kudapan",
     image: "/images/gallery_dessert.webp",
-    description: "Sajian kue lapis legit, jajanan pasar keraton, tartlet buah segar, dan live espresso corner untuk menyegarkan jeda konferensi formal."
+    description: "Sajian kue lapis legit, jajanan pasar tradisional, pie buah segar, dan kopi seduh untuk acara seminar dan pertemuan."
   },
   {
     id: 6,
-    title: "Jamuan Meja Panjang VIP Gala Dinner",
+    title: "Jamuan Meja Panjang Acara Formal",
     image: "/images/gallery_banquet.webp",
-    description: "Dekorasi meja panjang berhias untaian mawar putih dan sedap malam, alat makan bersepuh emas, dan suasana lilin temaram."
+    description: "Dekorasi meja panjang berhias untaian mawar putih dan sedap malam, alat makan elegan, dan suasana hangat."
   }
 ];
 

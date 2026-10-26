@@ -51,10 +51,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 body-sm text-sm text-[#CEC5B8]">
               <li><a href="#sajian" className="hover:text-[#C5A059] transition-colors">Prasmanan Pernikahan</a></li>
-              <li><a href="#sajian" className="hover:text-[#C5A059] transition-colors">Artisanal Rice Box</a></li>
+              <li><a href="#sajian" className="hover:text-[#C5A059] transition-colors">Nasi Box Pilihan</a></li>
               <li><a href="#sajian" className="hover:text-[#C5A059] transition-colors">Tumpeng Syukuran Tradisional</a></li>
-              <li><a href="#sajian" className="hover:text-[#C5A059] transition-colors">Coffee Break & Kudapan Priyayi</a></li>
-              <li><a href="#galeri" className="hover:text-[#C5A059] transition-colors">Live Cooking Food Station</a></li>
+              <li><a href="#sajian" className="hover:text-[#C5A059] transition-colors">Coffee Break & Kudapan</a></li>
+              <li><a href="#galeri" className="hover:text-[#C5A059] transition-colors">Pondokan & Menu Spesial</a></li>
             </ul>
           </div>
 

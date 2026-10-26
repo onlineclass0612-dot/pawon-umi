@@ -95,7 +95,7 @@ export default function BrandLogo({
               isDark ? 'text-[#CEC5B8]' : 'text-[#7F7667]'
             }`}
           >
-            Bespoke Dining & Fine Hospitality
+            Catering & Jamuan Nusantara
           </p>
         )}
       </div>

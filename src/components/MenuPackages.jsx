@@ -6,9 +6,9 @@ import SectionHeader from './SectionHeader';
 import PackageCard from './PackageCard';
 
 export default function MenuPackages({ onSelectPackage }) {
-  // 4 Kategori Terkurasi: Rice Box, Tumpeng, Prasmanan, Kudapan
+  // 4 Kategori Menu: Nasi Box, Tumpeng, Prasmanan, Kudapan
   const homeCategories = [
-    { id: "nasikotak", name: "Rice Box" },
+    { id: "nasikotak", name: "Nasi Box" },
     { id: "tumpeng", name: "Tumpeng" },
     { id: "prasmanan", name: "Prasmanan" },
     { id: "kudapan", name: "Kudapan" }
@@ -70,9 +70,9 @@ export default function MenuPackages({ onSelectPackage }) {
         
         {/* Reusable Section Header */}
         <SectionHeader
-          badge="Koleksi Jamuan Terkurasi"
+          badge="PILIHAN MENU LENGKAP"
           title="Pilihan Paket Katering Dapur Rasa"
-          subtitle="Dirancang khusus untuk menghadirkan pengalaman bersantap yang tak terlupakan. Seluruh susunan hidangan dapat disesuaikan dengan konsep acara Anda."
+          subtitle="Pilihan hidangan masakan lezat untuk berbagai acara Anda. Seluruh susunan menu dapat disesuaikan dengan selera dan kebutuhan acara."
           className="mb-8 sm:mb-12"
         />
 

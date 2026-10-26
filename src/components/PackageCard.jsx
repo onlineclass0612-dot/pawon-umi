@@ -69,7 +69,7 @@ export default function PackageCard({
 
           {/* Price with Dotted Leader */}
           <div className={`py-3 border-y ${isDark ? 'border-[#383127]' : 'border-[#E8DFD1]'} flex items-baseline justify-between`}>
-            <span className={`label-sm ${isDark ? 'text-[#9E9588]' : 'text-[#7F7667]'}`}>Investasi Jamuan</span>
+            <span className={`label-sm ${isDark ? 'text-[#9E9588]' : 'text-[#7F7667]'}`}>Harga Paket</span>
             <div className="flex items-baseline gap-1">
               <span className={`font-serif text-xl sm:text-2xl font-medium ${isDark ? 'text-[#E9C176]' : 'text-[#775A19]'}`}>
                 {formatRupiah(pkg.price)}
@@ -89,7 +89,7 @@ export default function PackageCard({
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] shrink-0 mr-2" />
                   <span className="truncate">{feat}</span>
                   <span className="dotted-leader" />
-                  <span className={`label-sm shrink-0 ${isDark ? 'text-[#9E9588]' : 'text-[#7F7667]'}`}>Included</span>
+                  <span className={`label-sm shrink-0 ${isDark ? 'text-[#9E9588]' : 'text-[#7F7667]'}`}>Termasuk</span>
                 </li>
               ))}
               {pkg.features.length > 5 && (

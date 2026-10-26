@@ -211,11 +211,11 @@ export default function BookingForm() {
                 </div>
 
                 <h3 className="headline-md text-[#2C2521]">
-                  Kunci Jadwal & Sesi Food Tasting
+                  Kunci Jadwal & Cicip Menu Gratis
                 </h3>
 
                 <p className="body-md text-[#4E4639]">
-                  Musim pernikahan dan jamuan akhir pekan memiliki slot terbatas. Diskusikan konsep acara Anda bersama tim kurator jamuan kami.
+                  Musim pernikahan dan acara akhir pekan memiliki slot terbatas. Diskusikan rencana acara Anda bersama tim konsultan catering kami.
                 </p>
 
                 <div className="space-y-4 pt-6 border-t border-[#E8DFD1]">
@@ -229,7 +229,7 @@ export default function BookingForm() {
                     <MapPin className="w-4 h-4 text-[#775A19] shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                     <div>
                       <p className="label-sm text-[#2C2521] group-hover:text-[#775A19] transition-colors flex items-center gap-1.5">
-                        <span>Tasting Lounge & Dapur Pusat:</span>
+                        <span>Dapur Pusat & Tempat Konsultasi:</span>
                         <ExternalLink className="w-3 h-3 text-[#775A19] opacity-70 group-hover:opacity-100 transition-opacity" />
                       </p>
                       <p className="body-sm text-xs text-[#665D58] mt-0.5 group-hover:underline">{businessInfo.address}</p>
@@ -426,7 +426,7 @@ export default function BookingForm() {
                 {/* Row 4: Catatan Khusus */}
                 <div className="w-full min-w-0">
                   <label htmlFor="booking-notes" className="label-md text-[#2C2521] block mb-2 cursor-pointer">
-                    Catatan Khusus atau Permintaan Food Tasting (Opsional)
+                    Catatan Khusus atau Permintaan Cicip Menu (Opsional)
                   </label>
                   <textarea
                     id="booking-notes"
@@ -435,7 +435,7 @@ export default function BookingForm() {
                     maxLength={500}
                     value={formData.notes}
                     onChange={handleChange}
-                    placeholder="Contoh: Punya alokasi budget khusus (misal Rp 1.500.000 untuk 10 porsi), request menu khusus, atau jadwal food tasting..."
+                    placeholder="Contoh: Punya alokasi budget khusus (misal Rp 1.500.000 untuk 10 porsi), request menu khusus, atau jadwal cicip menu..."
                     className="w-full px-4 py-2.5 rounded-[0.25rem] bg-white border border-[#E8DFD1] focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059] body-sm text-sm resize-none"
                   ></textarea>
                 </div>

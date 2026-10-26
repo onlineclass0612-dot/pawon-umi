@@ -5,27 +5,27 @@ import SectionHeader from './SectionHeader';
 const editorialStories = [
   {
     id: 1,
-    title: "Resepsi Kirana Heritage di Plataran Cilandak",
+    title: "Resepsi Pernikahan di Plataran Cilandak",
     category: "Resepsi Pernikahan",
     image: "/images/wedding_catering_event.webp",
     rating: 5,
     clientName: "Clarissa Dananjaya & Hendra",
     clientRole: "Pengantin Baru",
     eventDetail: "Pernikahan 600 Tamu",
-    quote: "Dapur Rasa benar-benar melebihi ekspektasi kami. Meja prasmanan ditata begitu cantik dengan bunga segar dan chafing dish tembaga keemasan. Semua tamu memuji kelezatan rendang dan kambing gulingnya yang luar biasa empuk!",
-    caption: "Tata jamuan resepsi pernikahan bertema keagungan tradisi Nusantara dengan tim pramusaji profesional berseragam rapi."
+    quote: "Dapur Rasa benar-benar melebihi ekspektasi kami. Meja prasmanan ditata begitu cantik dengan bunga segar dan wadah pemanas keemasan yang mewah. Semua tamu memuji kelezatan rendang dan kambing gulingnya yang luar biasa empuk!",
+    caption: "Tata jamuan resepsi pernikahan bertema keanggunan tradisi Nusantara dengan tim pramusaji profesional berseragam rapi."
   },
   {
     id: 2,
-    title: "Jamuan Meja Panjang VIP Gala Dinner Direksi",
-    category: "VIP Corporate Gala",
+    title: "Jamuan Meja Panjang Makan Malam Kantor",
+    category: "Makan Malam Kantor",
     image: "/images/gallery_banquet.webp",
     rating: 5,
     clientName: "Raditya Prasetyo, S.E.",
     clientRole: "Head of Corporate Affairs di Danareksa",
-    eventDetail: "Annual Board Dinner",
-    quote: "Setiap ada jamuan direksi dan gala dinner VIP korporat, kami selalu mempercayakannya ke Dapur Rasa. Tata meja panjangnya sangat berkelas, higienis, dan cita rasa rempahnya sangat otentik.",
-    caption: "Dekorasi meja panjang berhias untaian bunga segar, alat makan bersepuh emas, dan atmosfer pencahayaan temaram hangat."
+    eventDetail: "Makan Malam Pertemuan Tahunan",
+    quote: "Setiap ada pertemuan pimpinan dan acara kantor, kami selalu mempercayakannya ke Dapur Rasa. Tata meja panjangnya sangat berkelas, bersih, dan cita rasa rempahnya sangat lezat.",
+    caption: "Dekorasi meja panjang berhias untaian bunga segar, peralatan makan elegan, dan suasana hangat."
   },
   {
     id: 3,
@@ -36,20 +36,20 @@ const editorialStories = [
     clientName: "Dr. Farah Amalia, Sp.A",
     clientRole: "Tuan Rumah Tasyakuran & Peresmian",
     eventDetail: "Tasyakuran Keluarga Besar",
-    quote: "Tumpeng bertingkat dari Dapur Rasa jadi pusat perhatian di acara kami. Ukiran janur dan sayurannya berseni tinggi, porsi melimpah, dan bumbu ayam panggangnya meresap sempurna.",
+    quote: "Tumpeng bertingkat dari Dapur Rasa jadi pusat perhatian di acara kami. Hiasan janur dan ukiran sayurannya sangat cantik, porsi melimpah, dan bumbu ayam panggangnya meresap sempurna.",
     caption: "Karya seni tumpeng kuning bertingkat di atas tampah bambu berhias lipatan daun pisang dan ukiran sayuran segar."
   },
   {
     id: 4,
-    title: "Artisanal Bento Liwet & Executive Box",
-    category: "Executive Luncheon",
+    title: "Nasi Box Liwet & Menu Spesial Daging",
+    category: "Makan Siang Kantor",
     image: "/images/nasibox_premium.webp",
     rating: 5,
     clientName: "Ibu Maya Puspitasari",
     clientRole: "Senior Partner di Assegaf & Partners",
-    eventDetail: "International Client Meeting",
-    quote: "Bento box katering paling rapi dan mewah yang pernah kami pesan untuk rapat klien asing. Kemasan ramah lingkungan, tiba dalam kondisi hangat, dan rasa sambal goreng atinya sangat istimewa.",
-    caption: "Kemasan bento kraft ramah lingkungan dengan kompartemen sekat elegan dan higienis berstandar eksekutif."
+    eventDetail: "Pertemuan Klien Penting",
+    quote: "Nasi box katering paling rapi dan lezat yang pernah kami pesan untuk rapat klien. Kemasan ramah lingkungan, tiba dalam kondisi hangat, dan rasa sambal goreng atinya sangat istimewa.",
+    caption: "Kemasan nasi box tebal ramah lingkungan dengan sekat rapi dan bersih berstandar eksekutif."
   },
   {
     id: 5,
@@ -60,20 +60,20 @@ const editorialStories = [
     clientName: "Bpk. Ir. H. Bambang Soetrisno",
     clientRole: "Ketua Panitia Halal Bihalal",
     eventDetail: "Silaturahmi Akbar 450 Porsi",
-    quote: "Penyajian chafing dish roll-top tembaga emasnya membuat ruang pesta terlihat agung. Pramusaji sangat sigap refill hidangan tanpa jeda, dan tidak ada piring kotor yang menumpuk.",
-    caption: "Harmoni 8 sajian utama Nusantara dengan penataan meja prasmanan dua jalur berstandar higienis tinggi."
+    quote: "Penyajian wadah pemanas makanan roll-top keemasannya membuat ruang pesta terlihat sangat mewah dan rapi. Pramusaji sangat sigap mengisi ulang hidangan tanpa jeda, dan piring kotor langsung dibereskan.",
+    caption: "Pilihan sajian utama Nusantara dengan penataan meja prasmanan dua jalur yang tertata rapi dan bersih."
   },
   {
     id: 6,
-    title: "Coffee Break & Kudapan Priyayi",
-    category: "Coffee Break & Dessert",
+    title: "Coffee Break & Aneka Kudapan",
+    category: "Coffee Break & Kudapan",
     image: "/images/gallery_dessert.webp",
     rating: 5,
     clientName: "Nadia Anindita",
     clientRole: "Lead Organizer, Jakarta Creative Expo",
     eventDetail: "Konferensi 3 Hari",
-    quote: "Snack corner-nya dipuji semua kurator dan pembicara seminar. Lapis legitnya lembut, pie buah segar, dan racikan kopi Nusantara hangatnya luar biasa memikat.",
-    caption: "Sajian kue lapis legit, jajanan pasar keraton, tartlet buah segar, dan live coffee corner untuk konferensi formal."
+    quote: "Snack corner-nya dipuji semua peserta dan pembicara seminar. Lapis legitnya lembut, pie buah segar, dan racikan kopi seduh hangatnya luar biasa memuaskan.",
+    caption: "Sajian kue lapis legit, jajanan pasar tradisional, pie buah segar, dan kopi seduh untuk acara seminar."
   }
 ];
 

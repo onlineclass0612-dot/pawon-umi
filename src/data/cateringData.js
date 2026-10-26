@@ -4,8 +4,8 @@
 export const businessInfo = {
   name: "Dapur Rasa",
   fullName: "Dapur Rasa Catering",
-  tagline: "Artisanal Indonesian & Bespoke Dining",
-  subtitle: "Menghadirkan seni jamuan kuliner Nusantara terkurasi dengan rempah warisan otentik, estetika penyajian meja yang hangat, dan keramahan pelayanan berkelas.",
+  tagline: "Catering Masakan Nusantara & Layanan Istimewa",
+  subtitle: "Menghadirkan aneka masakan Nusantara lezat dengan bumbu rempah asli pilihan, penyajian rapi dan bersih, serta pelayanan ramah dan terpercaya.",
   phone: "+6285181738437",
   whatsapp: "6285181738437",
   phoneFormatted: "+62 851-8173-8437",
@@ -14,9 +14,9 @@ export const businessInfo = {
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Jl.+Cikini+Raya+No.+45,+Menteng,+Jakarta+Pusat",
   operationalHours: "Senin – Minggu: 08.00 – 20.00 WIB",
   stats: [
-    { label: "Bespoke Events Curated", value: "2.800+" },
+    { label: "Acara Sukses Terlayani", value: "2.800+" },
     { label: "Porsi Dihidangkan", value: "950.000+" },
-    { label: "Kepuasan Klien VIP", value: "99.6%" },
+    { label: "Kepuasan Pelanggan", value: "99.6%" },
     { label: "Tahun Dedikasi Rasa", value: "14+" }
   ],
   certifications: [
@@ -28,27 +28,27 @@ export const businessInfo = {
 
 export const menuCategories = [
   { id: "all", name: "Semua Sajian" },
-  { id: "nasikotak", name: "Rice Box" },
+  { id: "nasikotak", name: "Nasi Box" },
   { id: "tumpeng", name: "Tumpeng" },
   { id: "prasmanan", name: "Prasmanan" },
   { id: "kudapan", name: "Kudapan" }
 ];
 
 export const packagesData = [
-  // 1. KATEGORI RICE BOX (nasikotak) - Urut dari Termurah ke Termahal
+  // 1. KATEGORI NASI BOX (nasikotak) - Urut dari Termurah ke Termahal
   {
     id: "nasibox-dapur-rasa",
     category: "nasikotak",
-    name: "Bento Nasi Liwet Dapur Rasa",
+    name: "Nasi Box Liwet Dapur Rasa",
     price: 42000,
     unit: "box",
     minOrder: 20,
     popular: false,
     image: "/images/nasibox_premium.webp",
-    description: "Kotak bento kraft ramah lingkungan dengan sekat elegan higienis. Nasi liwet harum teri Medan, ayam bakar Solo, bacem tahu tempe, sambal bajak & pisang.",
+    description: "Kemasan nasi box tebal ramah lingkungan dengan sekat rapi dan bersih. Nasi liwet harum teri Medan, ayam bakar Solo, bacem tahu tempe, sambal bajak & pisang.",
     features: [
       "Nasi Liwet Gurih Harum Daun Salam & Teri Medan",
-      "Ayam Bakar Solo Glaze Kecap Manis Legendaris",
+      "Ayam Bakar Solo Bumbu Kecap Manis Gurih",
       "Bacem Tahu & Tempe Rempah Gula Kelapa",
       "Sambal Bajak Ulek Segar Terasi Matang",
       "Lalapan Timun, Kemangi & Tomat Ceri",
@@ -60,16 +60,16 @@ export const packagesData = [
   {
     id: "nasibox-ayam-madu",
     category: "nasikotak",
-    name: "Royal Bento Ayam Bakar Madu",
+    name: "Nasi Box Ayam Bakar Madu",
     price: 45000,
     unit: "box",
     minOrder: 20,
     popular: true,
     image: "/images/nasibox_premium.webp",
-    description: "Kombinasi ayam bakar madu hutan wijen sangrai dengan sajian sayuran tradisional dan sambal matah harum menggugah selera.",
+    description: "Kombinasi ayam bakar madu dengan taburan wijen sangrai, disajikan bersama urap sayur bumbu kelapa dan sambal matah segar.",
     features: [
       "Nasi Daun Jeruk Pandan Wangi Pulen",
-      "Ayam Bakar Madu Klanceng Tabur Wijen Sangrai",
+      "Ayam Bakar Madu Tabur Wijen Sangrai",
       "Sambal Matah Bali Kecombrang Segar",
       "Tempe Mendoan Gurih & Cocolan Kecap Rawit",
       "Urap Sayur Bumbu Kelapa Bakar Harum",
@@ -81,21 +81,21 @@ export const packagesData = [
   {
     id: "nasibox-bistik-andaliman",
     category: "nasikotak",
-    name: "Executive Box Bistik Sapi",
+    name: "Nasi Box Bistik Sapi",
     price: 52000,
     unit: "box",
     minOrder: 20,
     popular: false,
     image: "/images/nasibox_premium.webp",
-    description: "Irisan tenderloin sapi empuk berselimut saus bistik rempah lada hitam manis gurih, disajikan berdampingan dengan sayuran mentega segar.",
+    description: "Irisan daging sapi empuk berselimut bumbu bistik lada hitam gurih lezat, disajikan berdampingan dengan tumis sayuran segar.",
     features: [
-      "Nasi Putih Aromatik Bawang Merah Goreng",
-      "Bistik Daging Sapi Saus Lada Hitam / Manis",
+      "Nasi Putih Harum Bawang Merah Goreng",
+      "Bistik Daging Sapi Saus Lada Hitam Gurih",
       "Telur Balado Balut Cabai Merah Keriting",
-      "Tumis Buncis Baby Jagung Manis Wortel",
+      "Tumis Buncis Jagung Manis & Wortel",
       "Perkedel Kentang Olahan Daging Cincang",
       "Kerupuk Udang Renyah Kemasan Kedap",
-      "Air Mineral Cup & Puding Mangga Segar"
+      "Air Mineral Gelas & Puding Mangga Segar"
     ],
     includesStaff: false
   },
@@ -149,16 +149,16 @@ export const packagesData = [
   {
     id: "tumpeng-mini-parahyangan",
     category: "tumpeng",
-    name: "Tumpeng Mini Dome Exclusive",
+    name: "Tumpeng Mini Eksklusif",
     price: 48000,
     unit: "porsi",
     minOrder: 20,
     popular: false,
     image: "/images/tumpeng_nusantara.webp",
-    description: "Porsi perorangan dalam mika dome transparan berikat pita satin dan kartu ucapan kustom bertuliskan nama acara Anda.",
+    description: "Sajian porsi perorangan dalam wadah mika bulat bening berikat pita satin cantik dan kartu ucapan acara Anda.",
     features: [
-      "Sajian Individual Higienis Berpita Satin Cantik",
-      "Nasi Kuning Mini Bentuk Candi / Kerucut",
+      "Sajian Praktis Porsi Perorangan Berpita Satin Cantik",
+      "Nasi Kuning Mini Bentuk Kerucut",
       "Ayam Suwir Balado Rempah Kelapa",
       "Perkedel Kentang Mini",
       "Telur Dadar Gulung Iris Halus",
@@ -224,7 +224,7 @@ export const packagesData = [
     minOrder: 80,
     popular: false,
     image: "/images/hero_catering_buffet.webp",
-    description: "Koleksi jamuan agung paling prestisius. Harmoni hidangan istana Nusantara dengan sentuhan plating modern dan chafing dish tembaga keemasan.",
+    description: "Koleksi jamuan paling lengkap dan istimewa. Harmoni hidangan khas Nusantara dengan penataan mewah dan wadah pemanas makanan keemasan.",
     features: [
       "Nasi Putih Wangi & Nasi Daun Jeruk Rempah",
       "Sop Iga Sapi Kuah Bening Rempah Kayu Manis",
@@ -250,10 +250,10 @@ export const packagesData = [
     minOrder: 30,
     popular: false,
     image: "/images/kudapan_tradisional.webp",
-    description: "Paduan 3 macam kudapan tradisional tempo dulu dan modern dengan kehangatan kopi tubruk rempah serta teh melati keraton.",
+    description: "Paduan 3 macam kue tradisional tempo dulu dan modern dengan kehangatan kopi tubruk rempah serta teh melati hangat.",
     features: [
       "Lemper Bakar Ayam Gurih Daun Pisang",
-      "Kue Lapis Legit Prunes Tradisional",
+      "Kue Lapis Legit Tradisional",
       "Risoles Ragout Daging Asap Mayo",
       "Kopi Tubruk Rempah & Teh Melati Hangat",
       "Peralatan Cangkir & Piring Saji Keramik"
@@ -263,41 +263,41 @@ export const packagesData = [
   {
     id: "kudapan-executive-corner",
     category: "kudapan",
-    name: "Executive Coffee Corner",
+    name: "Kudapan Coffee Break Eksekutif",
     price: 45000,
     unit: "porsi",
     minOrder: 40,
     popular: true,
     image: "/images/kudapan_tradisional.webp",
-    description: "Koleksi 4 variasi jajanan pasar premium dan pie buah segar dipadukan dengan live dispenser drip coffee Nusantara pilihan.",
+    description: "Pilihan 4 macam jajanan pasar dan pie buah segar dipadukan dengan sajian kopi seduh dan aneka teh pilihan.",
     features: [
       "Kue Lumpur Labu Kuning Tabur Kismis",
       "Fruit Tartlet Vla Vanilla Buah Segar",
       "Pastry Croissant Mini Daging Asap Keju",
       "Lemper Pulen Ayam Suwir Pedas Manis",
-      "Live Dispenser Drip Coffee & Aneka Teh Herbal",
-      "Pramusaji Standby untuk Penataan & Refill Minuman"
+      "Sajian Kopi Seduh Hangat & Aneka Teh Pilihan",
+      "Pramusaji Siaga untuk Merapikan & Refill Minuman"
     ],
     includesStaff: true
   },
   {
     id: "kudapan-imperial-hightea",
     category: "kudapan",
-    name: "Imperial High-Tea Buffet",
+    name: "Prasmanan Kudapan & Kopi Istimewa",
     price: 65000,
     unit: "porsi",
     minOrder: 50,
     popular: false,
     image: "/images/kudapan_tradisional.webp",
-    description: "Jamuan tea-time mewah setara hotel bintang lima dengan sajian canapes gurih, lapis legit prunes, freshly squeezed juice, dan live brewing specialty barista coffee.",
+    description: "Sajian coffee break istimewa dengan aneka kue lezat, lapis legit prunes, jus buah segar asli, serta seduhan kopi barista dan teh pilihan.",
     features: [
-      "Canapes Smoked Salmon & Cream Cheese",
+      "Roti Panggang Salmon Asap & Krim Keju",
       "Lapis Legit Spesial Butter Wijsman",
-      "Mini Quiche Lorraine Keju Panggang",
-      "Eclair Cokelat Belgian & Macaron Buah",
-      "Live Specialty Barista Coffee & Artisanal Tea Selection",
-      "Freshly Squeezed Juice (Orange & Guava)",
-      "Pramusaji Khusus & Set Perlengkapan Cangkir Keramik Gold"
+      "Mini Quiche Keju Panggang",
+      "Kue Cokelat & Macaron Buah",
+      "Sajian Kopi Barista & Pilihan Teh Segar",
+      "Jus Buah Segar Asli (Jeruk & Jambu)",
+      "Pramusaji Khusus & Set Perlengkapan Cangkir Keramik Elegan"
     ],
     includesStaff: true
   }
@@ -308,23 +308,23 @@ export const testimonials = [
     id: 1,
     name: "Clarissa Dananjaya",
     role: "Pengantin Baru (Resepsi di Plataran Cilandak)",
-    comment: "Dapur Rasa benar-benar melebihi ekspektasi kami. Meja prasmanan ditata begitu cantik dengan bunga segar dan chafing dish tembaga keemasan. Semua tamu kami memuji rasa rendang dan kambing gulingnya yang luar biasa empuk!",
+    comment: "Dapur Rasa benar-benar melebihi ekspektasi kami. Meja prasmanan ditata begitu cantik dengan bunga segar dan wadah pemanas keemasan yang mewah. Semua tamu kami memuji rasa rendang dan kambing gulingnya yang luar biasa empuk!",
     rating: 5,
-    event: "Wedding Reception — 600 Guests"
+    event: "Resepsi Pernikahan — 600 Tamu"
   },
   {
     id: 2,
     name: "Raditya Prasetyo, S.E.",
     role: "Head of Corporate Affairs di Danareksa",
-    comment: "Setiap ada pertemuan dewan direksi dan jamuan VIP, kami selalu mempercayakannya ke Dapur Rasa. Packaging artisanal rice box-nya sangat berkelas, higienis, dan cita rasa bumbu rempahnya sangat otentik.",
+    comment: "Setiap ada pertemuan dewan direksi dan acara kantor, kami selalu mempercayakannya ke Dapur Rasa. Kemasan nasi box-nya sangat rapi, bersih, dan cita rasa bumbu rempahnya sangat lezat.",
     rating: 5,
-    event: "Executive Luncheon Meeting"
+    event: "Makan Siang Pertemuan Kantor"
   },
   {
     id: 3,
     name: "Dr. Farah Amalia, Sp.A",
     role: "Tuan Rumah Acara Tasyakuran & Aqiqah",
-    comment: "Tumpeng Agung dari Dapur Rasa jadi pusat perhatian di acara keluarga kami. Hiasan janur dan ukirannya sangat detail dan berseni tinggi. Pelayanan timnya juga sangat ramah dan tepat waktu.",
+    comment: "Tumpeng dari Dapur Rasa jadi pusat perhatian di acara keluarga kami. Hiasan janur dan ukirannya sangat detail dan cantik. Pelayanan timnya juga sangat ramah dan tepat waktu.",
     rating: 5,
     event: "Tasyakuran Keluarga Besar"
   }
@@ -333,22 +333,22 @@ export const testimonials = [
 export const faqList = [
   {
     q: "Berapa hari sebelum acara pemesanan harus dikonfirmasi?",
-    a: "Untuk Artisanal Rice Box dan Tumpeng Syukuran, pemesanan dapat dikonfirmasi minimal H-3 sebelum tanggal acara. Untuk Prasmanan dan Resepsi Pernikahan berskala besar, kami menyarankan konfirmasi H-14 hingga H-30 agar tim kami dapat mengunci jadwal dapur dan menyiapkan dekorasi meja secara optimal."
+    a: "Untuk Nasi Box dan Tumpeng Syukuran, pemesanan dapat dikonfirmasi minimal H-3 sebelum tanggal acara. Untuk Prasmanan dan Resepsi Pernikahan, kami menyarankan konfirmasi H-14 hingga H-30 agar tim kami dapat menyiapkan pesanan dan dekorasi meja secara optimal."
   },
   {
-    q: "Apakah Dapur Rasa menyediakan sesi Food Tasting?",
-    a: "Tentu. Kami menyediakan sesi Food Tasting gratis untuk 4 orang (calon pengantin & keluarga atau panitia korporat) di Tasting Lounge Dapur Rasa, Menteng, Jakarta Pusat, untuk pemesanan prasmanan di atas 100 porsi atau paket resepsi."
+    q: "Apakah Dapur Rasa menyediakan sesi cicip makanan (Food Tasting)?",
+    a: "Tentu. Kami menyediakan sesi cicip makanan gratis untuk 4 orang (calon pengantin & keluarga atau panitia acara) di Dapur Pusat Dapur Rasa, Menteng, Jakarta Pusat, untuk pemesanan prasmanan di atas 100 porsi atau paket resepsi."
   },
   {
     q: "Apakah paket prasmanan sudah mencakup peralatan dan pramusaji?",
-    a: "Ya, seluruh paket prasmanan Dapur Rasa sudah termasuk peralatan saji lengkap (roll-top chafing dish keemasan/stainless elegan, piring keramik, sendok-garpu beratina, dan gelas) serta tim pramusaji berseragam rapi yang standby selama durasi acara."
+    a: "Ya, seluruh paket prasmanan Dapur Rasa sudah termasuk peralatan saji lengkap (wadah pemanas makanan roll-top keemasan/stainless elegan, piring keramik, sendok-garpu bersih, dan gelas) serta tim pramusaji berseragam rapi yang siap melayani selama acara berlangsung."
   },
   {
     q: "Bagaimana tahapan pembayaran dan reservasi tanggal?",
-    a: "Booking tanggal dilakukan dengan uang muka (DP) 30% saat penandatanganan penawaran, 40% pelunasan termin kedua pada H-7 sebelum acara, dan 30% sisa pelunasan pada H-1 acara."
+    a: "Booking tanggal dilakukan dengan uang muka (DP) 30% saat konfirmasi pesanan, 40% pembayaran termin kedua pada H-7 sebelum acara, dan 30% pelunasan pada H-1 acara."
   },
   {
     q: "Apakah area layanan mencakup seluruh wilayah Jabodetabek?",
-    a: "Benar, armada katering berpendingin kami melayani pengiriman ke seluruh wilayah DKI Jakarta, Bogor, Depok, Tangerang, Tangerang Selatan, dan Bekasi dengan jaminan hidangan tiba dalam keadaan hangat dan higienis."
+    a: "Benar, armada pengantaran kami melayani pengiriman ke seluruh wilayah DKI Jakarta, Bogor, Depok, Tangerang, Tangerang Selatan, dan Bekasi dengan jaminan makanan tiba dalam keadaan hangat dan bersih."
   }
 ];
